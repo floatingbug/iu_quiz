@@ -9,13 +9,13 @@
                 <router-link to="/">HOME</router-link>
             </div>
             <div class="link-container">
-                <router-link to="/quiz-start">Quiz starten</router-link>
+                <router-link to="/lobby">Lobby</router-link>
             </div>
             <div class="link-container">
                 <router-link to="/scoreboard">Scoreboard</router-link>
             </div>
             <div class="link-container">
-                <router-link to="/find-group">Gruppe finden</router-link>
+                <router-link to="/login-user">Login</router-link>
             </div>
         </nav>
     </div>
@@ -24,30 +24,23 @@
 
 <style scoped>
 .container {
-    height: 20vh;
     font-size: 1.5rem;
 }
 
 nav {
     background-color: lightgrey;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    gap: 2vw;
+    gap: 5vw;
     margin-top: 5vh;
     height: 5vh;
+    flex-wrap: wrap;
 }
 
 .link-container{
-    margin-right: 2vw;
-}
-
-.link-container:first-child {
-    margin-left:1vw;
-}
-
-.link-container:last-child {
-    margin-right: 1vw;
+    display: flex;
+    justify-content: center;
 }
 
 .link-container>a {
@@ -57,5 +50,11 @@ nav {
 
 .link-container>a:hover {
     color: red;
+}
+
+@media(max-width: 389px){
+    nav{
+        height: 10vh;
+    }
 }
 </style>

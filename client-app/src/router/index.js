@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import FindGroup from '../views/FindGroup.vue';
-import QuizStart from '../views/QuizStart.vue';
+import Login from '../views/Login.vue';
+import Lobby from '../views/Lobby.vue';
 import Scoreboard from '../views/Scoreboard.vue';
 
 const router = createRouter({
@@ -14,15 +14,15 @@ const router = createRouter({
     },
       
     {
-      path: '/find-group',
-      name: 'find-group',
-      component: FindGroup
+      path: '/login-user',
+      name: 'login-user',
+      component: Login
     },
 
     {
-        path: '/quiz-start',
-        name: 'quiz-start',
-        component: QuizStart
+        path: '/lobby',
+        name: 'lobby',
+        component: Lobby 
     },
 
     {
