@@ -1,8 +1,12 @@
 <script setup>
+
 </script>
 
 <template>
-<main>
-<h1>home</h1>
-</main>
+<h1>scoreboard</h1>
 </template>
+
+
+<style scoped>
+
+</style>
