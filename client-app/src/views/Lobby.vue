@@ -32,7 +32,7 @@ function backToContainerBtn1(){
             <button id="create-lobby">Create Lobby</button>
             <button id="join-lobby">Join Lobby</button>
         </div>
-        <CreateLobby v-if="showCreateLobby" v-bind:showCreateLobby="showCreateLobby"></CreateLobby>
+        <CreateLobby v-if="showCreateLobby" v-bind:show-create-lobby="showCreateLobby"></CreateLobby>
         <JoinLobby v-if="showJoinLobby"></JoinLobby>
     </div>
 </template>
@@ -70,5 +70,6 @@ img {
         margin-left: 20px;
     }
 }
+
 
 </style>

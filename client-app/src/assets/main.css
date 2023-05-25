@@ -16,3 +16,7 @@ button {
     align-items: center;
     border: 1px solid black;
 }
+
+button:hover{
+    background-color: red;
+}
