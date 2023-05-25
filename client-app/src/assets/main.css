@@ -1,0 +1,11 @@
+@import './base.css';
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: grey;
+}
+
+button {
+    border-radius: 12px;
+}
