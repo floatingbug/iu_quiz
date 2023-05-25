@@ -1,19 +1,25 @@
 <script setup>
-
+const props = defineProps(['showCreateLobby']);
+function backToLobby(){
+    console.log(props.showCreateLobby);
+}
 </script>
 
 <template>
     <div class="container">
         <div class="container-input">
-            <label for="groupname">Gruppennamen:</label>
-            <input type="text">
-        </div>
-        <div class="container-input">
-            <label for="playername">Spielername:</label>
-            <input type="text">
-        </div>
-        <div class="container-input input-button">
-            <button>Create Lobby</button>
+            <div>
+                <label for="groupname">Gruppennamen:</label>
+                <input type="text">
+            </div>
+            <div>
+                <label for="playername">Spielername:</label>
+                <input type="text">
+            </div>
+            <div>
+                <button>Create Lobby</button>
+                <button v-on:click="backToLobby">Cancel</button>
+            </div>
         </div>
     </div>
 </template>
@@ -21,62 +27,70 @@
 
 <style scoped>
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 40%;
-    height: 15vh;
-    margin-top: 10vh;
-    margin-left: 10vw;
+    position: relative;
+    height: 50vh;
 }
 
 .container-input {
-    width: 100%;
-    height: 30%;
+    position: absolute;
+    width: 40vw;
+    height: 15vh;
+    top: 20vh;
+    left: 10vw;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-input {
-    width: 0;
-    min-width: 200px;
-    height: 2.5vh;
-    flex:1;
+.container-input>div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container-input>div * {
+    flex: 1;
 }
 
 label {
     font-size: 1.4rem;
-    flex:1;
-    text-align: right;
-    padding-right: 1vw;
+    text-align: end;
+    min-width: 50%;
 }
 
-.input-button button{
-    width: 50%;
-    height: 50%;
-    font-size: 1rem;
+input {
+    font-size: 1.4rem;
+    min-width: 200px;
+    max-width: 30vw;
 }
 
-@media(max-width: 935px){
-    .container-input{
-        flex-direction: column;
-        align-items: flex-start;
+.container-input>div>button {
+    min-width: 30%;
+    max-width: 80%;
+}
+
+.container-input>div:last-child {
+    margin-left: auto;
+    width: 30vw;
+}
+
+@media(max-width: 1000px) {
+    label {
+        text-align: start;
     }
-    .container{
-        width: 80%;
-        height: 20vh;
-        align-items: flex-start;
+    
+    .container-input>div>button {
+        min-width: 150px;
+        max-width: 70%;
     }
-        label{
-        text-align: left;
+
+    .container-input {
+        height: 25vh;
     }
-    input{
-        width: 50%;
-    }
-    .input-button button{
-        width: 50%;
+    
+    .container-input>div:last-child {
+        margin-left: 0;
+        height: 10vh;
+        align-items: center;
     }
 }
 </style>

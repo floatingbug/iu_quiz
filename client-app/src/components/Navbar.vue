@@ -22,19 +22,23 @@
 </template>
 
 
-<style scoped>
+<style scoped> 
 .container {
-    font-size: 1.5rem;
+    position: relative;
+    min-height: 200px;
 }
 
 nav {
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    top: 35%;
     background-color: lightgrey;
+    font-size: 1.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5vw;
-    margin-top: 5vh;
-    height: 5vh;
     flex-wrap: wrap;
 }
 
