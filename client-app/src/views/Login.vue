@@ -1,19 +1,37 @@
 <script setup>
+import {reactive, ref} from 'vue';
+import apiCall from '../renderlesComponents/ApiCall.vue';
+const apiCallRef = ref();
+const credentials = {
+    email: "",
+    password: ""
+};
 
+function loginUser(){
+    const request = {
+        method: 'post',
+        url: '/login-user',
+        data: credentials.value
+    };
+    
+    apiCallRef.value.call(request, (result)=>{
+        console.log(result)
+    })
+}
 </script>
 
 <template>
-<h1>login</h1>
-<label for="Email">E-Mail Adresse</label>
-<input type="text" id="Email" name="Email"><br><br>
-<label for="Passwort">Passwort</label>
-<input type="text" id="Passwort" name="Passwort"><br><br> 
+    <apiCall ref="apiCallRef" />
+<label for="email">E-Mail Adresse</label>
+<input type="text" id="email" name="email" v-model="credentials.email"><br><br>
+<label for="password">password</label>
+<input type="text" id="password" name="password" v-model="credentials.password"><br><br> 
 
-<button type="button">Einloggen</button>
+<button type="button" v-on:click="loginUser">Einloggen</button>
 <button type="button">Registrieren</button>
 
 <div class="link-container">
-<router-link to="">Passwort vergessen</router-link>
+<router-link to="">password vergessen</router-link>
 </div>
 
 </template>

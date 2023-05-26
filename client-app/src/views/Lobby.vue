@@ -8,11 +8,12 @@ const showJoinLobby = ref(false);
 
 //hide container-btn-1 and show createLobby or joinLobby.vue
 function hideContainerBtn1(e){
-    showContainerBtn1.value = false;
     if(e.target.id === "create-lobby"){
+        showContainerBtn1.value = false;
         showCreateLobby.value = true;
     }
     if(e.target.id === "join-lobby"){
+        showContainerBtn1.value = false;
         showJoinLobby.value = true;
     }
 }
