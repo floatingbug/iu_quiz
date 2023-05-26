@@ -10,7 +10,7 @@ async function call({method, url, data}, fn){
         withCredentials: true
     });
 
-    fn(result)
+    fn(result.data)
 }
 
 defineExpose({
