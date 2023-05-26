@@ -6,7 +6,7 @@ async function call({method, url, data}, fn){
     const result = await axios({
         method,
         url: `${API_URL}${url}`,
-        data:,
+        data,
         withCredentials: true
     });
 
