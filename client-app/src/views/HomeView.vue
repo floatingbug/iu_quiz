@@ -3,11 +3,7 @@
 
 <template>
     <div class="container">
-        <div class="logo-container">
-            <div class="logo">
-                <img src="../assets/logo.png" alt="LOGO">
-            </div>
-        </div>
+        <img src="../assets/logo.png" alt="LOGO">
         <div class="btn-container-1">
             <button>Quiz Starten</button>
         </div>
@@ -16,35 +12,28 @@
 
 <style scoped>
 .container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position: relative;
     height: 50vh;
 }
 
 .btn-container-1 {
-    display: flex;
-    justify-content: center;
-    margin-top: 200px;
-    width: 50%;
-    height: 8%;
+    position: absolute;
+    min-width: 200px;
+    width: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10vh;
 } 
 
-.btn-container-1 button {
+button {
     width: 100%;
-    font-size: 1.4rem;
 }
 
-.logo-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20%;
-}
-
-@media(max-width: 615px){
-    .btn-container-1 {
-        width: 90%;
-    }
-
+img {
+    position: absolute;
+    min-width: 200px;
+    max-width: 80vw;
+    left: 50%;
+    transform: translateX(-50%);
 }
 </style>

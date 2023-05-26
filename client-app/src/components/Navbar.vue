@@ -24,21 +24,25 @@
 
 <style scoped>
 .container {
-    font-size: 1.5rem;
+    position: relative;
+    min-height: 200px;
 }
 
 nav {
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    top: 35%;
     background-color: lightgrey;
+    font-size: 1.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5vw;
-    margin-top: 5vh;
-    height: 5vh;
     flex-wrap: wrap;
 }
 
-.link-container{
+.link-container {
     display: flex;
     justify-content: center;
 }
@@ -46,10 +50,19 @@ nav {
 .link-container>a {
     text-decoration: none;
     color: black;
+    border-color: transparent;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-weight: bold;
 }
 
 .link-container>a:hover {
-    color: red;
+    border-color: black;
+    background-color: #00a7b5;
 }
 
 @media(max-width: 389px){
@@ -58,3 +71,4 @@ nav {
     }
 }
 </style>
+

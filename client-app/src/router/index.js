@@ -30,7 +30,6 @@ const router = createRouter({
           name: 'scoreboard',
           component: Scoreboard
     },
-
   ]
 })
 

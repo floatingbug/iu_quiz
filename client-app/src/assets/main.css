@@ -8,4 +8,15 @@ body {
 
 button {
     border-radius: 12px;
+    font-size: 1.2rem;
+    min-width: 200px;
+    height: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+button:hover{
+    background-color: red;
 }
