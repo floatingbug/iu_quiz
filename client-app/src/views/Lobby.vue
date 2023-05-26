@@ -32,8 +32,8 @@ function backToContainerBtn1(){
             <button id="create-lobby">Create Lobby</button>
             <button id="join-lobby">Join Lobby</button>
         </div>
-        <CreateLobby v-if="showCreateLobby" v-bind:show-create-lobby="showCreateLobby"></CreateLobby>
-        <JoinLobby v-if="showJoinLobby"></JoinLobby>
+		<CreateLobby v-if="showCreateLobby" v-on:back-to-lobby="backToContainerBtn1"/>
+		<JoinLobby v-if="showJoinLobby"/>
     </div>
 </template>
 

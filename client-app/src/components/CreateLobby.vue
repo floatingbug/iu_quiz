@@ -1,8 +1,7 @@
 <script setup>
-const props = defineProps(['showCreateLobby']);
-function backToLobby(){
-    console.log(props.showCreateLobby);
-}
+const emit = defineEmits([
+	'backToLobby'
+]);
 </script>
 
 <template>
@@ -18,7 +17,7 @@ function backToLobby(){
             </div>
             <div>
                 <button>Create Lobby</button>
-                <button v-on:click="backToLobby">Cancel</button>
+                <button v-on:click="$emit('backToLobby')">Cancel</button>
             </div>
         </div>
     </div>
