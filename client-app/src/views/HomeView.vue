@@ -1,4 +1,5 @@
 <script setup>
+<<<<<<< HEAD
 </script>
 
 <template>
@@ -37,3 +38,13 @@ img {
     transform: translateX(-50%);
 }
 </style>
+=======
+import TheWelcome from '../components/TheWelcome.vue'
+</script>
+
+<template>
+  <main>
+    <TheWelcome />
+  </main>
+</template>
+>>>>>>> server
