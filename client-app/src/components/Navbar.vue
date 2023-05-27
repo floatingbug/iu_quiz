@@ -36,13 +36,13 @@ nav {
     position: absolute;
     width: 100%;
     height: 60px;
-    top: 35%;
-    background-color: lightgrey;
+    top: 5%;
+    background-color: #D9D9D9;
     font-size: 1.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5vw;
+    gap: 6vw;
     flex-wrap: wrap;
 }
 

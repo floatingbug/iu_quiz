@@ -19,14 +19,16 @@
 .btn-container-1 {
     position: absolute;
     min-width: 200px;
-    width: 30%;
+    width: 25%;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 10vh;
+    bottom: 13vh;
 } 
 
 button {
     width: 100%;
+    text-transform: uppercase;
+    height: 60px;
 }
 
 img {
@@ -35,5 +37,7 @@ img {
     max-width: 80vw;
     left: 50%;
     transform: translateX(-50%);
+    border: 4px solid black;
+    border-radius: 30px;
 }
 </style>
