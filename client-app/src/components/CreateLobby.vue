@@ -73,13 +73,13 @@ input::placeholder {
     min-width: 150px;
     max-width: 70%;
     background-color: #00a7b5;
-    border: 1px solid black;
+    border: 3px solid black;
     transition: border 0.1s ease;
     margin: 0.5vh;
 }
 
 .container-input>div>button:hover {
-    border: 2px solid black;
+    border: 4px solid black;
 }
 
 .container-input>div:last-child {
