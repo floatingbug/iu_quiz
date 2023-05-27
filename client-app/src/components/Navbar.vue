@@ -1,4 +1,5 @@
 <script setup>
+import {store} from '../renderlesComponents/store.js';
 </script>
 
 
@@ -14,8 +15,11 @@
             <div class="link-container">
                 <router-link to="/scoreboard">Scoreboard</router-link>
             </div>
-            <div class="link-container">
+            <div class="link-container" v-if="!store.isLoggedIn">
                 <router-link to="/login-user">Login</router-link>
+            </div>
+            <div class="link-container" v-if="store.isLoggedIn">
+                <router-link to="/logout-user">Logout</router-link>
             </div>
         </nav>
     </div>

@@ -1,9 +1,14 @@
 @import './base.css';
 
 body {
+    height: 100%;
     margin: 0;
     padding: 0;
     background-color: grey;
+}
+
+#app {
+    height: 100vh;
 }
 
 button {
@@ -20,3 +25,4 @@ button {
 button:hover{
     background-color: red;
 }
+
