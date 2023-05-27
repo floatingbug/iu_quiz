@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\client-app"
+    "\\client-app",
+    "\\client-app\\src",
+    "\\client-app\\src\\components"
   ],
+  "SelectedNode": "\\client-app\\src\\components\\Navbar.vue",
   "PreviewInSolutionExplorer": false
 }

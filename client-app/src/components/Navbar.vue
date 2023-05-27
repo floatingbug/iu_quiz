@@ -35,7 +35,7 @@ import {store} from '../renderlesComponents/store.js';
 nav {
     position: absolute;
     width: 100%;
-    height: 30%;
+    height: 60px;
     top: 35%;
     background-color: lightgrey;
     font-size: 1.4rem;
@@ -61,6 +61,7 @@ nav {
     padding-left: 20px;
     padding-right: 20px;
     transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-size: 1.4rem;
     font-weight: bold;
 }
 
@@ -69,9 +70,25 @@ nav {
     background-color: #00a7b5;
 }
 
-@media(max-width: 389px){
+@media(max-width: 768px){
     nav{
-        height: 10vh;
+        height: 40px;
+    }
+
+    .link-container>a {
+        font-size: 1rem;
+    }
+}
+
+@media(max-width: 480px){
+    nav{
+        height: 30px;
+    }
+
+    .link-container>a {
+        font-size: 0.8rem;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 </style>
