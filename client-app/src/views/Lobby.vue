@@ -49,23 +49,25 @@ function backToContainerBtn1(){
 
 img {
     position: absolute;
-    min-width: 200px;
-    max-width: 30vw;
+    min-width: 180px;
+    max-width: 20vw;
     top: 0px;
-    right: 5%;
+    right: 3%;
 }
 
 .container-btn-1 {
     position: absolute;
     bottom: 10vh;
-    left: 20vw;
+    left: 5vw;
     width: 20vw;
     height: 20vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
-
+Button{
+    text-transform: uppercase;
+}
 
 @media(max-width: 370px) {
     .container-btn-1 {
