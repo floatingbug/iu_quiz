@@ -18,15 +18,16 @@
 
 <style scoped>
 .container {
-    position: relative;
-    height: 52%;
+    position: absolute;
+    width: 100%;
+    height: 6%;
+    bottom: 0px;
 }
 
 .footer {
-    position: absolute;
     width: 100%;
-    height: 15%;
-    top: 37%;
+    height: 100%;
+    bottom: 0px;
     background-color: #00a7b5;
     display: flex;
     flex-direction: column;
@@ -38,7 +39,6 @@ p {
     justify-content: center;
     font-weight: 700;
     color:black;
-    font-size: 125%;
 }
 
 .container-links {
