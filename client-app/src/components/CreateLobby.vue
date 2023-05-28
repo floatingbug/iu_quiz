@@ -1,7 +1,5 @@
 <script setup>
-const emit = defineEmits([
-    'backToLobby'
-]);
+const emit = defineEmits(['backToLobby'])
 </script>
 
 <template>
@@ -9,11 +7,21 @@ const emit = defineEmits([
         <div class="container-input">
             <div>
                 <label for="groupname">Gruppennamen:</label>
-                <input id="groupname" v-model="groupName" type="text" placeholder="Geben Sie den Gruppennamen ein">
+                <input
+                    id="groupname"
+                    v-model="groupName"
+                    type="text"
+                    placeholder="Geben Sie den Gruppennamen ein"
+                />
             </div>
             <div>
                 <label for="playername">Spielername:</label>
-                <input id="playername" v-model="playerName" type="text" placeholder="Geben Sie den Spielernamen ein">
+                <input
+                    id="playername"
+                    v-model="playerName"
+                    type="text"
+                    placeholder="Geben Sie den Spielernamen ein"
+                />
             </div>
             <div>
                 <button>Create Lobby</button>
@@ -42,13 +50,13 @@ const emit = defineEmits([
     padding: 1vh;
 }
 
-.container-input>div {
+.container-input > div {
     display: flex;
     flex-wrap: wrap;
     margin: 0.5vh;
 }
 
-.container-input>div * {
+.container-input > div * {
     flex: 1;
 }
 
@@ -66,10 +74,10 @@ input {
 }
 
 input::placeholder {
-    font-size: 1.4rem; 
+    font-size: 1.4rem;
 }
 
-.container-input>div>button {
+.container-input > div > button {
     min-width: 150px;
     max-width: 70%;
     background-color: #00a7b5;
@@ -78,11 +86,11 @@ input::placeholder {
     margin: 0.5vh;
 }
 
-.container-input>div>button:hover {
+.container-input > div > button:hover {
     border: 4px solid black;
 }
 
-.container-input>div:last-child {
+.container-input > div:last-child {
     margin-left: 0;
     width: 30vw;
     height: 10vh;
@@ -90,7 +98,8 @@ input::placeholder {
 }
 
 @media (max-width: 800px) {
-    label, input {
+    label,
+    input {
         font-size: 1.3rem;
     }
     input::placeholder {
@@ -106,7 +115,8 @@ input::placeholder {
 }
 
 @media (max-width: 600px) {
-    label, input {
+    label,
+    input {
         font-size: 1.2rem;
     }
     input::placeholder {
@@ -122,7 +132,8 @@ input::placeholder {
 }
 
 @media (max-width: 400px) {
-    label, input {
+    label,
+    input {
         font-size: 1.1rem;
     }
     input::placeholder {
@@ -138,7 +149,8 @@ input::placeholder {
 }
 
 @media (max-width: 300px) {
-    label, input {
+    label,
+    input {
         font-size: 1rem;
     }
     input::placeholder {

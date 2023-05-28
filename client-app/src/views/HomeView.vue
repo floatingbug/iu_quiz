@@ -1,17 +1,22 @@
 <script setup>
+import {store} from '../renderlesComponents/store.js';
 </script>
 
 <template>
     <div class="container">
-        <img src="../assets/logo.png" alt="LOGO">
+        <img src="../assets/logo.png" alt="LOGO" />
         <div class="btn-container-1">
             <button>Quiz Starten</button>
+            <button v-if="loggedInAsAdmin">Fragen & Antworten Eintragen</button>
+        </div>
+        <div class="admin">
+            
         </div>
     </div>
 </template>
 
 <style scoped>
-.container{
+.container {
     position: relative;
     height: 50vh;
 }
@@ -23,7 +28,7 @@
     left: 50%;
     transform: translateX(-50%);
     bottom: 13vh;
-} 
+}
 
 button {
     width: 100%;

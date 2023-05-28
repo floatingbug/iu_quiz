@@ -1,8 +1,8 @@
-import {reactive} from 'vue';
+import { reactive } from 'vue'
 
 const store = reactive({
-    isLoggedIn: false
-});
+    isLoggedIn: false,
+    loggedInAsAdmin: false
+})
 
-
-export {store}
+export { store }

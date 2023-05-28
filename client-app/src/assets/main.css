@@ -3,7 +3,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(180deg, rgba(255, 250, 250, 0.74) 0.00%,rgb(0, 0, 0) 100.00%);
+    background-image: linear-gradient(180deg, rgba(255, 250, 250, 0.74) 0%, rgb(0, 0, 0) 100%);
 }
 
 #app {
@@ -18,7 +18,7 @@ button {
     justify-content: center;
     align-items: center;
     border: 4px solid black;
-    background-color:#00a7b5;
+    background-color: #00a7b5;
     font-weight: 700;
 }
 img {

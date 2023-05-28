@@ -1,6 +1,4 @@
-<script setup>
-
-</script>
+<script setup></script>
 
 <template>
     <div class="container">
@@ -14,7 +12,6 @@
         </div>
     </div>
 </template>
-
 
 <style scoped>
 .container {
@@ -38,7 +35,7 @@ p {
     display: flex;
     justify-content: center;
     font-weight: 700;
-    color:black;
+    color: black;
 }
 
 .container-links {
@@ -46,7 +43,7 @@ p {
     justify-content: space-evenly;
 }
 
-.container-links>a {
+.container-links > a {
     text-decoration: none;
     color: white;
     font-size: 125%;

@@ -1,7 +1,6 @@
 <script setup>
-import {store} from '../renderlesComponents/store.js';
+import { store } from '../renderlesComponents/store.js'
 </script>
-
 
 <template>
     <div class="container">
@@ -25,7 +24,6 @@ import {store} from '../renderlesComponents/store.js';
     </div>
 </template>
 
-
 <style scoped>
 .container {
     position: relative;
@@ -37,7 +35,7 @@ nav {
     width: 100%;
     height: 60px;
     top: 5%;
-    background-color: #D9D9D9;
+    background-color: #d9d9d9;
     font-size: 1.4rem;
     display: flex;
     justify-content: center;
@@ -51,7 +49,7 @@ nav {
     justify-content: center;
 }
 
-.link-container>a {
+.link-container > a {
     text-decoration: none;
     color: black;
     border-color: transparent;
@@ -65,31 +63,30 @@ nav {
     font-weight: bold;
 }
 
-.link-container>a:hover {
+.link-container > a:hover {
     border-color: black;
     background-color: #00a7b5;
 }
 
-@media(max-width: 768px){
-    nav{
+@media (max-width: 768px) {
+    nav {
         height: 40px;
     }
 
-    .link-container>a {
+    .link-container > a {
         font-size: 1rem;
     }
 }
 
-@media(max-width: 480px){
-    nav{
+@media (max-width: 480px) {
+    nav {
         height: 30px;
     }
 
-    .link-container>a {
+    .link-container > a {
         font-size: 0.8rem;
         padding-left: 10px;
         padding-right: 10px;
     }
 }
 </style>
-
