@@ -67,80 +67,56 @@ function loginUser() {
                 <div>
                     <button type="button">Registrieren</button>
                 </div><br /><br />
-
         </div>
     </div>
 </template>
 
 <style scoped>
 .container {
-    position: relative;
-    height: 8px;
     display: flex;
-    align-items: right;
-    justify-content: right;
+  justify-content: center;
 }
 
-.container-input {
-    position: absolute;
-    width: 590px;
-    height: 200px;
+.logo-container {
+  margin-bottom: 2rem;
+}
+
+.form-container {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 1vh;
+  flex-direction: column;
+  align-items: center;
 }
 
-.container-input > div {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0.5vh;
-}
-
-.container-input > div * {
-    flex: 1;
-}
-
-label {
+.form-container label {
     text-align: start;
     font-size: 1.4rem;
-    min-width: 50%;
+  width: 100%;
     color: black;
 }
 
-input {
+.form-container input {
     font-size: 1.4rem;
-    min-width: 500px;
-    max-width: 800px;
+  width: 100%;
+  padding: 0.5rem;
 }
 
-input::placeholder {
-    font-size: 1.4rem;
+.button-container {
+  display: flex;
 }
 
-.container-input > div > button {
+.button-container button {
     min-width: 150px;
-    max-width: 50px;
+  max-width: 200px;
     background-color: #00a7b5;
     border: 3px solid black;
     transition: border 0.1s ease;
-    margin: 0.5vh;
-
+  margin: 0 0.5rem;
 }
 
-
-.container-input > div > button:hover {
-    border: 4px solid black;
+.link-container {
+  margin-top: 1rem;
 }
 
-
-img {
-    position: absolute;
-    min-width: 180px;
-    max-width: 20vw;
-    top: -80px;
-    left: -140%;
-}
-
+/* Responsive Styles */
 
 </style>
