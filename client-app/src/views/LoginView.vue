@@ -62,11 +62,11 @@ function loginUser() {
 
                 <div>
                     <button type="button" v-on:click="loginUser">Einloggen</button>
-                </div><br /><br />
+                </div>
             
                 <div>
                     <button type="button">Registrieren</button>
-                </div><br /><br />
+                </div>
 
         </div>
     </div>
@@ -84,7 +84,7 @@ function loginUser() {
 .container-input {
     position: absolute;
     width: 590px;
-    height: 200px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
