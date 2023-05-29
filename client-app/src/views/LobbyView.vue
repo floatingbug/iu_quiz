@@ -64,8 +64,16 @@ img {
     flex-direction: column;
     justify-content: space-evenly;
 }
+
 Button {
     text-transform: uppercase;
+    border: 3px solid black;
+    transition: border 0.1s ease;
+    margin: 0.5vh;
+}
+
+button:hover {
+    border: 4px solid black;
 }
 
 @media (max-width: 370px) {
