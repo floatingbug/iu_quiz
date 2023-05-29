@@ -17,7 +17,7 @@
 .container {
     position: absolute;
     width: 100%;
-    height: 6%;
+    height: 8%;
     bottom: 0px;
 }
 
@@ -29,6 +29,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-size: 18px;
 }
 
 p {
@@ -41,11 +42,13 @@ p {
 .container-links {
     display: flex;
     justify-content: space-evenly;
+    font-size: 16px;
 }
 
 .container-links > a {
     text-decoration: none;
     color: white;
-    font-size: 125%;
+    font-size: 110%;
+    font-weight: bold;
 }
 </style>
