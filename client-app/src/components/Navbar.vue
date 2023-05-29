@@ -34,7 +34,7 @@ nav {
     position: absolute;
     width: 100%;
     height: 60px;
-    top: 5%;
+    top: 0%;
     background-color: #d9d9d9;
     font-size: 1.4rem;
     display: flex;
