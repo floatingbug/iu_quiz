@@ -43,6 +43,7 @@ p {
     display: flex;
     justify-content: space-evenly;
     font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .container-links > a {
