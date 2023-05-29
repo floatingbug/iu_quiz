@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import Login from '../views/Login.vue'
-import Lobby from '../views/Lobby.vue'
-import Scoreboard from '../views/Scoreboard.vue'
+import Login from '../views/LoginView.vue'
+import Lobby from '../views/LobbyView.vue'
+import Scoreboard from '../views/ScoreboardView.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
