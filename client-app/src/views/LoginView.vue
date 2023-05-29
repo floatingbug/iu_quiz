@@ -59,16 +59,9 @@ function loginUser() {
                 <div class="link-container">
                     <router-link to="">Password vergessen</router-link>
                 </div>
-
-                <div>
-                    <button type="button" v-on:click="loginUser">Einloggen</button>
-                </div><br /><br />
+                </div>
             
-                <div>
-                    <button type="button">Registrieren</button>
-                </div><br /><br />
-        </div>
-    </div>
+
 </template>
 
 <style scoped>
@@ -77,8 +70,14 @@ function loginUser() {
   justify-content: center;
 }
 
-.logo-container {
-  margin-bottom: 2rem;
+.container-input {
+    position: absolute;
+    width: 590px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1vh;
 }
 
 .form-container {
