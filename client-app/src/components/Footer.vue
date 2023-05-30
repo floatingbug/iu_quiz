@@ -7,7 +7,7 @@
             <div class="container-links">
                 <router-link to="/impressum">Impressum</router-link>
                 <router-link to="/feedback">Feedback geben</router-link>
-                <router-link to="/help">Hilfe</router-link>
+                <router-link to="/hilfe">Hilfe</router-link>
             </div>
         </div>
     </div>
