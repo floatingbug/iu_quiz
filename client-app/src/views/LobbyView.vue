@@ -44,6 +44,7 @@ function backToContainerBtn1() {
 .container {
     position: relative;
     height: 50vh;
+    margin-top: 10%;
 }
 
 img {

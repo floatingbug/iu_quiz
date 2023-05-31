@@ -1,6 +1,6 @@
 <script setup>
 import axios from 'axios'
-const API_URL = 'http://localhost:8000'
+const API_URL = 'http://212.71.252.220:8000';
 
 async function call({ method, url, data }, fn) {
     const result = await axios({

@@ -20,6 +20,7 @@ import Scoreboard from '../components/Scoreboard.vue'
     top: -1.5vw;
     display: flex;
     justify-content: center;
+    margin-top: 10%;
 }    
 button{
     min-width: 30px;

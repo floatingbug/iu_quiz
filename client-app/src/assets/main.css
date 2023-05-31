@@ -6,9 +6,6 @@ body {
     background-image: linear-gradient(180deg, rgba(255, 250, 250, 0.74) 0%, rgb(0, 0, 0) 100%);
 }
 
-#app {
-}
-
 button {
     border-radius: 15px;
     font-size: 1.2rem;

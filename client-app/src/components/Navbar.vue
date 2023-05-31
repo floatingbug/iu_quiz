@@ -17,7 +17,7 @@ import { store } from '../renderlesComponents/store.js'
             <div class="link-container" v-if="!store.isLoggedIn">
                 <router-link to="/login-user">Login</router-link>
             </div>
-            <div class="link-container" v-if="store.isLoggedIn">
+            <div class="link-container" v-if="store.isLoggedIn || store.loggedInAsAdmin">
                 <router-link to="/logout-user">Logout</router-link>
             </div>
         </nav>
@@ -26,15 +26,11 @@ import { store } from '../renderlesComponents/store.js'
 
 <style scoped>
 .container {
-    position: relative;
-    min-height: 200px;
+    height: 10vh;
 }
 
 nav {
-    position: absolute;
-    width: 100%;
-    height: 60px;
-    top: 0%;
+    height: 100%;
     background-color: #d9d9d9;
     font-size: 1.4rem;
     display: flex;
@@ -68,25 +64,9 @@ nav {
     background-color: #00a7b5;
 }
 
-@media (max-width: 768px) {
-    nav {
-        height: 40px;
-    }
-
-    .link-container > a {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    nav {
-        height: 30px;
-    }
-
-    .link-container > a {
-        font-size: 0.8rem;
-        padding-left: 10px;
-        padding-right: 10px;
+@media(max-width: 800px) {
+    .container {
+        height: 20vh;
     }
 }
 </style>

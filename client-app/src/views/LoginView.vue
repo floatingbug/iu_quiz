@@ -17,20 +17,20 @@ function loginUser() {
 
     apiCallRef.value.call(request, (result) => {
         if (result.code === 0) {
-            store.isLoggedIn = true
-            console.log(result.msg)
+            if(credentials.email === "admin"){
+                store.loggedInAsAdmin = true;
+            }
+            else{
+                store.isLoggedIn = true;
+            }
         }
-        if (result.code === 1) {
-            console.log(result.msg)
-        }
-        if (result.code === 2) {
-            console.log(result.msg)
-        }
+        console.log(result.msg)
     })
 }
 </script>
 
 <template>
+    <apiCall ref="apiCallRef" />
   <div class="container">
     <div class="left-column">
       <img class="logo" src="../assets/logo.png" alt="LOGO" />
@@ -74,6 +74,7 @@ function loginUser() {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 10%;
 }
 
 .left-column {
