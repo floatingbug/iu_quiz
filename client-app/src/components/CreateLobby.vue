@@ -1,11 +1,33 @@
 <script setup>
+import {ref} from 'vue'
+import {useRouter} from 'vue-router'
+import {store} from '../renderlesComponents/store.js';
+const router = useRouter();
+const groupName = ref("");
+const playerName = ref("");
+const errMsg = ref("");
+const chooseGamemode = ref(false);
 const emit = defineEmits(['backToLobby'])
+
+
+function createLobby(){
+    if(groupName.value === "" || playerName.value === ""){
+        errMsg.value = "Gruppen- und Spielername werden benötigt."
+        return
+    }
+
+    store.game.groupName = groupName.value;
+    store.game.gameName = playerName.value;
+    store.game.gameId = crypto.randomUUID();
+    errMsg.value = "";
+    chooseGamemode.value = true;
+}
 </script>
 
 <template>
     <div class="container">
         <div class="container-input">
-            <div>
+            <div v-if="!chooseGamemode">
                 <label for="groupname">Gruppennamen:</label>
                 <input
                     id="groupname"
@@ -14,7 +36,7 @@ const emit = defineEmits(['backToLobby'])
                     placeholder="Geben Sie den Gruppennamen ein"
                 />
             </div>
-            <div>
+            <div v-if="!chooseGamemode">
                 <label for="playername">Spielername:</label>
                 <input
                     id="playername"
@@ -23,8 +45,11 @@ const emit = defineEmits(['backToLobby'])
                     placeholder="Geben Sie den Spielernamen ein"
                 />
             </div>
+            <p class="err-msg" v-if="errMsg">{{errMsg}}</p>
             <div>
-                <button>Create Lobby</button>
+                <button v-on:click="createLobby" v-if="!chooseGamemode">Create Lobby</button>
+                <button v-if="chooseGamemode" v-on:click="$router.push('kooperativ')">Kooperatives Spiel</button>
+                <button v-if="chooseGamemode" v-on:click="$router.push('kollaborativ')">Kollaboratives Spiel</button>
                 <button v-on:click="$emit('backToLobby')">Cancel</button>
             </div>
         </div>
