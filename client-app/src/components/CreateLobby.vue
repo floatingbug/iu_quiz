@@ -33,7 +33,7 @@ function createLobby(){
                     id="groupname"
                     v-model="groupName"
                     type="text"
-                    placeholder="Geben Sie den Gruppennamen ein"
+                    placeholder="Geben Sie einen Gruppennamen ein"
                 />
             </div>
             <div v-if="!chooseGamemode">
@@ -42,7 +42,7 @@ function createLobby(){
                     id="playername"
                     v-model="playerName"
                     type="text"
-                    placeholder="Geben Sie den Spielernamen ein"
+                    placeholder="Geben Sie Ihren Spielernamen ein"
                 />
             </div>
             <p class="err-msg" v-if="errMsg">{{errMsg}}</p>
