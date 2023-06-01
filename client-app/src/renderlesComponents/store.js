@@ -7,7 +7,7 @@ const store = reactive({
         groupName: "",
         gameName: "",
         gameId: Number
-    }
+    },
     gameState: {
         player: []
     }
