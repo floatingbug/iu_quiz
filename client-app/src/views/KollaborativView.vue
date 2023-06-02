@@ -5,12 +5,12 @@ import {store} from '../renderlesComponents/store.js';
 <template>
     <div class="container">
         <header>
-            <div class="group-id">ID: {{store.game.gameId}}</div>
-            <h3>Kooperativer Spielmodus</h3>
+            <div class="group-id">ID: {{store.lobby.lobbyId}}</div>
+            <h3>Kollaborativ Spielmodus</h3>
             <img src="../assets/logo.png" alt="logo">
         </header>
         <main>
-            <p> Gruppenname: {{store.game.groupName}}</p>
+            <p> Gruppenname: {{store.lobby.groupName}}</p>
             <div class="player">
                 <div class="player-1"></div>
                 <div class="player-2"></div>

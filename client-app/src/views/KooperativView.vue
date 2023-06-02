@@ -5,7 +5,7 @@ import {store} from '../renderlesComponents/store.js';
 <template>
     <div class="container">
         <header>
-            <div class="group-id">ID: {{store.game.gameId}}</div>
+            <div class="group-id">ID: {{store.game.lobbyId}}</div>
             <h3>Kooperativer Spielmodus</h3>
             <img src="../assets/logo.png" alt="logo">
         </header>

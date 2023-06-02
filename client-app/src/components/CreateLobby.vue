@@ -2,6 +2,8 @@
 import {ref} from 'vue'
 import {useRouter} from 'vue-router'
 import {store} from '../renderlesComponents/store.js';
+import apiCall from '../renderlesComponents/ApiCall.vue';
+const apiCallRef = ref();
 const router = useRouter();
 const groupName = ref("");
 const playerName = ref("");
@@ -16,15 +18,33 @@ function createLobby(){
         return
     }
 
-    store.game.groupName = groupName.value;
-    store.game.gameName = playerName.value;
-    store.game.gameId = crypto.randomUUID();
+    store.lobby.players = [];
+    store.lobby.groupName = groupName.value;
+    store.lobby.players.push(playerName.value);
+    store.lobby.lobbyId = crypto.randomUUID();
+
+    const request = {
+        method: 'post',
+        url: '/create-lobby',
+        data: store.lobby
+    };
+
+    apiCallRef.value.call(request, (result)=>{
+        if(result.code == 1){
+            errMsg.value = "Lobby konnte auf dem Server nicht erstellt werden."
+            console.log(result.msg)
+            return
+        }
+        
+    })
+
     errMsg.value = "";
     chooseGamemode.value = true;
 }
 </script>
 
 <template>
+    <apiCall ref="apiCallRef" />
     <div class="container">
         <div class="container-input">
             <div v-if="!chooseGamemode">

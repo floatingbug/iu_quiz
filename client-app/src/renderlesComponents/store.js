@@ -3,14 +3,11 @@ import { reactive } from 'vue'
 const store = reactive({
     isLoggedIn: false,
     loggedInAsAdmin: false,
-    game: {
+    lobby: {
         groupName: "",
-        gameName: "",
-        gameId: Number
+        players: [],
+        lobbyId: Number
     },
-    gameState: {
-        player: []
-    }
 })
 
 export { store }
