@@ -48,22 +48,30 @@ function createLobby(){
     <div class="container">
         <div class="container-input">
             <div v-if="!chooseGamemode">
-                <label for="groupname">Gruppennamen:</label>
+                <div>
+                    <label for="groupname">Gruppennamen:</label>
+                </div>
+                <div>
                 <input
                     id="groupname"
                     v-model="groupName"
                     type="text"
                     placeholder="Geben Sie einen Gruppennamen ein"
                 />
+                </div>
             </div>
             <div v-if="!chooseGamemode">
-                <label for="playername">Spielername:</label>
+                <div>
+                    <label for="playername">Spielername:</label>
+                </div>
+                <div>
                 <input
                     id="playername"
                     v-model="playerName"
                     type="text"
                     placeholder="Geben Sie Ihren Spielernamen ein"
                 />
+                </div>
             </div>
             <p class="err-msg" v-if="errMsg">{{errMsg}}</p>
             <div>
@@ -83,130 +91,71 @@ function createLobby(){
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 1rem;
+    margin-right: 15%;
 }
 
 .container-input {
-    position: absolute;
-    width: 40vw;
-    height: 20vh;
+    width: 100%;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    padding: 1vh;
-}
-
-.container-input > div {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0.5vh;
-}
-
-.container-input > div * {
-    flex: 1;
+    align-items: stretch;
+    gap: 1rem;
 }
 
 label {
-    text-align: start;
-    font-size: 1.4rem;
-    min-width: 50%;
+    font-size: 1.5rem;
     color: black;
+    width: 100%;
 }
 
 input {
-    font-size: 1.4rem;
-    min-width: 400px;
-    max-width: 30vw;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
+#groupname #playername{
+    width: 80%;
 }
 
 input::placeholder {
-    font-size: 1.4rem;
+    font-size: 1rem;
 }
 
-.container-input > div > button {
-    min-width: 150px;
-    max-width: 70%;
+button {
+    padding: 0.5rem 1rem;
     background-color: #00a7b5;
     border: 3px solid black;
     transition: border 0.1s ease;
-    margin: 0.5vh;
+    margin-top: 5%;
 }
 
-.container-input > div > button:hover {
+button:hover {
     border: 4px solid black;
 }
 
-.container-input > div:last-child {
-    margin-left: 0;
-    width: 30vw;
-    height: 10vh;
-    align-items: center;
-}
+@media (max-width: 600px) {
 
-@media (max-width: 800px) {
-    label,
-    input {
-        font-size: 1.3rem;
-    }
-    input::placeholder {
-        font-size: 1rem;
-    }
-    input {
-        min-width: 300px;
+    .container{
+        margin-right: 0%;
     }
     .container-input {
-        width: 50vw;
-        height: 25vh;
+        width: 90%;
     }
-}
 
-@media (max-width: 600px) {
-    label,
-    input {
+    label, input {
         font-size: 1.2rem;
     }
+
     input::placeholder {
-        font-size: 0.8rem;
+        font-size: 1.2rem;
     }
-    input {
-        min-width: 250px;
+
+    button {
+        padding: 1rem 2rem;
     }
-    .container-input {
-        width: 60vw;
-        height: 30vh;
-    }
+
 }
 
-@media (max-width: 400px) {
-    label,
-    input {
-        font-size: 1.1rem;
-    }
-    input::placeholder {
-        font-size: 0.7rem;
-    }
-    input {
-        min-width: 200px;
-    }
-    .container-input {
-        width: 70vw;
-        height: 35vh;
-    }
-}
-
-@media (max-width: 300px) {
-    label,
-    input {
-        font-size: 1rem;
-    }
-    input::placeholder {
-        font-size: 0.7rem;
-    }
-    input {
-        min-width: 150px;
-    }
-    .container-input {
-        width: 80vw;
-        height: 40vh;
-    }
-}
 </style>
