@@ -42,28 +42,28 @@ function backToContainerBtn1() {
 
 <style scoped>
 .container {
-    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     height: 50vh;
     margin-top: 10%;
 }
 
 img {
-    position: absolute;
     min-width: 180px;
     max-width: 20vw;
-    top: 0px;
-    right: 3%;
+    margin-left: 15%;
 }
 
 .container-btn-1 {
-    position: absolute;
-    bottom: 10vh;
-    left: 5vw;
-    width: 20vw;
-    height: 20vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    align-items: center;
+    justify-content: center;
+    width: 20vw;
+    height: 20vh;
+    margin-right: 15%;
 }
 
 Button {
@@ -77,10 +77,21 @@ button:hover {
     border: 4px solid black;
 }
 
-@media (max-width: 370px) {
-    .container-btn-1 {
-        left: 0;
-        margin-left: 20px;
+@media (max-width: 768px) { 
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
+    .container-btn-1 {
+        margin-top: 20px;
+        width: 100%;
+        margin-right: 0%;
+    }
+
+    img {
+    margin-left: 0%;
+}
 }
 </style>
+
