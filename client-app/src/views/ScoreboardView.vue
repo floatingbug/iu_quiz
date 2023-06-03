@@ -29,6 +29,10 @@ button{
     margin: 0.5%;
 }
 
+.container1{
+    margin-bottom: 20%;
+}
+
 @media (min-width: 600px) { 
   .container button {
     width: 50%;
