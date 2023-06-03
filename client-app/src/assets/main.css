@@ -3,20 +3,26 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: grey;
+    background-image: linear-gradient(180deg, rgba(255, 250, 250, 0.74) 0%, rgb(0, 0, 0) 100%);
+}
+
+#app {
+    height: 100%;
 }
 
 button {
-    border-radius: 12px;
+    border-radius: 15px;
     font-size: 1.2rem;
     min-width: 200px;
-    height: 3vh;
+    height: 6vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    border: 4px solid black;
+    background-color: #00a7b5;
+    font-weight: 700;
 }
-
-button:hover{
-    background-color: red;
+img {
+    border: 4px solid black;
+    border-radius: 30px;
 }

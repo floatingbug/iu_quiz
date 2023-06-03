@@ -4,12 +4,17 @@ function loginUser({store}){
 
         const result = await store.checkCredentials(credentials);
         if(result === 1){
-            res.json({code: 1, msg: "username or password is incorrect"})
+            res.json({code: 1, msg: "email or password is incorrect"})
             return 1
         }
-        
+       
+        if(result === 2){
+            res.json({code: 1, msg: "intern server error"})
+            return 1
+        }
+
         req.session.user = credentials;
-        res.json({code: 0, msg: "user logged in"})
+        res.json({code: 0, msg: "login success"})
     }
 }
 

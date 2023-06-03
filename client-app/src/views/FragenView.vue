@@ -1,12 +1,13 @@
 <script setup>
-
 </script>
 
+
 <template>
-<h1>scoreboard</h1>
+    <div>
+        
+    </div>
 </template>
 
 
 <style scoped>
-
 </style>

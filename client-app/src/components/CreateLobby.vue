@@ -1,95 +1,212 @@
 <script setup>
-const emit = defineEmits([
-	'backToLobby'
-]);
+import {ref} from 'vue'
+import {useRouter} from 'vue-router'
+import {store} from '../renderlesComponents/store.js';
+import apiCall from '../renderlesComponents/ApiCall.vue';
+const apiCallRef = ref();
+const router = useRouter();
+const groupName = ref("");
+const playerName = ref("");
+const errMsg = ref("");
+const chooseGamemode = ref(false);
+const emit = defineEmits(['backToLobby'])
+
+
+function createLobby(){
+    if(groupName.value === "" || playerName.value === ""){
+        errMsg.value = "Gruppen- und Spielername werden benötigt."
+        return
+    }
+
+    store.lobby.players = [];
+    store.lobby.groupName = groupName.value;
+    store.lobby.players.push(playerName.value);
+    store.lobby.lobbyId = crypto.randomUUID();
+
+    const request = {
+        method: 'post',
+        url: '/create-lobby',
+        data: store.lobby
+    };
+
+    apiCallRef.value.call(request, (result)=>{
+        if(result.code == 1){
+            errMsg.value = "Lobby konnte auf dem Server nicht erstellt werden."
+            console.log(result.msg)
+            return
+        }
+        
+    })
+
+    errMsg.value = "";
+    chooseGamemode.value = true;
+}
 </script>
 
 <template>
+    <apiCall ref="apiCallRef" />
     <div class="container">
         <div class="container-input">
-            <div>
+            <div v-if="!chooseGamemode">
                 <label for="groupname">Gruppennamen:</label>
-                <input type="text">
+                <input
+                    id="groupname"
+                    v-model="groupName"
+                    type="text"
+                    placeholder="Geben Sie einen Gruppennamen ein"
+                />
             </div>
-            <div>
+            <div v-if="!chooseGamemode">
                 <label for="playername">Spielername:</label>
-                <input type="text">
+                <input
+                    id="playername"
+                    v-model="playerName"
+                    type="text"
+                    placeholder="Geben Sie Ihren Spielernamen ein"
+                />
             </div>
+            <p class="err-msg" v-if="errMsg">{{errMsg}}</p>
             <div>
-                <button>Create Lobby</button>
+                <button v-on:click="createLobby" v-if="!chooseGamemode">Create Lobby</button>
+                <button v-if="chooseGamemode" v-on:click="$router.push('kooperativ')">Kooperatives Spiel</button>
+                <button v-if="chooseGamemode" v-on:click="$router.push('kollaborativ')">Kollaboratives Spiel</button>
                 <button v-on:click="$emit('backToLobby')">Cancel</button>
             </div>
         </div>
     </div>
 </template>
 
-
 <style scoped>
 .container {
     position: relative;
-    height: 50vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container-input {
     position: absolute;
     width: 40vw;
-    height: 15vh;
-    top: 20vh;
-    left: 10vw;
+    height: 20vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+    padding: 1vh;
 }
 
-.container-input>div {
+.container-input > div {
     display: flex;
     flex-wrap: wrap;
+    margin: 0.5vh;
 }
 
-.container-input>div * {
+.container-input > div * {
     flex: 1;
 }
 
 label {
+    text-align: start;
     font-size: 1.4rem;
-    text-align: end;
     min-width: 50%;
+    color: black;
 }
 
 input {
     font-size: 1.4rem;
-    min-width: 200px;
+    min-width: 400px;
     max-width: 30vw;
 }
 
-.container-input>div>button {
-    min-width: 30%;
-    max-width: 80%;
+input::placeholder {
+    font-size: 1.4rem;
 }
 
-.container-input>div:last-child {
-    margin-left: auto;
+.container-input > div > button {
+    min-width: 150px;
+    max-width: 70%;
+    background-color: #00a7b5;
+    border: 3px solid black;
+    transition: border 0.1s ease;
+    margin: 0.5vh;
+}
+
+.container-input > div > button:hover {
+    border: 4px solid black;
+}
+
+.container-input > div:last-child {
+    margin-left: 0;
     width: 30vw;
+    height: 10vh;
+    align-items: center;
 }
 
-@media(max-width: 1000px) {
-    label {
-        text-align: start;
+@media (max-width: 800px) {
+    label,
+    input {
+        font-size: 1.3rem;
     }
-    
-    .container-input>div>button {
-        min-width: 150px;
-        max-width: 70%;
+    input::placeholder {
+        font-size: 1rem;
     }
-
+    input {
+        min-width: 300px;
+    }
     .container-input {
+        width: 50vw;
         height: 25vh;
     }
-    
-    .container-input>div:last-child {
-        margin-left: 0;
-        height: 10vh;
-        align-items: center;
+}
+
+@media (max-width: 600px) {
+    label,
+    input {
+        font-size: 1.2rem;
+    }
+    input::placeholder {
+        font-size: 0.8rem;
+    }
+    input {
+        min-width: 250px;
+    }
+    .container-input {
+        width: 60vw;
+        height: 30vh;
+    }
+}
+
+@media (max-width: 400px) {
+    label,
+    input {
+        font-size: 1.1rem;
+    }
+    input::placeholder {
+        font-size: 0.7rem;
+    }
+    input {
+        min-width: 200px;
+    }
+    .container-input {
+        width: 70vw;
+        height: 35vh;
+    }
+}
+
+@media (max-width: 300px) {
+    label,
+    input {
+        font-size: 1rem;
+    }
+    input::placeholder {
+        font-size: 0.7rem;
+    }
+    input {
+        min-width: 150px;
+    }
+    .container-input {
+        width: 80vw;
+        height: 40vh;
     }
 }
 </style>

@@ -1,7 +1,10 @@
+require('dotenv').config();
 const http = require('http');
 const {createApi} = require('./lib/createApi');
-const {InMemoryStore} = require('./lib/store/InMemoryStore');
-const store = new InMemoryStore();
+const {MongoStore} = require('./lib/store/MongoStore');
+const store = new MongoStore(process.env.DB_URL);
+store.initialize();
+const {lobyStore} = require('./lib/store/lobyStore');
 
 const api = createApi({store});
 const httpServer = http.createServer(api);

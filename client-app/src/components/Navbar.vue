@@ -1,6 +1,6 @@
 <script setup>
+import { store } from '../renderlesComponents/store.js'
 </script>
-
 
 <template>
     <div class="container">
@@ -14,31 +14,29 @@
             <div class="link-container">
                 <router-link to="/scoreboard">Scoreboard</router-link>
             </div>
-            <div class="link-container">
+            <div class="link-container" v-if="!store.isLoggedIn">
                 <router-link to="/login-user">Login</router-link>
+            </div>
+            <div class="link-container" v-if="store.isLoggedIn || store.loggedInAsAdmin">
+                <router-link to="/logout-user">Logout</router-link>
             </div>
         </nav>
     </div>
 </template>
 
-
 <style scoped>
 .container {
-    position: relative;
-    min-height: 200px;
+    height: 10vh;
 }
 
 nav {
-    position: absolute;
-    width: 100%;
-    height: 30%;
-    top: 35%;
-    background-color: lightgrey;
+    height: 100%;
+    background-color: #d9d9d9;
     font-size: 1.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5vw;
+    gap: 6vw;
     flex-wrap: wrap;
 }
 
@@ -47,7 +45,7 @@ nav {
     justify-content: center;
 }
 
-.link-container>a {
+.link-container > a {
     text-decoration: none;
     color: black;
     border-color: transparent;
@@ -57,18 +55,18 @@ nav {
     padding-left: 20px;
     padding-right: 20px;
     transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-size: 1.4rem;
     font-weight: bold;
 }
 
-.link-container>a:hover {
+.link-container > a:hover {
     border-color: black;
     background-color: #00a7b5;
 }
 
-@media(max-width: 389px){
-    nav{
-        height: 10vh;
+@media(max-width: 800px) {
+    .container {
+        height: 20vh;
     }
 }
 </style>
-
