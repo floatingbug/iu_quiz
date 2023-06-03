@@ -171,9 +171,7 @@ function loginUser() {
     margin-right: 0; 
   }
 
-  .form-container label {
-    width: unset; 
-  }
+
 
   .form-container input {
     width: 100%; 
@@ -183,6 +181,7 @@ function loginUser() {
     flex-direction: column; 
     align-items: center; 
     margin-top: 1rem; 
+    padding-bottom: 4rem;
   }
 
   .button-container button {
