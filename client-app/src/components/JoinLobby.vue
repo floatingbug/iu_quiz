@@ -9,162 +9,164 @@ const errMsg = ref("");
 
 </script>
 
+
+
+
 <template>
-    <div class="container">
-        <div class="container-input">
-                <label for="gameId">Lobby ID:</label>
+    <apiCall ref="apiCallRef" />
+  <div class="container">
+
+    <div class="right-column">
+      <div class="form-container">
+        <div class="form-input">
+            <label for="gameId">Lobby ID:</label>
                 <input
                     id="gameId"
                     v-model="gameId"
                     type="text"
                     placeholder="Geben Sie die ID der Lobby ein, der Sie joinen möchten"
                 />
-                <label for="playername">Spielername:</label>
+        </div>
+        <div class="form-input">
+            <label for="playername">Spielername:</label>
                 <input
                     id="playername"
                     v-model="playerName"
                     type="text"
                     placeholder="Geben Sie ihren Spielernamen ein"
                 />
-            <div>
-                <button v-on:click="$router.push('gruppenansicht')">Join Lobby</button>
-                <button v-on:click="$router.push('home')">Cancel</button>
-            </div>
         </div>
+        <div class="button-container">
+            <button v-on:click="$router.push('gruppenansicht')">Join Lobby</button>
+            <button v-on:click="$router.push('home')">Cancel</button>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
+
+
+
+
 
 <style scoped>
 .container {
-    position: relative;
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10%;
 }
 
-.container-input {
-    position: absolute;
-    width: 40vw;
-    height: 20vh;
-    display: flex;
+.left-column {
+  flex: 1;
+  min-width: 200px;
+  padding-right: 10%; 
+  text-align: center;
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+  margin-left: 10%; 
+}
+
+.right-column {
+  flex: 1;
+  min-width: 200px;
+  padding-left: 10%; 
+  padding-right: 10%; 
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  margin-bottom: 10%;
+  margin-right: 10%;
+}
+
+.form-container label {
+  text-align: start;
+  font-size: 1.4rem;
+  width: 100%;
+  color: black;
+}
+
+.form-container input {
+  font-size: 1.4rem;
+  width: 100%; 
+  padding: 0.5rem;
+  margin-right: 10%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.button-container button {
+  min-width: 150px;
+  max-width: 200px;
+  background-color: #00a7b5;
+  border: 3px solid black;
+  transition: border 0.1s ease;
+  margin-right: 10%;
+}
+
+.button-container button:hover {
+  background-color: #0096a3;
+}
+
+.link-container {
+  margin-top: 1rem;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .container {
     flex-direction: column;
-    justify-content: space-around;
-    padding: 1vh;
-}
+    align-items: center; 
+  }
 
-.container-input > div {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0.5vh;
-}
+  .left-column, .right-column {
+    min-width: unset;
+    padding: 10%; 
+    text-align: center;
+  }
 
-.container-input > div * {
-    flex: 1;
-}
+  .logo {
+    margin-left: 0; 
+    margin-bottom: 10%; 
+  }
 
-label {
-    text-align: start;
-    font-size: 1.4rem;
-    min-width: 50%;
-    color: black;
-}
+  .form-container {
+    align-items: center; 
+  }
 
-input {
-    font-size: 1.4rem;
-    min-width: 400px;
-    max-width: 30vw;
-}
+  .form-input {
+    margin-bottom: 5%; 
+    margin-right: 0; 
+  }
 
-input::placeholder {
-    font-size: 1.4rem;
-}
 
-.container-input > div > button {
-    min-width: 150px;
-    max-width: 70%;
-    background-color: #00a7b5;
-    border: 3px solid black;
-    transition: border 0.1s ease;
-    margin: 0.5vh;
-}
 
-.container-input > div > button:hover {
-    border: 4px solid black;
-}
+  .form-container input {
+    width: 100%; 
+  }
 
-.container-input > div:last-child {
-    margin-left: 0;
-    width: 30vw;
-    height: 10vh;
-    align-items: center;
-}
+  .button-container {
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 1rem; 
+    padding-bottom: 4rem;
+  }
 
-@media (max-width: 800px) {
-    label,
-    input {
-        font-size: 1.3rem;
-    }
-    input::placeholder {
-        font-size: 1rem;
-    }
-    input {
-        min-width: 300px;
-    }
-    .container-input {
-        width: 50vw;
-        height: 25vh;
-    }
-}
-
-@media (max-width: 600px) {
-    label,
-    input {
-        font-size: 1.2rem;
-    }
-    input::placeholder {
-        font-size: 0.8rem;
-    }
-    input {
-        min-width: 250px;
-    }
-    .container-input {
-        width: 60vw;
-        height: 30vh;
-    }
-}
-
-@media (max-width: 400px) {
-    label,
-    input {
-        font-size: 1.1rem;
-    }
-    input::placeholder {
-        font-size: 0.7rem;
-    }
-    input {
-        min-width: 200px;
-    }
-    .container-input {
-        width: 70vw;
-        height: 35vh;
-    }
-}
-
-@media (max-width: 300px) {
-    label,
-    input {
-        font-size: 1rem;
-    }
-    input::placeholder {
-        font-size: 0.7rem;
-    }
-    input {
-        min-width: 150px;
-    }
-    .container-input {
-        width: 80vw;
-        height: 40vh;
-    }
+  .button-container button {
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
 }
 </style>
