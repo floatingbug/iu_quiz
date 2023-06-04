@@ -28,70 +28,118 @@ function backToContainerBtn1() {
 }
 </script>
 
+
 <template>
-    <div class="container">
-        <img src="../assets/logo.png" alt="LOGO" />
+    <apiCall ref="apiCallRef" />
+  <div class="container">
+    <div class="left-column">
+      <img class="logo" src="../assets/logo.png" alt="LOGO" />
+    </div>
+    <div class="right-column">
+      <div class="form-container">
         <div class="container-btn-1" v-if="showContainerBtn1" v-on:click="hideContainerBtn1">
             <button id="create-lobby">Create Lobby</button>
             <button id="join-lobby">Join Lobby</button>
         </div>
         <CreateLobby v-if="showCreateLobby" v-on:back-to-lobby="backToContainerBtn1" />
         <JoinLobby v-if="showJoinLobby" />
+      </div>
     </div>
+  </div>
 </template>
+
+
+
 
 <style scoped>
 .container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 50vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.left-column {
+  flex: 1;
+  min-width: 200px;
+  padding-left: 10%; 
+  padding-right: 10%; 
+  text-align: center;
+}
+
+.logo {
+  max-width: 80%;
+  height: auto;
+  margin-left: 20%; 
+}
+
+.right-column {
+  flex: 1;
+  min-width: 200px;
+  padding-left: 10%; 
+  padding-right: 10%; 
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  margin-bottom: 10%;
+  margin-right: 10%;
+}
+
+.form-container label {
+  text-align: start;
+  font-size: 1.4rem;
+  width: 100%;
+  color: black;
+}
+
+.form-container input {
+  font-size: 1.4rem;
+  width: 100%; 
+  padding: 0.5rem;
+  margin-right: 10%;
+}
+
+#join-lobby {
     margin-top: 10%;
 }
 
-img {
-    min-width: 180px;
-    max-width: 20vw;
-    margin-left: 15%;
-}
-
-.container-btn-1 {
-    display: flex;
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .container {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 20vw;
-    height: 20vh;
-    margin-right: 15%;
-}
+    align-items: center; 
+  }
 
-Button {
-    text-transform: uppercase;
-    border: 3px solid black;
-    transition: border 0.1s ease;
-    margin: 0.5vh;
-}
+  .left-column, .right-column {
+    min-width: unset;
+    padding: 10%; 
+    text-align: center;
+  }
 
-button:hover {
-    border: 4px solid black;
-}
+  .logo {
+    margin-left: 0; 
+    margin-bottom: 10%; 
+  }
 
-@media (max-width: 768px) { 
-    .container {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .container-btn-1 {
-        margin-top: 20px;
-        width: 100%;
-        margin-right: 0%;
-    }
+  .form-container {
+    align-items: center; 
+  }
 
-    img {
-    margin-left: 0%;
-}
+  .form-input {
+    margin-bottom: 5%; 
+    margin-right: 0; 
+  }
+
+
+
+  .form-container input {
+    width: 100%; 
+  }
 }
 </style>
 

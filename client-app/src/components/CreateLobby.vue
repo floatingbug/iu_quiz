@@ -43,119 +43,171 @@ function createLobby(){
 }
 </script>
 
+
+
+
+
 <template>
     <apiCall ref="apiCallRef" />
-    <div class="container">
-        <div class="container-input">
+  <div class="container">
+
+    <div class="right-column">
+      <div class="form-container">
+        <div class="form-input">
             <div v-if="!chooseGamemode">
-                <div>
-                    <label for="groupname">Gruppennamen:</label>
-                </div>
-                <div>
+                <label for="groupname">Gruppennamen:</label>
                 <input
                     id="groupname"
                     v-model="groupName"
                     type="text"
                     placeholder="Geben Sie einen Gruppennamen ein"
                 />
-                </div>
             </div>
+        </div>
+        <div class="form-input">
             <div v-if="!chooseGamemode">
-                <div>
                     <label for="playername">Spielername:</label>
-                </div>
-                <div>
                 <input
                     id="playername"
                     v-model="playerName"
                     type="text"
                     placeholder="Geben Sie Ihren Spielernamen ein"
                 />
-                </div>
             </div>
-            <p class="err-msg" v-if="errMsg">{{errMsg}}</p>
-            <div>
-                <button v-on:click="createLobby" v-if="!chooseGamemode">Create Lobby</button>
+        </div>
+        <p class="err-msg" v-if="errMsg">{{errMsg}}</p>
+        <div class="button-container">
+            <button v-on:click="createLobby" v-if="!chooseGamemode">Create Lobby</button>
                 <button v-if="chooseGamemode" v-on:click="$router.push('kooperativ')">Kooperatives Spiel</button>
                 <button v-if="chooseGamemode" v-on:click="$router.push('kollaborativ')">Kollaboratives Spiel</button>
                 <button v-on:click="$emit('backToLobby')">Cancel</button>
-            </div>
         </div>
+      </div>
     </div>
+  </div>
 </template>
+
+
+
 
 <style scoped>
 .container {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    margin-right: 15%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10%;
 }
 
-.container-input {
-    width: 100%;
-    max-width: 500px;
-    display: flex;
+.left-column {
+  flex: 1;
+  min-width: 200px;
+  padding-right: 10%; 
+  text-align: center;
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+  margin-left: 10%; 
+}
+
+.right-column {
+  flex: 1;
+  min-width: 200px;
+  padding-left: 10%; 
+  padding-right: 10%; 
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  margin-bottom: 10%;
+  margin-right: 10%;
+}
+
+.form-container label {
+  text-align: start;
+  font-size: 1.4rem;
+  width: 100%;
+  color: black;
+}
+
+.form-container input {
+  font-size: 1.4rem;
+  width: 100%; 
+  padding: 0.5rem;
+  margin-right: 10%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.button-container button {
+  min-width: 150px;
+  max-width: 200px;
+  background-color: #00a7b5;
+  border: 3px solid black;
+  transition: border 0.1s ease;
+  margin-right: 10%;
+}
+
+.button-container button:hover {
+  background-color: #0096a3;
+}
+
+.link-container {
+  margin-top: 1rem;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .container {
     flex-direction: column;
-    align-items: stretch;
-    gap: 1rem;
+    align-items: center; 
+  }
+
+  .left-column, .right-column {
+    min-width: unset;
+    padding: 10%; 
+    text-align: center;
+  }
+
+  .logo {
+    margin-left: 0; 
+    margin-bottom: 10%; 
+  }
+
+  .form-container {
+    align-items: center; 
+  }
+
+  .form-input {
+    margin-bottom: 5%; 
+    margin-right: 0; 
+  }
+
+
+
+  .form-container input {
+    width: 100%; 
+  }
+
+  .button-container {
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 1rem; 
+    padding-bottom: 4rem;
+  }
+
+  .button-container button {
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
 }
-
-label {
-    font-size: 1.5rem;
-    color: black;
-    width: 100%;
-}
-
-input {
-    font-size: 1.5rem;
-    padding: 0.5rem;
-}
-
-#groupname #playername{
-    width: 80%;
-}
-
-input::placeholder {
-    font-size: 1rem;
-}
-
-button {
-    padding: 0.5rem 1rem;
-    background-color: #00a7b5;
-    border: 3px solid black;
-    transition: border 0.1s ease;
-    margin-top: 5%;
-}
-
-button:hover {
-    border: 4px solid black;
-}
-
-@media (max-width: 600px) {
-
-    .container{
-        margin-right: 0%;
-    }
-    .container-input {
-        width: 90%;
-    }
-
-    label, input {
-        font-size: 1.2rem;
-    }
-
-    input::placeholder {
-        font-size: 1.2rem;
-    }
-
-    button {
-        padding: 1rem 2rem;
-    }
-
-}
-
 </style>
