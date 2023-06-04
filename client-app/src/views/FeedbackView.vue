@@ -3,6 +3,7 @@
 
 
 <template>
+    <img src="../assets/logo.png" alt="LOGO" />
     <div class="container">
         <p>Geben Sie uns ihr Feedback</p> 
         <div class="container-input">
@@ -33,7 +34,7 @@
 <style scoped>
 .container{
     position: relative;
-    top: 0;
+    top: -5vw;
     display: block;
     text-align: center;
     justify-content: center;
@@ -69,5 +70,12 @@ button{
     width: 10vw;
     left: 32.5vw;
     margin-top: 1vw;
+}
+
+img {
+    min-width: 180px;
+    max-width: 20vw;
+   margin-left: 75%;
+   margin-top: 5%;
 }
 </style>

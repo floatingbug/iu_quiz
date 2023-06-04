@@ -3,6 +3,7 @@
 
 
 <template>
+    <img src="../assets/logo.png" alt="LOGO" />
     <div class="container">
         <p>Die IU-Study Quiz Anwendung ist im Rahmen einer Projektarbeit von</p> 
         <p>David, Thomas, Ehsan, Nico, Pierre und Daniel erstellt worden. </p>
@@ -50,7 +51,7 @@
 <style scoped>
 .container{
     position: relative;
-    top: -4vw;
+    top: -10vw;
     display: block;
     text-align: center;
     justify-content: center;
@@ -86,5 +87,12 @@ button{
     width: 10vw;
     left: 32.5vw;
     margin-top: 1vw;
+}
+
+img {
+    min-width: 180px;
+    max-width: 20vw;
+   margin-left: 75%;
+   margin-top: 5%;
 }
 </style>
