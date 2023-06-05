@@ -38,8 +38,8 @@ import {store} from '../renderlesComponents/store.js';
 }
 
 button {
-font-weight: 500;
-font-size: 24px;
+font-weight: 700;
+font-size: 1.2rem;
 color: #000000;
 background-color: #00A7B5;
 padding: 10px 30px;
