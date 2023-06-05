@@ -23,10 +23,10 @@
                     placeholder="Ihr Feedback"
                 />
             </div>
-                <div>
-                    <button>Absenden</button>
-                </div>
         </div>
+            <div>
+                <button>Absenden</button>
+            </div>
     </div>
 </template>
 
@@ -34,23 +34,21 @@
 <style scoped>
 .container{
     position: relative;
-    top: -5vw;
     display: block;
     text-align: center;
     justify-content: center;
     color:black;
-   
 }
 
 p{
     font-weight: 700;
-    font-size:xx-large;
+    font-size: larger;
 }
+
 .container-input{
     width: 100vw;
     height: 20vh;
     display: block;
-
 }
 
 input{
@@ -61,21 +59,44 @@ input{
 }
 
 .large-input{
-    padding: 9vh;
+    padding: 5.5vh;
     text-align: left;
 }
 
 button{
     position: relative;
+    display: block;
     width: 10vw;
-    left: 32.5vw;
-    margin-top: 1vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8%;
 }
 
 img {
     min-width: 180px;
     max-width: 20vw;
-   margin-left: 75%;
-   margin-top: 5%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        text-align: center;
+        padding-bottom: 20%;
+    }
+
+    input, .large-input {
+        width: 80vw;
+        margin: 0 auto;
+    }
+
+    button {
+        width: 50vw;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20%;
+    }
 }
 </style>
