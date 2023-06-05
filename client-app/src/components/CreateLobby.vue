@@ -11,8 +11,7 @@ const errMsg = ref("");
 const chooseGamemode = ref(false);
 const emit = defineEmits(['backToLobby'])
 
-
-function createLobby(){
+function checkInput(e){
     if(groupName.value === "" || playerName.value === ""){
         errMsg.value = "Gruppen- und Spielername werden benötigt."
         return
@@ -22,6 +21,12 @@ function createLobby(){
     store.lobby.groupName = groupName.value;
     store.lobby.players.push(playerName.value);
     store.lobby.lobbyId = crypto.randomUUID();
+    errMsg.value = "";
+    chooseGamemode.value = true;
+}
+
+function createLobby(e){
+    store.lobby.gameMode = e.target.dataset.gamemode;
 
     const request = {
         method: 'post',
@@ -29,17 +34,22 @@ function createLobby(){
         data: store.lobby
     };
 
+    console.log(request)
+
     apiCallRef.value.call(request, (result)=>{
         if(result.code == 1){
             errMsg.value = "Lobby konnte auf dem Server nicht erstellt werden."
             console.log(result.msg)
             return
         }
-        
     })
-
-    errMsg.value = "";
-    chooseGamemode.value = true;
+    
+    if(store.lobby.gameMode === "kollab"){
+        router.push('kollaborativ')
+    }
+    if(store.lobby.gameMode === "koop"){
+        router.push('kooperativ')
+    }
 }
 </script>
 
@@ -77,10 +87,10 @@ function createLobby(){
         </div>
         <p class="err-msg" v-if="errMsg">{{errMsg}}</p>
         <div class="button-container">
-            <button v-on:click="createLobby" v-if="!chooseGamemode">Create Lobby</button>
-                <button v-if="chooseGamemode" v-on:click="$router.push('kooperativ')">Kooperatives Spiel</button>
-                <button v-if="chooseGamemode" v-on:click="$router.push('kollaborativ')">Kollaboratives Spiel</button>
-                <button v-on:click="$emit('backToLobby')">Cancel</button>
+            <button v-if="!chooseGamemode" v-on:click="checkInput">Create Lobby</button>
+            <button data-gameMode="koop" v-if="chooseGamemode" v-on:click="createLobby">Kooperatives Spiel</button>
+            <button data-gameMode="kollab" v-if="chooseGamemode" v-on:click="createLobby">Kollaboratives Spiel</button>
+            <button v-on:click="$emit('backToLobby')">Cancel</button>
         </div>
       </div>
     </div>

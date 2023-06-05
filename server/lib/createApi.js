@@ -7,7 +7,8 @@ const {loginUser} = require('./routes/loginUser');
 const {addUser} = require('./routes/addUser');
 const {showUsers} = require('./routes/showUsers');
 const {createLobby} = require('./routes/createLobby');
-const {joinLobby} = require('./routes/joinLobby');
+const {addPlayerToLobby} = require('./routes/addPlayerToLobby');
+const {handleGame} = require('./routes/handleGame');
 
 function createApi({store, lobbyStore}){
     
@@ -27,11 +28,15 @@ function createApi({store, lobbyStore}){
     api.post('/login-user', loginUser({store})) 
     api.post('/add-user', addUser({store}))
     api.post('/create-lobby', createLobby({store, lobbyStore}))
-    api.post('/join-lobby', joinLobby({store}))
+    api.post('/add-player-to-lobby', addPlayerToLobby({store, lobbyStore}))
 
     //queries (geben immer etwas zurück, daher get-methoden).
     //ändern nie den serverzustand.
     api.get('/show-users', showUsers({store}))
+
+
+    //server sent events
+    api.get('/play-mode', handleGame({store, lobbyStore}))
 
     return api
 }

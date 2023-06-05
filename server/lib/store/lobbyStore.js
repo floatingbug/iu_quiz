@@ -2,10 +2,25 @@ const lobbyStore = {
     lobbies: new Map(),
 
     addLobby,
+
+    findLobby,
 }
 
-function addLobby({lobbyId, gameName, players}){
-    lobbies.set(lobbyId, {gameName, players});
+function addLobby({lobbyId, gameMode, groupName, players}){
+    this.lobbies.set(lobbyId, {lobbyId, groupName, players, gameMode});
+    return this.lobbies.get(lobbyId)
 }
 
-module.exports = {lobyStore};
+function findLobby({lobbyId, playerName}){
+    const lobby = this.lobbies.get(lobbyId);
+
+    if(!lobby){
+        return 1
+    }
+
+    lobby.players.push(playerName)
+    return lobby
+}
+
+
+module.exports = {lobbyStore};

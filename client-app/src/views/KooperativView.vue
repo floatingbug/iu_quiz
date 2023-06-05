@@ -1,21 +1,39 @@
 <script setup>
 import {store} from '../renderlesComponents/store.js';
+const API_URL_LOCAL = "http://localhost:8000";
+const API_URL_Server = 'http://212.71.252.220:8000';
+const API_URL = API_URL_LOCAL;
+const eventSource = new EventSource(`${API_URL}/play-mode?id=${store.lobby.lobbyId}`);
+
+eventSource.onmessage = function(event){
+    try{
+        store.lobby = JSON.parse(event.data)
+    }
+    catch(error){
+        console.log(error)
+    }
+    console.log(store.lobby)
+};
+
+eventSource.onerror = function(){
+    console.log("error with sse")
+}
 </script>
 
 <template>
     <div class="container">
         <header>
-            <div class="group-id">ID: {{store.game.lobbyId}}</div>
+            <div class="group-id">ID: {{store.lobby.lobbyId}}</div>
             <h3>Kooperativer Spielmodus</h3>
             <img src="../assets/logo.png" alt="logo">
         </header>
         <main>
-            <p> Gruppenname: {{store.game.groupName}}</p>
+            <p> Gruppenname: {{store.lobby.groupName}}</p>
             <div class="player">
-                <div class="player-1"></div>
-                <div class="player-2"></div>
-                <div class="player-3"></div>
-                <div class="player-4"></div>
+                <div class="player-1">{{store.lobby.players[0]}}</div>
+                <div class="player-2">{{store.lobby.players[1]}}</div>
+                <div class="player-3">{{store.lobby.players[2]}}</div>
+                <div class="player-4">{{store.lobby.players[3]}}</div>
                 <button>Quiz Starten</button>
             </div>
         </main>
@@ -65,6 +83,9 @@ main {
 }
 
 .player>* {
+    font-size: 1.6rem;
+    text-align: center;
+    color: black;
     height: 50%;
     min-width: 400px;
     max-width: 600px;

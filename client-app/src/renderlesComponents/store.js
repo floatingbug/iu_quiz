@@ -6,8 +6,16 @@ const store = reactive({
     lobby: {
         groupName: "",
         players: [],
-        lobbyId: Number
+        lobbyId: Number,
+        gameMode: "",
     },
+
+    addPlayer,
 })
+
+function addPlayer(playerName){
+    this.lobby.players.push(playerName)
+}
+
 
 export { store }
