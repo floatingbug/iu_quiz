@@ -38,8 +38,29 @@ import {store} from '../renderlesComponents/store.js';
 }
 
 button {
-    min-width: 0%;
-    width: 100%;
+font-weight: 500;
+font-size: 24px;
+color: #000000;
+background-color: #00A7B5;
+padding: 10px 30px;
+border: solid #000000 4px;
+box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+border-radius: 15px;
+transition : 1000ms;
+transform: translateY(0);
+display: flex;
+flex-direction: row;
+align-items: center;
+cursor: pointer;
+}
+button:hover{
+
+    transition : 1000ms;
+padding: 10px 50px;
+transform : translateY(-0px);
+background-color: #ffffff00;
+color: #000000;
+border: solid 4px #000000;
 }
 
 img {
@@ -49,7 +70,7 @@ img {
 
 @media(max-width: 975px) {
     .btn-container-1 {
-        width: 80%;
+        width: 60%;
     }
     img {
         width: 50%;
