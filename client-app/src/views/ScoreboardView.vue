@@ -30,18 +30,24 @@ button{
 }
 
 .container1{
-    margin-bottom: 20%;
+    padding-bottom: 10%;
 }
 
-@media (min-width: 600px) { 
+@media (min-width: 300px) { 
   .container button {
     width: 50%;
+  }
+  .container1{
+    padding-bottom: 20%;
   }
 }
 
 @media (min-width: 900px) { 
   .container button {
     width: 16%; 
+  }
+  .container1{
+    padding-bottom: 10%;
   }
 }
 </style>
