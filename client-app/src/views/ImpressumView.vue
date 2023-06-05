@@ -86,7 +86,7 @@ button{
     width: 10vw;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1vw;
+    margin-top: 8%;
 }
 
 img {
