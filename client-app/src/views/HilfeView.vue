@@ -14,12 +14,10 @@
 <style scoped>
 .container{
     position: relative;
-    top: -5vw;
     display: block;
     text-align: center;
     justify-content: center;
     color:black;
-   
 }
 
 p{
@@ -30,7 +28,17 @@ p{
 img {
     min-width: 180px;
     max-width: 20vw;
-   margin-left: 75%;
-   margin-top: 5%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        text-align: center;
+        padding-bottom: 20%;
+    }
+
 }
 </style>
