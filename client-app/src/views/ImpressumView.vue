@@ -51,10 +51,12 @@
 <style scoped>
 .container{
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    justify-content: center;
     color:black;
+    padding-bottom: 2%;
 }
 
 p{
@@ -64,8 +66,9 @@ p{
 
 .container-input{
     width: 100vw;
-    height: 20vh;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 input{
@@ -81,12 +84,10 @@ input{
 }
 
 button{
-    position: relative;
     display: block;
     width: 10vw;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 8%;
+    margin-top: 2vh;
+    margin-bottom: 30%;
 }
 
 img {
@@ -99,11 +100,6 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-    .container {
-        text-align: center;
-        padding-bottom: 20%;
-    }
-
     input, .large-input {
         width: 80vw;
         margin: 0 auto;
@@ -111,10 +107,9 @@ img {
 
     button {
         width: 50vw;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 20%;
+        margin-bottom: 40%;
     }
 }
 </style>
+
 
