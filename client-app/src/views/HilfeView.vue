@@ -5,7 +5,7 @@
 <template>
     <img src="../assets/logo.png" alt="LOGO" />
     <div class="container">
-        <p>-Um Fragen Einsenden zu können müssen Sie eingeloggt sein.</p> 
+        <p>Um Fragen Einsenden zu können müssen Sie eingeloggt sein.</p> 
         <br>
         <h3>Startseite (HOME)</h3>
         <p>Auf der Startseite haben Sie die Möglichkeit, das Spiel zu starten, sich anzumelden oder zu registrieren, das Scoreboard anzusehen, zum Hilfe-Bereich zu wechseln oder Feedback zu hinterlassen.</p>
@@ -22,6 +22,7 @@
         <h3>Hilfe</h3>
         <p>Auf der Hilfe-Seite finden Sie nützliche Informationen und Anleitungen zur Bedienung der App. Wenn Sie weitere Fragen haben, zögern Sie nicht, uns über die Feedback-Funktion zu kontaktieren.</p>
         <br>
+    <div class="text1">
         <h3>Login</h3>
         <p>Um sich einzuloggen, geben Sie bitte Ihren Benutzernamen und Ihr Passwort in die entsprechenden Felder ein. Wenn Sie noch keinen Account haben, können Sie sich kostenlos registrieren.</p>
         <br>
@@ -34,6 +35,7 @@
         <h3>Passwort vergessen</h3>
         <p>Haben Sie Ihr Passwort vergessen? Keine Sorge, es passiert den Besten von uns. Folgen Sie bitte den unten aufgeführten Schritten, um Ihr Passwort zurückzusetzen und wieder Zugang zu Ihrem Konto zu erhalten.</p>
     </div>
+    </div>
 </template>
 
 
@@ -44,6 +46,9 @@
     text-align: center;
     justify-content: center;
     color:black;
+    margin-left: 8%;
+    margin-right: 8%;
+
 }
 
 p{
@@ -60,10 +65,14 @@ img {
     margin-top: 5%;
 }
 
+.text1{
+    color: #FFFFFF;
+    padding-bottom: 20%;
+}
+
 @media screen and (max-width: 768px) {
     .container {
         text-align: center;
-        padding-bottom: 20%;
     }
 
 }
