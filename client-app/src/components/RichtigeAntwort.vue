@@ -1,12 +1,15 @@
 <script setup>
 import {useRouter} from 'vue-router'
+import {store} from '../renderlesComponents/store.js';
+
+const rightAnswer = store.quiz.rightAnswer;
 const router = useRouter();
 </script>
 
 <template>
 <div class="container">
     <div class="frage">
-        <p>Richtige Antwort</p>
+        <p>{{ rightAnswer }}</p>
     </div>
     <button v-on:click="$router.push('fragen')">Nächste Frage</button>
 </div>

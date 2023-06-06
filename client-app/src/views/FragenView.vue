@@ -1,10 +1,16 @@
 <script setup>
-
-import { ref } from 'vue';
+import { ref } from 'vue'
 import RichtigeAntwort from '../components/RichtigeAntwort.vue'
+import {store} from '../renderlesComponents/store.js';
 
+const showRichtigeAntwort = ref(false);
 const showTimer = ref(true);
-const countdown = ref(30);
+const countdown = ref(5);
+const question = store.quiz.question;
+const answer1 = store.quiz.answer1;
+const answer2 = store.quiz.answer2;
+const answer3 = store.quiz.answer3;
+const answer4 = store.quiz.answer4;
 
 function startTimer() {
     const timer = setInterval(() => {
@@ -14,6 +20,9 @@ function startTimer() {
             showTimer.value = false;
         }
     }, 1000);
+}
+function handleButtonClick() {
+  showRichtigeAntwort.value = true;
 }
 
   startTimer();
@@ -27,13 +36,13 @@ function startTimer() {
             <div v-if="showTimer">
                 <h2>{{ countdown }} sec</h2>
                 <div class="frage">
-                    <p>Frage</p>
+                    <p>{{ question }}</p>
                 </div>
                 <div class="antworten">
-                    <button id="Antwort 1">Antwort 1</button>
-                    <button id="Antwort 2">Antwort 2</button>
-                    <button id="Antwort 3">Antwort 3</button>
-                    <button id="Antwort 3">Antwort 4</button>
+                    <button id="Antwort 1" v-on:click= "handleButtonClick">{{ answer1 }}</button>
+                    <button id="Antwort 2" v-on:click= "handleButtonClick">{{ answer2 }}</button>
+                    <button id="Antwort 3" v-on:click= "handleButtonClick">{{ answer3 }}</button>
+                    <button id="Antwort 3" v-on:click= "handleButtonClick">{{ answer4 }}</button>
                 </div>
             </div>
             <div v-else>
