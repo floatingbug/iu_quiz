@@ -64,9 +64,17 @@ nav {
     background-color: #00a7b5;
 }
 
-@media(max-width: 800px) {
-    .container {
-        height: 20vh;
+@media(max-width: 700px) {
+    .link-container>a {
+        font-size: 0.8rem;
+    }
+}
+
+@media(max-width: 450px) {
+    .link-container>a {
+        font-size: 0.8rem;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 </style>

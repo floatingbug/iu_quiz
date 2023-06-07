@@ -154,17 +154,19 @@ function createLobby(e){
 
 .button-container {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin-top: 2rem;
+  gap: 20px;
 }
 
 .button-container button {
-  min-width: 150px;
-  max-width: 200px;
-  background-color: #00a7b5;
-  border: 3px solid black;
-  transition: border 0.1s ease;
-  margin-right: 10%;
+    min-width: 200px;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .button-container button:hover {

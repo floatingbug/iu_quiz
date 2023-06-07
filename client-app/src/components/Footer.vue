@@ -52,4 +52,19 @@ p {
     font-size: 110%;
     font-weight: bold;
 }
+
+@media(max-width: 460px) {
+    .footer {
+        font-size: 0.7rem;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .container-links {
+        font-size: 0.7rem;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+}
 </style>

@@ -1,4 +1,11 @@
 <script setup>
+
+import { useRouter } from 'vue-router';
+
+const navToFragen = () => {
+    const router = useRouter();
+    router.push('/fragen');
+};
 </script>
 
 
@@ -25,7 +32,8 @@
             <option value="45sec">45 Sekunden </option>
             <option value="60sec">60 Sekunden</option>
         </select>
-        <button id="startQuiz">Quiz Starten</button>
+        
+        <button v-on:click="navToFragen">Quiz Starten</button>
         
     </div>
 </template>

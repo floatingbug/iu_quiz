@@ -105,6 +105,11 @@ main button {
     width: 20px;
     height: 50px;
     margin-top: 50px;
+    border: solid #000000 4px;
+}
+
+.player button:hover{
+  background-color: #0096a3;
 }
 
 @media(max-width: 590px){
@@ -112,10 +117,23 @@ main button {
         flex: 1;
     }
 }
-@media(max-width: 415px){
+
+@media(max-width: 850px){
     .player>*{
         min-width: 200px;
-        height: 200px;
+        height: 150px;
+    }
+}
+
+@media(max-width: 422px){
+    .player>*{
+        min-width: 100px;
+        height: 100px;
+    }
+    .player button {
+        width: 200px;
+        height: 50px;
+        margin-top: 50px;
     }
 }
 </style>

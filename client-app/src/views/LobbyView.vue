@@ -117,6 +117,10 @@ onMounted(()=>{
     margin-top: 10%;
 }
 
+.container-btn-1 button:hover {
+  background-color: #0096a3;
+}
+
 /* Media Queries */
 @media screen and (max-width: 768px) {
   .container {
