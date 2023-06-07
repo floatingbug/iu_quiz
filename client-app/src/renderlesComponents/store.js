@@ -20,7 +20,6 @@ const store = reactive({
         points:Number,
     },
 
-    addPlayer,
 })
 
 

@@ -10,7 +10,7 @@ const handleGame = {
 }
 
 function startFetchGamedata(){
-	const eventSource = new EventSource(`${API_URL}/play-mode?id=${store.lobby.lobbyId}`);
+	const eventSource = new EventSource(`${API_URL}/fetch-game-data?id=${store.lobby.lobbyId}`);
 
 	eventSource.onmessage = function(event){
 		try{

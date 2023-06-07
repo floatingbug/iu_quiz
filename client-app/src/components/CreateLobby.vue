@@ -34,8 +34,6 @@ function createLobby(e){
         data: store.lobby
     };
 
-    console.log(request)
-
     apiCallRef.value.call(request, (result)=>{
         if(result.code == 1){
             errMsg.value = "Lobby konnte auf dem Server nicht erstellt werden."

@@ -1,17 +1,36 @@
 <script setup>
+import {ref} from 'vue';
 import {useRouter} from 'vue-router';
 import {store} from '../renderlesComponents/store.js';
 import {handleGame} from '../renderlesComponents/handleGame.js';
+import apiCall from '../renderlesComponents/ApiCall.vue';
 const router = useRouter();
+const apiCallRef = ref(null);
 
 handleGame.startFetchGamedata()
 
 function startQuiz(){
-	router.push('Fragen')
+    const quizId = store.lobby.lobbyId;
+    const request = {
+        url: '/start-quiz',
+        method: 'post',
+        data: {quizId}
+    };
+
+    const result = apiCallRef.value.call(request, (result)=>{
+        if(result.code === 1){
+            console.log(result.msg)
+            return
+        }
+
+    });
+   
+    router.push('fragen')
 }
 </script>
 
 <template>
+    <apiCall ref=apiCallRef />
     <div class="container">
         <header>
             <div class="group-id">ID: {{store.lobby.lobbyId}}</div>

@@ -8,7 +8,8 @@ const {addUser} = require('./routes/addUser');
 const {showUsers} = require('./routes/showUsers');
 const {createLobby} = require('./routes/createLobby');
 const {addPlayerToLobby} = require('./routes/addPlayerToLobby');
-const {handleGame} = require('./routes/handleGame');
+const {fetchGameData} = require('./routes/fetchGameData');
+const {startQuiz} = require('./routes/startQuiz');
 
 function createApi({store, lobbyStore}){
     
@@ -29,6 +30,7 @@ function createApi({store, lobbyStore}){
     api.post('/add-user', addUser({store}))
     api.post('/create-lobby', createLobby({store, lobbyStore}))
     api.post('/add-player-to-lobby', addPlayerToLobby({store, lobbyStore}))
+    api.post('/start-quiz', startQuiz({store, lobbyStore}))
 
     //queries (geben immer etwas zurück, daher get-methoden).
     //ändern nie den serverzustand.
@@ -36,7 +38,7 @@ function createApi({store, lobbyStore}){
 
 
     //server sent events
-    api.get('/play-mode', handleGame({store, lobbyStore}))
+    api.get('/fetch-game-data', fetchGameData({store, lobbyStore}))
 
     return api
 }

@@ -12,20 +12,10 @@ const answer2 = store.quiz.answer2;
 const answer3 = store.quiz.answer3;
 const answer4 = store.quiz.answer4;
 
-function startTimer() {
-    const timer = setInterval(() => {
-        countdown.value--;
-        if (countdown.value === 0) {
-            clearInterval(timer);
-            showTimer.value = false;
-        }
-    }, 1000);
-}
 function handleButtonClick() {
   showRichtigeAntwort.value = true;
 }
 
-  startTimer();
 </script>
 
 
@@ -34,7 +24,7 @@ function handleButtonClick() {
     <div class="container">
         <div id="timer">
             <div v-if="showTimer">
-                <h2>{{ countdown }} sec</h2>
+                <h2>{{ store.lobby.counter }} sec</h2>
                 <div class="frage">
                     <p>{{ question }}</p>
                 </div>

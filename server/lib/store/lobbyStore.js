@@ -7,7 +7,14 @@ const lobbyStore = {
 }
 
 function addLobby({lobbyId, gameMode, groupName, players}){
-    this.lobbies.set(lobbyId, {lobbyId, groupName, players, gameMode});
+    this.lobbies.set(lobbyId, {
+        lobbyId, 
+        groupName, 
+        players, 
+        gameMode, 
+        isRunning: false,
+        counter: 100
+    });
     return this.lobbies.get(lobbyId)
 }
 
