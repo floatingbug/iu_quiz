@@ -1,6 +1,7 @@
 @import './base.css';
 
-body {
+body, html {
+	height: 100%;
     margin: 0;
     padding: 0;
     background-image: linear-gradient(180deg, rgba(255, 250, 250, 0.74) 0%, rgb(0, 0, 0) 100%);

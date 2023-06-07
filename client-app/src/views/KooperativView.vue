@@ -1,22 +1,13 @@
 <script setup>
+import {useRouter} from 'vue-router';
 import {store} from '../renderlesComponents/store.js';
-const API_URL_LOCAL = "http://localhost:8000";
-const API_URL_Server = 'http://212.71.252.220:8000';
-const API_URL = API_URL_LOCAL;
-const eventSource = new EventSource(`${API_URL}/play-mode?id=${store.lobby.lobbyId}`);
+import {handleGame} from '../renderlesComponents/handleGame.js';
+const router = useRouter();
 
-eventSource.onmessage = function(event){
-    try{
-        store.lobby = JSON.parse(event.data)
-    }
-    catch(error){
-        console.log(error)
-    }
-    console.log(store.lobby)
-};
+handleGame.startFetchGamedata()
 
-eventSource.onerror = function(){
-    console.log("error with sse")
+function startQuiz(){
+	router.push('Fragen')
 }
 </script>
 
@@ -34,8 +25,8 @@ eventSource.onerror = function(){
                 <div class="player-2">{{store.lobby.players[1]}}</div>
                 <div class="player-3">{{store.lobby.players[2]}}</div>
                 <div class="player-4">{{store.lobby.players[3]}}</div>
-                <button>Quiz Starten</button>
             </div>
+            <button v-on:click="startQuiz">Quiz Starten</button>
         </main>
     </div>
 </template>
@@ -110,7 +101,7 @@ main {
     background-color: green;
 }
 
-.player button {
+main button {
     width: 20px;
     height: 50px;
     margin-top: 50px;

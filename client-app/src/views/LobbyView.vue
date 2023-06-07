@@ -1,10 +1,12 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import CreateLobby from '../components/CreateLobby.vue'
 import JoinLobby from '../components/JoinLobby.vue'
+import {store} from '../renderlesComponents/store.js';
 const showContainerBtn1 = ref(true)
 const showCreateLobby = ref(false)
 const showJoinLobby = ref(false)
+const showReturnToLobby = ref(false)
 
 //hide container-btn-1 and show createLobby or joinLobby.vue
 function hideContainerBtn1(e) {
@@ -26,6 +28,12 @@ function backToContainerBtn1() {
     showCreateLobby.value = false
     showJoinLobby.value = false
 }
+onMounted(()=>{
+	if(store.lobby.gameMode){
+		showReturnToLobby.value = true;
+		showContainerBtn1.value = false;
+	}
+})
 </script>
 
 
@@ -41,6 +49,7 @@ function backToContainerBtn1() {
             <button id="create-lobby">Create Lobby</button>
             <button id="join-lobby">Join Lobby</button>
         </div>
+		<button v-if="showReturnToLobby" v-on:click="$router.push('kooperativ')">Return to Lobby</button>
         <CreateLobby v-if="showCreateLobby" v-on:back-to-lobby="backToContainerBtn1" />
         <JoinLobby v-if="showJoinLobby" />
       </div>

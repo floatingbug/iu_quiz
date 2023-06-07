@@ -9,13 +9,7 @@ const store = reactive({
         lobbyId: Number,
         gameMode: "",
     },
-
-    addPlayer,
 })
-
-function addPlayer(playerName){
-    this.lobby.players.push(playerName)
-}
 
 
 export { store }

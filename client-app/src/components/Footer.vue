@@ -15,10 +15,10 @@
 
 <style scoped>
 .container {
-    position: fixed;
+	position: fixed;
     width: 100%;
     height: 8%;
-    bottom: 0px;
+	bottom: 0;
 }
 
 .footer {

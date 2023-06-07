@@ -1,16 +1,14 @@
 function handleGame({store, lobbyStore}){
     return (req, res)=>{
         const lobbyId = req.query.id;
-        console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-        console.log(lobbyId)
-        console.log(lobbyStore)
-        const lobby = lobbyStore.lobbies.get(lobbyId);
-        const lobbyStringifyed = JSON.stringify(lobby);
-        
         console.log("client connected")
         res.setHeader('content-type', 'text/event-stream')
 
         const intervalId = setInterval(()=>{
+        
+			const lobby = lobbyStore.lobbies.get(lobbyId);
+       		const lobbyStringifyed = JSON.stringify(lobby);
+        
             console.log(lobby)
             console.log(req.query)
             res.write("data: " + lobbyStringifyed + "\n\n")
