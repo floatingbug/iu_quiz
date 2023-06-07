@@ -48,7 +48,9 @@
     color:black;
     margin-left: 8%;
     margin-right: 8%;
-
+    background: linear-gradient(180deg, #000000 0%, #333030 42%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 p{
@@ -66,7 +68,9 @@ img {
 }
 
 .text1{
-    color: #FFFFFF;
+    background: linear-gradient(180deg, #C0BBBB 0%, #FFFFFF 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
     padding-bottom: 20%;
 }
 
