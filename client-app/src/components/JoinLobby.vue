@@ -73,7 +73,7 @@ function joinLobby(){
         </div>
         <p class="err-msg" v-if="errMsg">{{errMsg}}</p>
         <div class="button-container">
-            <button v-on:click="checkInput">Join Lobby</button>
+            <button v-on:click="joinLobby">Join Lobby</button>
             <button v-on:click="$emit('backToLobby')">Cancel</button>
         </div>
       </div>
