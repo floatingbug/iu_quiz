@@ -8,6 +8,7 @@ const lobbyId = ref("");
 const playerName = ref("");
 const errMsg = ref("");
 const apiCallRef = ref(null);
+const emit = defineEmits(['backToLobby'])
 
 function checkInput(e){
     if(lobbyId.value === "" || playerName.value === ""){
@@ -74,7 +75,7 @@ function joinLobby(e){
         <p class="err-msg" v-if="errMsg">{{errMsg}}</p>
         <div class="button-container">
             <button v-on:click="checkInput">Join Lobby</button>
-            <button v-on:click="$router.push('home')">Cancel</button>
+            <button v-on:click="$emit('backToLobby')">Cancel</button>
         </div>
       </div>
     </div>

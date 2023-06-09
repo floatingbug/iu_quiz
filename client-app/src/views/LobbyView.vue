@@ -51,7 +51,7 @@ onMounted(()=>{
         </div>
 		<button v-if="showReturnToLobby" v-on:click="$router.push('kooperativ')">Return to Lobby</button>
         <CreateLobby v-if="showCreateLobby" v-on:back-to-lobby="backToContainerBtn1" />
-        <JoinLobby v-if="showJoinLobby" />
+        <JoinLobby v-if="showJoinLobby" v-on:back-to-lobby="backToContainerBtn1" />
       </div>
     </div>
   </div>
