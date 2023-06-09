@@ -9,7 +9,16 @@ const playerName = ref("");
 const errMsg = ref("");
 const apiCallRef = ref(null);
 
-function joinLobby(){
+function checkInput(e){
+    if(lobbyId.value === "" || playerName.value === ""){
+        errMsg.value = "Gruppen-ID und Spielername werden benötigt."
+        return
+    }
+
+    errMsg.value = "";
+}
+
+function joinLobby(e){
     //find lobby by lobbyId on server and add new player to server
     const data = {lobbyId: lobbyId.value, playerName: playerName.value};
     const request = {
@@ -62,8 +71,9 @@ function joinLobby(){
                     placeholder="Geben Sie ihren Spielernamen ein"
                 />
         </div>
+        <p class="err-msg" v-if="errMsg">{{errMsg}}</p>
         <div class="button-container">
-            <button v-on:click="joinLobby">Join Lobby</button>
+            <button v-on:click="checkInput">Join Lobby</button>
             <button v-on:click="$router.push('home')">Cancel</button>
         </div>
       </div>
