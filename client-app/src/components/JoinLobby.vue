@@ -13,13 +13,17 @@ const emit = defineEmits(['backToLobby'])
 function checkInput(){
     if(lobbyId.value === "" || playerName.value === ""){
         errMsg.value = "Gruppen-ID und Spielername werden benötigt."
-        return
+        return false
     }
 
     errMsg.value = "";
+    return true;
 }
 
 function joinLobby(){
+  if (!checkInput()) {
+    return; // Stop if input validation fails
+  }
     //find lobby by lobbyId on server and add new player to server
     const data = {lobbyId: lobbyId.value, playerName: playerName.value};
     const request = {
@@ -51,7 +55,6 @@ function joinLobby(){
 <template>
     <apiCall ref="apiCallRef" />
   <div class="container">
-
     <div class="right-column">
       <div class="form-container">
         <div class="form-input">
