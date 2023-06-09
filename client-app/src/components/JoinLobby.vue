@@ -10,7 +10,7 @@ const errMsg = ref("");
 const apiCallRef = ref(null);
 const emit = defineEmits(['backToLobby'])
 
-function checkInput(e){
+function checkInput(){
     if(lobbyId.value === "" || playerName.value === ""){
         errMsg.value = "Gruppen-ID und Spielername werden benötigt."
         return
@@ -19,7 +19,7 @@ function checkInput(e){
     errMsg.value = "";
 }
 
-function joinLobby(e){
+function joinLobby(){
     //find lobby by lobbyId on server and add new player to server
     const data = {lobbyId: lobbyId.value, playerName: playerName.value};
     const request = {
