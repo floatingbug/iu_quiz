@@ -115,7 +115,7 @@ function createLobby(e){
   flex: 1;
   min-width: 500px;
   padding-left: 10%; 
-  padding-right: 10%; 
+  padding-right: 50%; 
   align-content: center;
 }
 
@@ -155,7 +155,7 @@ function createLobby(e){
   background-color: #00a7b5;
   border: 3px solid black;
   transition: border 0.1s ease;
-  margin-right: 5%;
+  margin-right: 10%;
   margin-top: 2rem;
 }
 
