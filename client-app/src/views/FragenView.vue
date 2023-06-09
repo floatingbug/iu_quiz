@@ -20,8 +20,10 @@ function handleButtonClick() {
 
 
 <template>
-    <img src="../assets/logo.png" alt="LOGO" />
     <div class="container">
+        <div class="logo">
+            <img src="../assets/logo.png" alt="LOGO" />
+        </div>
         <div id="timer">
             <div v-if="showTimer">
                 <h2>{{ store.lobby.counter }} sec</h2>
@@ -38,12 +40,9 @@ function handleButtonClick() {
             <div v-else>
                 <RichtigeAntwort/>
             </div>
-        </div>
-        
+        </div>   
     </div>
-
 </template>
-
 
 <style scoped>
 .container{
@@ -52,13 +51,12 @@ function handleButtonClick() {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -8vw;
 }
 
 h2{
     color: black;
     font-weight: 700;
-    font-size: 1,5vw;
+    font-size: 1.5vw;
     text-align: center;
 }
 
@@ -72,7 +70,8 @@ p{
     color: black;
     font-weight: 700;
     font-size: 1.4vw;
-    margin-top: 1vw;;
+    margin-top: 1vw;
+    justify-content: center;
 }
 
 .antworten{
@@ -82,15 +81,57 @@ p{
     height: 16vw;
     grid-gap: 0.5vw;
     margin-top: 0.5vw;
+    justify-content: center;
 }
-img {
-    min-width: 180px;
-    max-width: 20vw;
-   margin-left: 75%;
-   margin-top: 5%;
+
+.logo {
+    min-width: 50%;
+    max-width: 10%;
+    width: 100%;
+    margin-top: 8vw;
+    display: flex;
+    justify-content: center;
 }
+
+.logo img {
+    width: 100%;
+    object-fit: contain;
+}
+
 
 button{
     height: 7vw;
 }
+
+@media (max-width: 1035px) {
+    .antworten {
+        grid-template-columns: 1fr;
+    }
+
+    h2 {
+        font-size: 5vw;
+    }
+
+    p {
+        width: 90%;
+        font-size: 4vw;
+        justify-content: center;
+    }
+
+    .logo {
+        align-content: center;
+        max-width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    button{
+        height: auto;
+        width: 90%;
+        padding: 2vw;
+    }
+}
 </style>
+
+
+
