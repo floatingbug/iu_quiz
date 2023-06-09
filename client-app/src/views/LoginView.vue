@@ -68,7 +68,7 @@ function loginUser() {
         <p class="err-msg" v-if="errMsg">{{errMsg}}</p>
 
         <div class="link-container">
-          <router-link to="">Passwort vergessen</router-link>
+          <router-link to="" class="password-link">Passwort vergessen</router-link>
         </div>
 
         <div class="button-container">
@@ -153,6 +153,13 @@ function loginUser() {
 
 .link-container {
   margin-top: 1rem;
+  color: black;
+  text-decoration: underline;
+}
+
+.link-container .password-link {
+  font-weight: bold;
+  color: black;
 }
 
 /* Media Queries */
