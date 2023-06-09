@@ -91,13 +91,6 @@ function joinLobby(e){
   margin-top: 10%;
 }
 
-.left-column {
-  flex: 1;
-  min-width: 200px;
-  padding-right: 10%; 
-  text-align: center;
-}
-
 .logo {
   max-width: 100%;
   height: auto;
@@ -106,20 +99,19 @@ function joinLobby(e){
 
 .right-column {
   flex: 1;
-  min-width: 200px;
+  min-width: 500px;
   padding-left: 10%; 
   padding-right: 10%; 
+  align-content: center;
 }
 
 .form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 100%;
 }
 
 .form-input {
   margin-bottom: 10%;
+  margin-right: 10%;
 }
 
 .form-container label {
@@ -140,6 +132,7 @@ function joinLobby(e){
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
+  flex-direction: row;
 }
 
 .button-container button {
@@ -149,6 +142,7 @@ function joinLobby(e){
   border: 3px solid black;
   transition: border 0.1s ease;
   margin-right: 10%;
+  margin-top: 2rem;
 }
 
 .button-container button:hover {
@@ -160,7 +154,7 @@ function joinLobby(e){
 }
 
 /* Media Queries */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 945px) {
   .container {
     flex-direction: column;
     align-items: center; 
