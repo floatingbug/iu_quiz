@@ -120,8 +120,6 @@ function createLobby(e){
 }
 
 .form-container {
-  display: flex;
-  flex-direction: column;
   width: 100%;
 }
 
@@ -148,6 +146,7 @@ function createLobby(e){
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
+  flex-direction: column;
 }
 
 .button-container button {
@@ -157,6 +156,7 @@ function createLobby(e){
   border: 3px solid black;
   transition: border 0.1s ease;
   margin-right: 10%;
+  margin-top: 2rem;
 }
 
 .button-container button:hover {
