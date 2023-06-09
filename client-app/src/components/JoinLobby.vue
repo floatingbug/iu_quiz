@@ -60,8 +60,7 @@ function joinLobby(e){
                     id="lobbyId"
                     v-model="lobbyId"
                     type="text"
-                    placeholder="Geben Sie die ID der Lobby ein, der Sie joinen möchten"
-                />
+                    placeholder="Geben Sie die ID der Lobby ein, der Sie joinen möchten"/>
         </div>
         <div class="form-input">
             <label for="playername">Spielername:</label>
