@@ -155,7 +155,7 @@ function createLobby(e){
   background-color: #00a7b5;
   border: 3px solid black;
   transition: border 0.1s ease;
-  margin-right: 10%;
+  margin-right: 5%;
   margin-top: 2rem;
 }
 
@@ -165,6 +165,13 @@ function createLobby(e){
 
 .link-container {
   margin-top: 1rem;
+}
+
+@media screen and (max-width: 1360px) {
+  .button-container {
+    flex-direction: column;
+    align-items: center; 
+  }
 }
 
 /* Media Queries */
