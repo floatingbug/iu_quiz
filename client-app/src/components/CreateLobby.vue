@@ -58,7 +58,6 @@ function createLobby(e){
 <template>
     <apiCall ref="apiCallRef" />
   <div class="container">
-
     <div class="right-column">
       <div class="form-container">
         <div class="form-input">
@@ -106,13 +105,6 @@ function createLobby(e){
   margin-top: 10%;
 }
 
-.left-column {
-  flex: 1;
-  min-width: 200px;
-  padding-right: 10%; 
-  text-align: center;
-}
-
 .logo {
   max-width: 100%;
   height: auto;
@@ -121,14 +113,16 @@ function createLobby(e){
 
 .right-column {
   flex: 1;
-  min-width: 200px;
+  min-width: 500px;
   padding-left: 10%; 
   padding-right: 10%; 
+  align-content: center;
 }
 
 .form-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .form-input {
@@ -152,19 +146,17 @@ function createLobby(e){
 
 .button-container {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   margin-top: 2rem;
-  gap: 20px;
 }
 
 .button-container button {
-    min-width: 200px;
-    width: 25%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  min-width: 150px;
+  max-width: 200px;
+  background-color: #00a7b5;
+  border: 3px solid black;
+  transition: border 0.1s ease;
+  margin-right: 10%;
 }
 
 .button-container button:hover {
@@ -176,7 +168,7 @@ function createLobby(e){
 }
 
 /* Media Queries */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 945px) {
   .container {
     flex-direction: column;
     align-items: center; 
