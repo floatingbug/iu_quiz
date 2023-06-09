@@ -47,10 +47,10 @@ function handleButtonClick() {
 <style scoped>
 .container{
     min-height: 20vh;
-    height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 20%;
 }
 
 h2{
@@ -61,17 +61,20 @@ h2{
 }
 
 p{
-    width: 40vw;
-    height: 7vw;
-    border: 4px solid black;
-    border-radius: 25px;
-    background-color:#00a7b5;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #000000;
+    background-color: #00A7B5;
+    padding: 10px 30px;
+    border: solid #000000 4px;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 50px;
+    transform: translateY(0);
     text-align: center;
     color: black;
     font-weight: 700;
     font-size: 1.4vw;
-    margin-top: 1vw;
-    justify-content: center;
+    margin-top: 2%;
 }
 
 .antworten{
@@ -103,6 +106,7 @@ button{
     height: 7vw;
 }
 
+
 @media (max-width: 1035px) {
     .antworten {
         grid-template-columns: 1fr;
@@ -113,10 +117,11 @@ button{
     }
 
     p {
-        width: 90%;
+        width: 100%;
         font-size: 4vw;
-        justify-content: center;
+        height: auto;
     }
+
 
     .logo {
         align-content: center;
@@ -127,9 +132,12 @@ button{
     
     button{
         height: auto;
-        width: 90%;
+        width: 100%;
         padding: 2vw;
     }
+
+
+
 }
 </style>
 
