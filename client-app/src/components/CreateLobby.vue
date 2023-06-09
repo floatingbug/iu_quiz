@@ -67,8 +67,7 @@ function createLobby(e){
                     id="groupname"
                     v-model="groupName"
                     type="text"
-                    placeholder="Geben Sie einen Gruppennamen ein"
-                />
+                    placeholder="Geben Sie einen Gruppennamen ein"/>
             </div>
         </div>
         <div class="form-input">
