@@ -113,11 +113,12 @@ function joinLobby(e){
 .form-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .form-input {
   margin-bottom: 10%;
-  margin-right: 10%;
 }
 
 .form-container label {
