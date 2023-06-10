@@ -1,20 +1,29 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import RichtigeAntwort from '../components/RichtigeAntwort.vue'
 import {store} from '../renderlesComponents/store.js';
 
 const showRichtigeAntwort = ref(false);
 const showTimer = ref(true);
-const countdown = ref(5);
 const question = store.quiz.question;
 const answer1 = store.quiz.answer1;
 const answer2 = store.quiz.answer2;
 const answer3 = store.quiz.answer3;
 const answer4 = store.quiz.answer4;
+//const counter = lobbyStore.lobbies.get(lobbyId)?.counter;
 
 function handleButtonClick() {
+    console.log(showRichtigeAntwort.value);
   showRichtigeAntwort.value = true;
+  showTimer.value = false;
 }
+
+//watch (counter, (newValue) => {
+  //  if (newValue <= 0) {
+    //    showTimer.value = false;
+      //  showRichtigeAntwort.value = true;
+   // }
+//});
 
 </script>
 
@@ -35,7 +44,7 @@ function handleButtonClick() {
                     <button id="Antwort 3" v-on:click= "handleButtonClick">{{ answer4 }}</button>
                 </div>
             </div>
-            <div v-else>
+            <div v-if="showRichtigeAntwort">
                 <RichtigeAntwort/>
             </div>
         </div>

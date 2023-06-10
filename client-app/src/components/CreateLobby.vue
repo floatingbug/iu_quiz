@@ -7,11 +7,12 @@ const apiCallRef = ref();
 const router = useRouter();
 const groupName = ref("");
 const playerName = ref("");
+const counter = ref(30);
 const errMsg = ref("");
 const chooseGamemode = ref(false);
 const emit = defineEmits(['backToLobby'])
 
-function checkInput(e){
+function checkInput(){
     if(groupName.value === "" || playerName.value === ""){
         errMsg.value = "Gruppen- und Spielername werden benötigt."
         return
@@ -23,6 +24,7 @@ function checkInput(e){
     store.lobby.lobbyId = crypto.randomUUID();
     errMsg.value = "";
     chooseGamemode.value = true;
+    store.lobby.counter = counter.value;
 }
 
 function createLobby(e){
@@ -83,6 +85,38 @@ function createLobby(e){
                 />
             </div>
         </div>
+
+        <div>
+            <div class="form-select" v-if="!chooseGamemode">
+                  <label for="theme">Themenbereich:</label>
+              <select id="theme">
+                <option value="Thema1">Thema 1</option>
+                <option value="Thema2">Thema 2</option>
+                <option value="Thema3">Thema 3</option>
+              </select>
+            </div>
+        </div>
+        <div>
+            <div class="form-select" v-if="!chooseGamemode">
+                  <label for="anzFragen">Anzahl Fragen:</label>
+              <select id="anzFragen">
+                <option value="10Fragen">10 Fragen</option>
+                <option value="15Fragen">15 Fragen</option>
+                <option value="20Fragen">20 Fragen</option>
+              </select>
+          </div>
+        </div>
+        <div>
+            <div class="form-select" v-if="!chooseGamemode">
+                  <label for="counter">Zeit pro Frage:</label>
+              <select id="counter" v-model="counter">
+                <option value=30>30 Sekunden</option>
+                <option value=45>45 Sekunden</option>
+                <option value=60>60 Sekunden</option>
+              </select>
+            </div>
+        </div> 
+
         <p class="err-msg" v-if="errMsg">{{errMsg}}</p>
         <div class="button-container">
             <button v-if="!chooseGamemode" v-on:click="checkInput">Create Lobby</button>
@@ -103,7 +137,7 @@ function createLobby(e){
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 10%;
+  margin-top: 0
 }
 
 .left-column {
@@ -119,6 +153,12 @@ function createLobby(e){
   margin-left: 10%; 
 }
 
+label{
+    color: black;
+    width: 30%;
+    align-items: left;
+}
+
 .right-column {
   flex: 1;
   min-width: 200px;
@@ -132,8 +172,15 @@ function createLobby(e){
 }
 
 .form-input {
-  margin-bottom: 10%;
+  margin-bottom: 1%;
   margin-right: 10%;
+}
+
+.form-select {
+  margin-bottom: 1%;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-container label {
@@ -144,6 +191,13 @@ function createLobby(e){
 }
 
 .form-container input {
+  font-size: 1.4rem;
+  width: 100%; 
+  padding: 0.5rem;
+  margin-right: 10%;
+}
+
+.form-container select {
   font-size: 1.4rem;
   width: 100%; 
   padding: 0.5rem;

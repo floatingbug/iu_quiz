@@ -4,7 +4,6 @@ import Login from '../views/LoginView.vue'
 import Lobby from '../views/LobbyView.vue'
 import Scoreboard from '../views/ScoreboardView.vue'
 import Impressum from '../views/ImpressumView.vue'
-import Spieleinstellungen from '../views/SpieleinstellungenView.vue'
 import Hilfe from '../views/HilfeView.vue'
 import Fragen from '../views/FragenView.vue'
 import Gruppenansicht from '../views/GruppenansichtView.vue'
@@ -45,12 +44,6 @@ const router = createRouter({
             path: '/impressum',
             name: 'impressum',
             component: Impressum
-        },
-
-        {
-            path: '/spieleinstellungen',
-            name: 'spieleinstellungen',
-            component: Spieleinstellungen
         },
 
         {
