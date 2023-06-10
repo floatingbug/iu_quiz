@@ -60,7 +60,6 @@ function createLobby(e){
 <template>
     <apiCall ref="apiCallRef" />
   <div class="container">
-
     <div class="right-column">
       <div class="form-container">
         <div class="form-input">
@@ -70,8 +69,7 @@ function createLobby(e){
                     id="groupname"
                     v-model="groupName"
                     type="text"
-                    placeholder="Geben Sie einen Gruppennamen ein"
-                />
+                    placeholder="Geben Sie einen Gruppennamen ein"/>
             </div>
         </div>
         <div class="form-input">
@@ -140,13 +138,6 @@ function createLobby(e){
   margin-top: 0
 }
 
-.left-column {
-  flex: 1;
-  min-width: 200px;
-  padding-right: 10%; 
-  text-align: center;
-}
-
 .logo {
   max-width: 100%;
   height: auto;
@@ -161,14 +152,14 @@ label{
 
 .right-column {
   flex: 1;
-  min-width: 200px;
-  padding-left: 10%; 
+  min-width: 500px;
+  padding-left: 0%; 
   padding-right: 10%; 
+  align-content: center;
 }
 
 .form-container {
-  display: flex;
-  flex-direction: column;
+  width: 100%;
 }
 
 .form-input {
@@ -206,19 +197,19 @@ label{
 
 .button-container {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   margin-top: 2rem;
-  gap: 20px;
+  flex-direction: column;
 }
 
 .button-container button {
-    min-width: 200px;
-    width: 25%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  min-width: 250px;
+  max-width: 300px;
+  background-color: #00a7b5;
+  border: 3px solid black;
+  transition: border 0.1s ease;
+  margin-right: 5%;
+  margin-top: 2rem;
 }
 
 .button-container button:hover {
@@ -230,7 +221,7 @@ label{
 }
 
 /* Media Queries */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 945px) {
   .container {
     flex-direction: column;
     align-items: center; 
@@ -256,22 +247,9 @@ label{
     margin-right: 0; 
   }
 
-
-
   .form-container input {
     width: 100%; 
   }
 
-  .button-container {
-    flex-direction: column; 
-    align-items: center; 
-    margin-top: 1rem; 
-    padding-bottom: 4rem;
-  }
-
-  .button-container button {
-    margin-bottom: 1rem;
-    margin-right: 0;
-  }
 }
 </style>

@@ -3,12 +3,27 @@ import { reactive, ref } from 'vue'
 import apiCall from '../renderlesComponents/ApiCall.vue'
 import { store } from '../renderlesComponents/store.js'
 const apiCallRef = ref()
+const errMsg = ref("");
 const credentials = reactive({
     email: '',
     password: ''
 })
 
+function checkInput(){
+    if(email.value === "" || password.value === ""){
+        errMsg.value = "E-Mail-Adresse und Passwort werden benoetigt."
+        return false
+    }
+
+    errMsg.value = "";
+    return true;
+}
+
 function loginUser() {
+  if (!checkInput()) {
+    return; // Stop if input validation fails
+  }
+
     const request = {
         method: 'post',
         url: '/login-user',
@@ -23,7 +38,10 @@ function loginUser() {
             else{
                 store.isLoggedIn = true;
             }
-        }
+        } 
+        else {
+          errMsg.value = "Login ist ungültig."
+    }
         console.log(result.msg)
     })
 }
@@ -55,9 +73,10 @@ function loginUser() {
             v-model="credentials.password"
           />
         </div>
+        <p class="err-msg" v-if="errMsg">{{errMsg}}</p>
 
         <div class="link-container">
-          <router-link to="">Passwort vergessen</router-link>
+          <router-link to="" class="password-link">Passwort vergessen</router-link>
         </div>
 
         <div class="button-container">
@@ -142,6 +161,13 @@ function loginUser() {
 
 .link-container {
   margin-top: 1rem;
+  color: black;
+  text-decoration: underline;
+}
+
+.link-container .password-link {
+  font-weight: bold;
+  color: black;
 }
 
 /* Media Queries */
