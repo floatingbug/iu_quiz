@@ -12,13 +12,18 @@ const credentials = reactive({
 function checkInput(){
     if(email.value === "" || password.value === ""){
         errMsg.value = "E-Mail-Adresse und Passwort werden benoetigt."
-        return
+        return false
     }
 
     errMsg.value = "";
+    return true;
 }
 
 function loginUser() {
+  if (!checkInput()) {
+    return; // Stop if input validation fails
+  }
+
     const request = {
         method: 'post',
         url: '/login-user',
@@ -33,7 +38,10 @@ function loginUser() {
             else{
                 store.isLoggedIn = true;
             }
-        }
+        } 
+        else {
+          errMsg.value = "Login ist ungültig."
+    }
         console.log(result.msg)
     })
 }
@@ -72,7 +80,7 @@ function loginUser() {
         </div>
 
         <div class="button-container">
-          <button type="button" v-on:click="checkInput">Einloggen</button>
+          <button type="button" v-on:click="loginUser">Einloggen</button>
           <button type="button">Registrieren</button>
         </div>
       </div>
