@@ -127,7 +127,7 @@ main button {
     border: solid #000000 4px;
 }
 
-.player button:hover{
+main button:hover{
   background-color: #0096a3;
 }
 
@@ -149,7 +149,7 @@ main button {
         min-width: 100px;
         height: 100px;
     }
-    .player button {
+    main button {
         width: 200px;
         height: 50px;
         margin-top: 50px;

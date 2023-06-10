@@ -3,10 +3,20 @@ import { reactive, ref } from 'vue'
 import apiCall from '../renderlesComponents/ApiCall.vue'
 import { store } from '../renderlesComponents/store.js'
 const apiCallRef = ref()
+const errMsg = ref("");
 const credentials = reactive({
     email: '',
     password: ''
 })
+
+function checkInput(){
+    if(email.value === "" || password.value === ""){
+        errMsg.value = "E-Mail-Adresse und Passwort werden benoetigt."
+        return
+    }
+
+    errMsg.value = "";
+}
 
 function loginUser() {
     const request = {
@@ -55,13 +65,14 @@ function loginUser() {
             v-model="credentials.password"
           />
         </div>
+        <p class="err-msg" v-if="errMsg">{{errMsg}}</p>
 
         <div class="link-container">
-          <router-link to="">Passwort vergessen</router-link>
+          <router-link to="" class="password-link">Passwort vergessen</router-link>
         </div>
 
         <div class="button-container">
-          <button type="button" v-on:click="loginUser">Einloggen</button>
+          <button type="button" v-on:click="checkInput">Einloggen</button>
           <button type="button">Registrieren</button>
         </div>
       </div>
@@ -142,6 +153,13 @@ function loginUser() {
 
 .link-container {
   margin-top: 1rem;
+  color: black;
+  text-decoration: underline;
+}
+
+.link-container .password-link {
+  font-weight: bold;
+  color: black;
 }
 
 /* Media Queries */

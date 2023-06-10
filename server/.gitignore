@@ -1,3 +1,7 @@
 node_modules
 .env
+<<<<<<< HEAD
 index.js
+=======
+index.js
+>>>>>>> a1efea60ea71bbd1766698cea50a19a70b680805

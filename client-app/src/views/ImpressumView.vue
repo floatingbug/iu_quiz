@@ -90,6 +90,10 @@ button{
     margin-bottom: 30%;
 }
 
+button:hover {
+  background-color: #0096a3;
+}
+
 img {
     min-width: 180px;
     max-width: 20vw;

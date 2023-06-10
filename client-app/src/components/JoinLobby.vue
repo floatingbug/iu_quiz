@@ -8,8 +8,22 @@ const lobbyId = ref("");
 const playerName = ref("");
 const errMsg = ref("");
 const apiCallRef = ref(null);
+const emit = defineEmits(['backToLobby'])
+
+function checkInput(){
+    if(lobbyId.value === "" || playerName.value === ""){
+        errMsg.value = "Gruppen-ID und Spielername werden benötigt."
+        return false
+    }
+
+    errMsg.value = "";
+    return true;
+}
 
 function joinLobby(){
+  if (!checkInput()) {
+    return; // Stop if input validation fails
+  }
     //find lobby by lobbyId on server and add new player to server
     const data = {lobbyId: lobbyId.value, playerName: playerName.value};
     const request = {
@@ -41,7 +55,6 @@ function joinLobby(){
 <template>
     <apiCall ref="apiCallRef" />
   <div class="container">
-
     <div class="right-column">
       <div class="form-container">
         <div class="form-input">
@@ -50,8 +63,7 @@ function joinLobby(){
                     id="lobbyId"
                     v-model="lobbyId"
                     type="text"
-                    placeholder="Geben Sie die ID der Lobby ein, der Sie joinen möchten"
-                />
+                    placeholder="Geben Sie die ID der Lobby ein, der Sie joinen möchten"/>
         </div>
         <div class="form-input">
             <label for="playername">Spielername:</label>
@@ -62,9 +74,10 @@ function joinLobby(){
                     placeholder="Geben Sie ihren Spielernamen ein"
                 />
         </div>
+        <p class="err-msg" v-if="errMsg">{{errMsg}}</p>
         <div class="button-container">
             <button v-on:click="joinLobby">Join Lobby</button>
-            <button v-on:click="$router.push('home')">Cancel</button>
+            <button v-on:click="$emit('backToLobby')">Cancel</button>
         </div>
       </div>
     </div>
@@ -80,13 +93,6 @@ function joinLobby(){
   margin-top: 10%;
 }
 
-.left-column {
-  flex: 1;
-  min-width: 200px;
-  padding-right: 10%; 
-  text-align: center;
-}
-
 .logo {
   max-width: 100%;
   height: auto;
@@ -95,14 +101,14 @@ function joinLobby(){
 
 .right-column {
   flex: 1;
-  min-width: 200px;
+  min-width: 500px;
   padding-left: 10%; 
   padding-right: 10%; 
+  align-content: center;
 }
 
 .form-container {
-  display: flex;
-  flex-direction: column;
+  width: 100%;
 }
 
 .form-input {
@@ -128,6 +134,7 @@ function joinLobby(){
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
+  flex-direction: row;
 }
 
 .button-container button {
@@ -137,6 +144,7 @@ function joinLobby(){
   border: 3px solid black;
   transition: border 0.1s ease;
   margin-right: 10%;
+  margin-top: 2rem;
 }
 
 .button-container button:hover {
@@ -148,7 +156,7 @@ function joinLobby(){
 }
 
 /* Media Queries */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 945px) {
   .container {
     flex-direction: column;
     align-items: center; 

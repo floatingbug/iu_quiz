@@ -73,6 +73,10 @@ button{
     margin-top: 8%;
 }
 
+button:hover {
+  background-color: #0096a3;
+}
+
 img {
     min-width: 180px;
     max-width: 20vw;
