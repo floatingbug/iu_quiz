@@ -114,7 +114,7 @@ function createLobby(e){
   flex: 1;
   min-width: 500px;
   padding-left: 10%; 
-  padding-right: 50%; 
+  padding-right: 10%; 
   align-content: center;
 }
 
@@ -156,6 +156,7 @@ function createLobby(e){
   transition: border 0.1s ease;
   margin-right: 10%;
   margin-top: 2rem;
+  font-size: 1.2rem;
 }
 
 .button-container button:hover {
@@ -166,10 +167,9 @@ function createLobby(e){
   margin-top: 1rem;
 }
 
-@media screen and (max-width: 1360px) {
-  .button-container {
-    flex-direction: column;
-    align-items: center; 
+@media screen and (max-height: 768px) {
+  .button-container button {
+    font-size: 0.8rem;
   }
 }
 
