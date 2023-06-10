@@ -34,6 +34,7 @@ function joinLobby(){
 
     apiCallRef.value.call(request, (result)=>{
         if(result.code === 1){
+            errMsg.value = "Lobby konnte nicht gefunden werden."
             console.log(result.msg)
             return
         }
