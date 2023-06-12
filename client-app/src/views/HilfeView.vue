@@ -77,6 +77,10 @@ th, td {
 
 @media (max-width: 945px) {
 
+    .container{
+    padding-bottom: 20%;
+}
+
     table {
         width: 80%;
     }
