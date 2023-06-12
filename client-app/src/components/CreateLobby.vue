@@ -18,11 +18,27 @@ const chooseGamemode = ref(false);
 const emit = defineEmits(['backToLobby'])
 
 function checkInput(){
-    //todo: check if ALL propperties in settings are set.
+    
     if(settings.groupName === "" || settings.playerName === ""){
         errMsg.value = "Gruppen- und Spielername werden benötigt."
         return
     }
+    //abgeschlossener todo:  Wert settings.numberQuestions und settings.time sind nicht mit null ansprechbar!! 
+    //Chat Gpt sagt das ich im const setting numberQuestions: Number() so umschreiben soll. Auch das funktioniert aber nicht. Hast du eine Ahnung warum ?
+    //settings.theme funktioniert.
+    if(settings.theme ===""){
+        errMsg.value = "Bitte ein Thema auswählen"
+        return
+    }
+    if(settings.numberQuestions === null){
+        errMsg.value = "Bitte eine Anzahl an Fragen wählen"
+        return
+    }
+    if(settings.time === null){
+        errMsg.value = "Bitte die Zeit pro Frage wählen"
+        return
+    }
+    //bis hier hin neu eingefügt.
 
     //store settings to lobby.
     store.lobby.players = [];
