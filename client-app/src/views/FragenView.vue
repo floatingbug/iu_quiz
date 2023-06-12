@@ -1,30 +1,15 @@
 <script setup>
-import { ref, watch } from 'vue'
+import {reactive} from 'vue'
 import RichtigeAntwort from '../components/RichtigeAntwort.vue'
 import {store} from '../renderlesComponents/store.js';
 
-const showRichtigeAntwort = ref(false);
-const showTimer = ref(true);
-const question = store.quiz.question;
-const answer1 = store.quiz.answer1;
-const answer2 = store.quiz.answer2;
-const answer3 = store.quiz.answer3;
-const answer4 = store.quiz.answer4;
-//const counter = lobbyStore.lobbies.get(lobbyId)?.counter;
+const state = reactive({
+    showRightAnswer: false,
+});
 
-function handleButtonClick() {
-    console.log(showRichtigeAntwort.value);
-  showRichtigeAntwort.value = true;
-  showTimer.value = false;
+function evaluateAnswer() {
+    showRightAnswer = true;
 }
-
-//watch (counter, (newValue) => {
-  //  if (newValue <= 0) {
-    //    showTimer.value = false;
-      //  showRichtigeAntwort.value = true;
-   // }
-//});
-
 </script>
 
 
@@ -35,18 +20,18 @@ function handleButtonClick() {
         </div>
         <div id="timer">
             <div v-if="showTimer">
-                <h2>{{ store.lobby.counter }} sec</h2>
+                <h2>{{ store.lobby.time }} sec</h2>
                 <div class="frage">
                     <p>{{ question }}</p>
                 </div>
                 <div class="antworten">
-                    <button id="Antwort 1" v-on:click= "handleButtonClick">{{ answer1 }}</button>
-                    <button id="Antwort 2" v-on:click= "handleButtonClick">{{ answer2 }}</button>
-                    <button id="Antwort 3" v-on:click= "handleButtonClick">{{ answer3 }}</button>
-                    <button id="Antwort 3" v-on:click= "handleButtonClick">{{ answer4 }}</button>
+                    <button id="1" v-on:click= "evaluateAnswer">{{ answer1 }}</button>
+                    <button id="2" v-on:click= "evaluateAnswer">{{ answer2 }}</button>
+                    <button id="3" v-on:click= "evaluateAnswer">{{ answer3 }}</button>
+                    <button id="3" v-on:click= "evaluateAnswer">{{ answer4 }}</button>
                 </div>
             </div>
-            <div v-if="showRichtigeAntwort">
+            <div v-if="showRightAnswer">
                 <RichtigeAntwort/>
             </div>
         </div>   

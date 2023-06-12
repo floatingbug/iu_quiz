@@ -1,44 +1,41 @@
 <script setup>
-import {ref} from 'vue'
+import {ref, reactive} from 'vue'
 import {useRouter} from 'vue-router'
 import {store} from '../renderlesComponents/store.js';
 import apiCall from '../renderlesComponents/ApiCall.vue';
-import Spieleinstellungen from './Spieleinstellungen.vue';
 const apiCallRef = ref();
 const router = useRouter();
-const groupName = ref("");
-const playerName = ref("");
-const counter = ref(30);
+const settings = reactive({
+    groupName: "",
+    playerName: "",
+    theme: "",
+    playerName: "",
+    numberQuestions: Number,
+    time: Number,
+});
 const errMsg = ref("");
-const isSettings = ref(false);
 const chooseGamemode = ref(false);
 const emit = defineEmits(['backToLobby'])
 
 function checkInput(){
-    if(groupName.value === "" || playerName.value === ""){
+    //todo: check if ALL propperties in settings are set.
+    if(settings.groupName === "" || settings.playerName === ""){
         errMsg.value = "Gruppen- und Spielername werden benötigt."
         return
     }
 
-    //todo: check if gamesettings are stored in store
-
+    //store settings to lobby.
     store.lobby.players = [];
-    store.lobby.groupName = groupName.value;
-    store.lobby.players.push(playerName.value);
+    store.lobby.groupName = settings.groupName;
+    store.lobby.players.push(settings.playerName);
     store.lobby.lobbyId = crypto.randomUUID();
+    store.lobby.theme = settings.theme;
+    store.lobby.numberQuestions = parseInt(settings.numberQuestions);
+    store.lobby.time = parseInt(settings.time);
+
+    
     errMsg.value = "";
     chooseGamemode.value = true;
-    store.lobby.counter = counter.value;
-}
-
-//save settings that are made in Spieleeinstellungen.vue to store.lobby.
-//todo: show form-container class only if isSettings is true.
-function saveSettings(e){
-    store.lobby.numberQuestions = parseInt(e.data.numberQuestions);
-    store.lobby.time = parseInt(e.data.time);
-    store.lobby.theme = e.data.theme;
-    console.log(store.lobby)
-    isSettings.value = true;
 }
 
 function createLobby(e){
@@ -49,7 +46,6 @@ function createLobby(e){
         url: '/create-lobby',
         data: store.lobby
     };
-    console.log(request)
 
     apiCallRef.value.call(request, (result)=>{
         if(result.code == 1){
@@ -69,9 +65,6 @@ function createLobby(e){
 </script>
 
 
-
-
-
 <template>
     <apiCall ref="apiCallRef" />
   <div class="container">
@@ -82,7 +75,7 @@ function createLobby(e){
                 <label for="groupname">Gruppennamen:</label>
                 <input
                     id="groupname"
-                    v-model="groupName"
+                    v-model="settings.groupName"
                     type="text"
                     placeholder="Geben Sie einen Gruppennamen ein"/>
             </div>
@@ -92,7 +85,7 @@ function createLobby(e){
                     <label for="playername">Spielername:</label>
                 <input
                     id="playername"
-                    v-model="playerName"
+                    v-model="settings.playerName"
                     type="text"
                     placeholder="Geben Sie Ihren Spielernamen ein"
                 />
@@ -101,28 +94,28 @@ function createLobby(e){
 
         <div>
             <div class="form-select" v-if="!chooseGamemode">
-                  <label for="theme">Themenbereich:</label>
-              <select id="theme">
-                <option value="Thema1">Thema 1</option>
-                <option value="Thema2">Thema 2</option>
-                <option value="Thema3">Thema 3</option>
+              <label for="theme">Themenbereich:</label>
+              <select id="theme" v-model="settings.theme">
+                <option value="1">Thema 1</option>
+                <option value="2">Thema 2</option>
+                <option value="3">Thema 3</option>
               </select>
             </div>
         </div>
         <div>
             <div class="form-select" v-if="!chooseGamemode">
-                  <label for="anzFragen">Anzahl Fragen:</label>
-              <select id="anzFragen">
-                <option value="10Fragen">10 Fragen</option>
-                <option value="15Fragen">15 Fragen</option>
-                <option value="20Fragen">20 Fragen</option>
+              <label for="anzFragen">Anzahl Fragen:</label>
+              <select id="anzFragen" v-model="settings.numberQuestions">
+                <option value="10">10 Fragen</option>
+                <option value="15">15 Fragen</option>
+                <option value="20">20 Fragen</option>
               </select>
           </div>
         </div>
         <div>
             <div class="form-select" v-if="!chooseGamemode">
-                  <label for="counter">Zeit pro Frage:</label>
-              <select id="counter" v-model="counter">
+              <label for="counter">Zeit pro Frage:</label>
+              <select id="counter" v-model="settings.time">
                 <option value=30>30 Sekunden</option>
                 <option value=45>45 Sekunden</option>
                 <option value=60>60 Sekunden</option>
@@ -132,11 +125,8 @@ function createLobby(e){
 
         <p class="err-msg" v-if="errMsg">{{errMsg}}</p>
         
-        <!-- gamesettings -->
-        <Spieleinstellungen v-if="!isSettings" v-on:save-settings="saveSettings" />
-
         <div class="button-container">
-            <button v-if="!chooseGamemode && isSettings" v-on:click="checkInput">Create Lobby</button>
+            <button v-if="!chooseGamemode" v-on:click="checkInput">Create Lobby</button>
             <button data-gameMode="koop" v-if="chooseGamemode" v-on:click="createLobby">Kooperatives Spiel</button>
             <button data-gameMode="kollab" v-if="chooseGamemode" v-on:click="createLobby">Kollaboratives Spiel</button>
             <button v-on:click="$emit('backToLobby')">Cancel</button>
@@ -145,8 +135,6 @@ function createLobby(e){
     </div>
   </div>
 </template>
-
-
 
 
 <style scoped>
