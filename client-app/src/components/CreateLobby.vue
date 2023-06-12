@@ -3,11 +3,13 @@ import {ref} from 'vue'
 import {useRouter} from 'vue-router'
 import {store} from '../renderlesComponents/store.js';
 import apiCall from '../renderlesComponents/ApiCall.vue';
+import Spieleinstellungen from './Spieleinstellungen.vue';
 const apiCallRef = ref();
 const router = useRouter();
 const groupName = ref("");
 const playerName = ref("");
 const errMsg = ref("");
+const isSettings = ref(false);
 const chooseGamemode = ref(false);
 const emit = defineEmits(['backToLobby'])
 
@@ -17,12 +19,24 @@ function checkInput(e){
         return
     }
 
+    //todo: check if gamesettings are stored in store
+
     store.lobby.players = [];
     store.lobby.groupName = groupName.value;
     store.lobby.players.push(playerName.value);
     store.lobby.lobbyId = crypto.randomUUID();
     errMsg.value = "";
     chooseGamemode.value = true;
+}
+
+//save settings that are made in Spieleeinstellungen.vue to store.lobby.
+//todo: show form-container class only if isSettings is true.
+function saveSettings(e){
+    store.lobby.numberQuestions = parseInt(e.data.numberQuestions);
+    store.lobby.time = parseInt(e.data.time);
+    store.lobby.theme = e.data.theme;
+    console.log(store.lobby)
+    isSettings.value = true;
 }
 
 function createLobby(e){
@@ -33,6 +47,7 @@ function createLobby(e){
         url: '/create-lobby',
         data: store.lobby
     };
+    console.log(request)
 
     apiCallRef.value.call(request, (result)=>{
         if(result.code == 1){
@@ -82,8 +97,12 @@ function createLobby(e){
             </div>
         </div>
         <p class="err-msg" v-if="errMsg">{{errMsg}}</p>
+        
+        <!-- gamesettings -->
+        <Spieleinstellungen v-if="!isSettings" v-on:save-settings="saveSettings" />
+
         <div class="button-container">
-            <button v-if="!chooseGamemode" v-on:click="checkInput">Create Lobby</button>
+            <button v-if="!chooseGamemode && isSettings" v-on:click="checkInput">Create Lobby</button>
             <button data-gameMode="koop" v-if="chooseGamemode" v-on:click="createLobby">Kooperatives Spiel</button>
             <button data-gameMode="kollab" v-if="chooseGamemode" v-on:click="createLobby">Kollaboratives Spiel</button>
             <button v-on:click="$emit('backToLobby')">Cancel</button>

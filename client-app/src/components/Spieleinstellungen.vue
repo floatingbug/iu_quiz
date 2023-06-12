@@ -1,40 +1,42 @@
 <script setup>
+import {reactive} from 'vue';
+import {store} from '../renderlesComponents/store.js';
 
-import { useRouter } from 'vue-router';
+const settings = reactive({
+    theme: "",
+    numberQuestions: Number,
+    time: Number,
+});
 
-const navToFragen = () => {
-    const router = useRouter();
-    router.push('/fragen');
-};
+//todo: check if all settings are choosen.
+
 </script>
 
 
 <template>
-    <img src="../assets/logo.png" alt="LOGO" />
     <div class="container">
         <label for="Thema">Themenbereich:</label>
-        <select id="Thema">
+        <select id="Thema" v-model="settings.theme">
             <option value="Thema1">Thema 1</option>
             <option value="Thema2">Thema 2</option>
             <option value="Thema3">Thema 3</option>
         </select>
 
         <label for="AnzFragen">Anzahl Fragen:</label>
-        <select id="AnzFragen">
-            <option value="10Fragen">10 Fragen</option>
-            <option value="15Fragen">15 Fragen</option>
-            <option value="20Fragen">20 Fragen</option>
+        <select id="AnzFragen" v-model="settings.numberQuestions">
+            <option value="10">10 Fragen</option>
+            <option value="15">15 Fragen</option>
+            <option value="20">20 Fragen</option>
         </select>
 
         <label for="ZeitProFrage">Zeit pro Frage:</label>
-        <select id="ZeitProFrage">
-            <option value="30sec">30 Sekunden</option>
-            <option value="45sec">45 Sekunden </option>
-            <option value="60sec">60 Sekunden</option>
+        <select id="ZeitProFrage" v-model="settings.time">
+            <option value="30">30 Sekunden</option>
+            <option value="45">45 Sekunden </option>
+            <option value="60">60 Sekunden</option>
         </select>
         
-        <button v-on:click="navToFragen">Quiz Starten</button>
-        
+        <button v-on:click="$emit('save-settings', {data: settings})">Einstellungen Übernehmen</button>
     </div>
 </template>
 

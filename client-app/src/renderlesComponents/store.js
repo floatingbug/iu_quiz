@@ -8,6 +8,9 @@ const store = reactive({
         players: [],
         lobbyId: Number,
         gameMode: "",
+        theme: "",
+        time: Number,
+        numberQuestions: Number,
     },
     
 	quiz:{
