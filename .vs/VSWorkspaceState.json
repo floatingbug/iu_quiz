@@ -4,6 +4,7 @@
     "\\client-app",
     "\\client-app\\src",
     "\\client-app\\src\\components",
+    "\\client-app\\src\\router",
     "\\client-app\\src\\views"
   ],
   "PreviewInSolutionExplorer": false
