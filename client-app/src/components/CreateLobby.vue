@@ -160,6 +160,7 @@ label{
 
 .form-container {
   width: 100%;
+  padding-bottom: 20%;
 }
 
 .form-input {
@@ -200,6 +201,7 @@ label{
   justify-content: space-between;
   margin-top: 2rem;
   flex-direction: column;
+  align-items: center;
 }
 
 .button-container button {
@@ -239,7 +241,8 @@ label{
   }
 
   .form-container {
-    align-items: center; 
+    align-items: center;
+    padding-bottom: 20%;
   }
 
   .form-input {
@@ -249,6 +252,14 @@ label{
 
   .form-container input {
     width: 100%; 
+  }
+
+  .form-select{
+    width: 100%;
+  }
+
+  .button-container{
+    align-items: center;
   }
 
 }
