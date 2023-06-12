@@ -6,20 +6,13 @@ const store = reactive({
     lobby: {
         groupName: "",
         players: [],
+        playersPoints: [],
         lobbyId: Number,
         gameMode: "",
+        theme: "",
+        time: Number,
+        numberQuestions: Number,
     },
-    
-	quiz:{
-        question:"Test Frage",
-        answer1:"Test Antwort 1",
-        answer2:"Test Antwort 2",
-        answer3:"Test Antwort 3",
-        answer4:"Test Antwort 4",
-        rightAnswer:"Test Richtige Antwort",
-        points:Number,
-    },
-
 })
 
 

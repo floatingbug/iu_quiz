@@ -1,26 +1,39 @@
 <script setup>
-import {ref} from 'vue'
+import {ref, reactive} from 'vue'
 import {useRouter} from 'vue-router'
 import {store} from '../renderlesComponents/store.js';
 import apiCall from '../renderlesComponents/ApiCall.vue';
 const apiCallRef = ref();
 const router = useRouter();
-const groupName = ref("");
-const playerName = ref("");
+const settings = reactive({
+    groupName: "",
+    playerName: "",
+    theme: "",
+    playerName: "",
+    numberQuestions: Number,
+    time: Number,
+});
 const errMsg = ref("");
 const chooseGamemode = ref(false);
 const emit = defineEmits(['backToLobby'])
 
 function checkInput(){
-    if(groupName.value === "" || playerName.value === ""){
+    //todo: check if ALL propperties in settings are set.
+    if(settings.groupName === "" || settings.playerName === ""){
         errMsg.value = "Gruppen- und Spielername werden benötigt."
         return
     }
 
+    //store settings to lobby.
     store.lobby.players = [];
-    store.lobby.groupName = groupName.value;
-    store.lobby.players.push(playerName.value);
+    store.lobby.groupName = settings.groupName;
+    store.lobby.players.push(settings.playerName);
     store.lobby.lobbyId = crypto.randomUUID();
+    store.lobby.theme = settings.theme;
+    store.lobby.numberQuestions = parseInt(settings.numberQuestions);
+    store.lobby.time = parseInt(settings.time);
+
+    
     errMsg.value = "";
     chooseGamemode.value = true;
 }
@@ -52,9 +65,6 @@ function createLobby(e){
 </script>
 
 
-
-
-
 <template>
     <apiCall ref="apiCallRef" />
   <div class="container">
@@ -65,7 +75,7 @@ function createLobby(e){
                 <label for="groupname">Gruppennamen:</label>
                 <input
                     id="groupname"
-                    v-model="groupName"
+                    v-model="settings.groupName"
                     type="text"
                     placeholder="Geben Sie einen Gruppennamen ein"/>
             </div>
@@ -75,13 +85,46 @@ function createLobby(e){
                     <label for="playername">Spielername:</label>
                 <input
                     id="playername"
-                    v-model="playerName"
+                    v-model="settings.playerName"
                     type="text"
                     placeholder="Geben Sie Ihren Spielernamen ein"
                 />
             </div>
         </div>
+
+        <div>
+            <div class="form-select" v-if="!chooseGamemode">
+              <label for="theme">Themenbereich:</label>
+              <select id="theme" v-model="settings.theme">
+                <option value="1">Thema 1</option>
+                <option value="2">Thema 2</option>
+                <option value="3">Thema 3</option>
+              </select>
+            </div>
+        </div>
+        <div>
+            <div class="form-select" v-if="!chooseGamemode">
+              <label for="anzFragen">Anzahl Fragen:</label>
+              <select id="anzFragen" v-model="settings.numberQuestions">
+                <option value="10">10 Fragen</option>
+                <option value="15">15 Fragen</option>
+                <option value="20">20 Fragen</option>
+              </select>
+          </div>
+        </div>
+        <div>
+            <div class="form-select" v-if="!chooseGamemode">
+              <label for="counter">Zeit pro Frage:</label>
+              <select id="counter" v-model="settings.time">
+                <option value=30>30 Sekunden</option>
+                <option value=45>45 Sekunden</option>
+                <option value=60>60 Sekunden</option>
+              </select>
+            </div>
+        </div> 
+
         <p class="err-msg" v-if="errMsg">{{errMsg}}</p>
+        
         <div class="button-container">
             <button v-if="!chooseGamemode" v-on:click="checkInput">Create Lobby</button>
             <button data-gameMode="koop" v-if="chooseGamemode" v-on:click="createLobby">Kooperatives Spiel</button>
@@ -94,20 +137,24 @@ function createLobby(e){
 </template>
 
 
-
-
 <style scoped>
 .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 10%;
+  margin-top: 0
 }
 
 .logo {
   max-width: 100%;
   height: auto;
   margin-left: 10%; 
+}
+
+label{
+    color: black;
+    width: 30%;
+    align-items: left;
 }
 
 .right-column {
@@ -120,11 +167,19 @@ function createLobby(e){
 
 .form-container {
   width: 100%;
+  padding-bottom: 20%;
 }
 
 .form-input {
-  margin-bottom: 10%;
+  margin-bottom: 1%;
   margin-right: 10%;
+}
+
+.form-select {
+  margin-bottom: 1%;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-container label {
@@ -141,11 +196,19 @@ function createLobby(e){
   margin-right: 10%;
 }
 
+.form-container select {
+  font-size: 1.4rem;
+  width: 100%; 
+  padding: 0.5rem;
+  margin-right: 10%;
+}
+
 .button-container {
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
   flex-direction: column;
+  align-items: center;
 }
 
 .button-container button {
@@ -185,7 +248,8 @@ function createLobby(e){
   }
 
   .form-container {
-    align-items: center; 
+    align-items: center;
+    padding-bottom: 20%;
   }
 
   .form-input {
@@ -195,6 +259,14 @@ function createLobby(e){
 
   .form-container input {
     width: 100%; 
+  }
+
+  .form-select{
+    width: 100%;
+  }
+
+  .button-container{
+    align-items: center;
   }
 
 }

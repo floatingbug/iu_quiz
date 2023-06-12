@@ -10,7 +10,7 @@ function fetchGameData({store, lobbyStore}){
         
         //continuous send lobby-data to client.
         const intervalId = setInterval(async()=>{
-       		const lobbyStringifyed = await JSON.stringify(lobby);
+       	    const lobbyStringifyed = await JSON.stringify(lobby);
 
             res.write("data:" + lobbyStringifyed + "\n\n")
         }, 1000)

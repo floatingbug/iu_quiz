@@ -1,15 +1,13 @@
 function loginUser({store}){
     return async (req, res)=>{
-        const credentials = req.body;
 
-        const result = await store.checkCredentials(credentials);
+        //todo: check if username and password are in req.body.
+        const credentials = req.body;
+        console.log(credentials)
+
+        const result = await store.loginUser(credentials);
         if(result === 1){
             res.json({code: 1, msg: "email or password is incorrect"})
-            return 1
-        }
-       
-        if(result === 2){
-            res.json({code: 1, msg: "intern server error"})
             return 1
         }
 

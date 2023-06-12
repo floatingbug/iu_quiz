@@ -2,82 +2,110 @@
 </script>
 
 
+
 <template>
-    <img src="../assets/logo.png" alt="LOGO" />
     <div class="container">
-        <p>Um Fragen Einsenden zu können müssen Sie eingeloggt sein.</p> 
-        <br>
-        <h3>Startseite (HOME)</h3>
-        <p>Auf der Startseite haben Sie die Möglichkeit, das Spiel zu starten, sich anzumelden oder zu registrieren, das Scoreboard anzusehen, zum Hilfe-Bereich zu wechseln oder Feedback zu hinterlassen.</p>
-        <br>
-        <h3>Lobby</h3>
-        <p>Die Lobby ist der Ort, an dem Sie ein neues Spiel starten oder einem bestehenden Spiel beitreten können. Wählen Sie 'Create Lobby', um eine neue Lobby zu erstellen und Freunde einzuladen. Wählen Sie 'Join Lobby', um einem bereits bestehenden Spiel beizutreten.</p>
-        <br>
-        <h3>Spielmodi</h3>
-        <p>Die App bietet drei verschiedene Spielmodi: Einzel, Kooperativ und Kollaborativ. Im Einzelmodus spielen Sie alleine und versuchen, so viele Punkte wie möglich zu sammeln. Im kooperativen Modus arbeiten Sie mit anderen Spielern zusammen, um gemeinsam eine hohe Punktzahl zu erreichen. Im kollaborativen Modus treten Teams gegeneinander an und versuchen, als Gruppe die meisten Punkte zu sammeln.</p>
-        <br>
-        <h3>Scoreboard</h3>
-        <p>Im Scoreboard können Sie die aktuellsten Punktestände und Ranglisten einsehen. Sehen Sie, wer die meisten Punkte in den verschiedenen Spielmodi gesammelt hat und streben Sie an, diese zu überbieten!</p>
-        <br>
-        <h3>Hilfe</h3>
-        <p>Auf der Hilfe-Seite finden Sie nützliche Informationen und Anleitungen zur Bedienung der App. Wenn Sie weitere Fragen haben, zögern Sie nicht, uns über die Feedback-Funktion zu kontaktieren.</p>
-        <br>
-    <div class="text1">
-        <h3>Login</h3>
-        <p>Um sich einzuloggen, geben Sie bitte Ihren Benutzernamen und Ihr Passwort in die entsprechenden Felder ein. Wenn Sie noch keinen Account haben, können Sie sich kostenlos registrieren.</p>
-        <br>
-        <h3>Impressum</h3>
-        <p>Im Impressum finden Sie rechtliche Informationen zur App und zum Entwickler.</p>
-        <br>
-        <h3>Feedback</h3>
-        <p>Wir schätzen Ihr Feedback sehr. Nutzen Sie die Feedback-Seite, um uns Ihre Gedanken, Vorschläge oder Probleme mit der App mitzuteilen.</p>
-        <br>
-        <h3>Passwort vergessen</h3>
-        <p>Haben Sie Ihr Passwort vergessen? Keine Sorge, es passiert den Besten von uns. Folgen Sie bitte den unten aufgeführten Schritten, um Ihr Passwort zurückzusetzen und wieder Zugang zu Ihrem Konto zu erhalten.</p>
-    </div>
+        <table id="hilfestellung">
+            <tr>
+                <th class="titel">Fragen einsenden</th>
+                <th>Um Fragen Einsenden zu können müssen Sie eingeloggt sein</th>
+            </tr>
+            <tr>
+                <th class="titel">Startseite (HOME)</th>
+                <th>Auf der Startseite haben Sie die Möglichkeit, das Spiel zu starten, sich anzumelden oder zu registrieren, das Scoreboard anzusehen, zum Hilfe-Bereich zu wechseln oder Feedback zu hinterlassen.</th>
+            </tr>
+            <tr>
+                <th class="titel">Lobby</th>
+                <th>Die Lobby ist der Ort, an dem Sie ein neues Spiel starten oder einem bestehenden Spiel beitreten können. Wählen Sie 'Create Lobby', um eine neue Lobby zu erstellen und Freunde einzuladen. Wählen Sie 'Join Lobby', um einem bereits bestehenden Spiel beizutreten.</th>
+            </tr>
+            <tr>
+                <th class="titel">Spielmodi</th>
+                <th>Die App bietet drei verschiedene Spielmodi: Einzel, Kooperativ und Kollaborativ. Im Einzelmodus spielen Sie alleine und versuchen, so viele Punkte wie möglich zu sammeln. Im kooperativen Modus arbeiten Sie mit anderen Spielern zusammen, um gemeinsam eine hohe Punktzahl zu erreichen. Im kollaborativen Modus treten Teams gegeneinander an und versuchen, als Gruppe die meisten Punkte zu sammeln.</th>
+            </tr>
+            <tr>
+                <th class="titel">Scoreboard</th>
+                <th>Im Scoreboard können Sie die aktuellsten Punktestände und Ranglisten einsehen. Sehen Sie, wer die meisten Punkte in den verschiedenen Spielmodi gesammelt hat und streben Sie an, diese zu überbieten!</th>
+            </tr>
+            <tr>
+                <th class="titel">Hilfe</th>
+                <th>Auf der Hilfe-Seite finden Sie nützliche Informationen und Anleitungen zur Bedienung der App. Wenn Sie weitere Fragen haben, zögern Sie nicht, uns über die Feedback-Funktion zu kontaktieren.</th>
+            </tr>
+            <tr>
+                <th class="titel">Login</th>
+                <th>Um sich einzuloggen, geben Sie bitte Ihren Benutzernamen und Ihr Passwort in die entsprechenden Felder ein. Wenn Sie noch keinen Account haben, können Sie sich kostenlos registrieren.</th>
+            </tr>
+            <tr>
+                <th class="titel">Impressum</th>
+                <th>Im Impressum finden Sie rechtliche Informationen zur App und zum Entwickler.</th>
+            </tr>
+            <tr>
+                <th class="titel">Feedback</th>
+                <th>Wir schätzen Ihr Feedback sehr. Nutzen Sie die Feedback-Seite, um uns Ihre Gedanken, Vorschläge oder Probleme mit der App mitzuteilen.</th>
+            </tr>
+            <tr>
+                <th class="titel">Passwort vergessen</th>
+                <th>Haben Sie Ihr Passwort vergessen? Keine Sorge, es passiert den Besten von uns. Folgen Sie bitte den unten aufgeführten Schritten, um Ihr Passwort zurückzusetzen und wieder Zugang zu Ihrem Konto zu erhalten.</th>
+            </tr>
+        </table>
     </div>
 </template>
 
-
 <style scoped>
-.container{
-    position: relative;
-    display: block;
-    text-align: center;
-    justify-content: center;
-    color:black;
-    margin-left: 8%;
-    margin-right: 8%;
-    background: linear-gradient(180deg, #000000 0%, #333030 42%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.container {
+    padding-bottom: 10%;
+    padding-top: 5%;
 }
 
-p{
-    font-weight: 700;
-    font-size: larger;
-}
-
-img {
-    min-width: 180px;
-    max-width: 20vw;
-    display: block;
+#hilfestellung {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5%;
 }
 
-.text1{
-    background: linear-gradient(180deg, #C0BBBB 0%, #FFFFFF 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+table {
+    min-width: 200px;
+    width: 50%;
+    background-image: linear-gradient(180deg,  #00a7b5 0%, rgba(172, 168, 168, 0.74) 100%);
+    border: 3px solid black;
+}
+
+th, td {
+    border: 3px solid black;
+    color: black;
+    font-weight: 700;
+    padding: 8px;
+}
+
+@media (max-width: 945px) {
+
+    .container{
     padding-bottom: 20%;
 }
 
-@media screen and (max-width: 768px) {
-    .container {
-        text-align: center;
+    table {
+        width: 80%;
     }
 
+    .titel {
+        margin-top: 5%;
+        border-bottom: none;
+    }
+
+    table th, table td {
+        display: block;
+    }
+    
+    table tr {
+        display: flex;
+        flex-direction: column;
+    }
 }
+
+@media (max-width: 365px) {
+
+.container{
+    padding-bottom: 40%;
+}
+
+}
+
 </style>
