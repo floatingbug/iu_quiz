@@ -11,7 +11,7 @@ const errMsg = ref("");
 const chooseGamemode = ref(false);
 const emit = defineEmits(['backToLobby'])
 
-function checkInput(e){
+function checkInput(){
     if(groupName.value === "" || playerName.value === ""){
         errMsg.value = "Gruppen- und Spielername werden benötigt."
         return
