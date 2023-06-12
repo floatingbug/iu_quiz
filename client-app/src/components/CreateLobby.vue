@@ -8,12 +8,13 @@ const apiCallRef = ref();
 const router = useRouter();
 const groupName = ref("");
 const playerName = ref("");
+const counter = ref(30);
 const errMsg = ref("");
 const isSettings = ref(false);
 const chooseGamemode = ref(false);
 const emit = defineEmits(['backToLobby'])
 
-function checkInput(e){
+function checkInput(){
     if(groupName.value === "" || playerName.value === ""){
         errMsg.value = "Gruppen- und Spielername werden benötigt."
         return
@@ -27,6 +28,7 @@ function checkInput(e){
     store.lobby.lobbyId = crypto.randomUUID();
     errMsg.value = "";
     chooseGamemode.value = true;
+    store.lobby.counter = counter.value;
 }
 
 //save settings that are made in Spieleeinstellungen.vue to store.lobby.
@@ -96,6 +98,38 @@ function createLobby(e){
                 />
             </div>
         </div>
+
+        <div>
+            <div class="form-select" v-if="!chooseGamemode">
+                  <label for="theme">Themenbereich:</label>
+              <select id="theme">
+                <option value="Thema1">Thema 1</option>
+                <option value="Thema2">Thema 2</option>
+                <option value="Thema3">Thema 3</option>
+              </select>
+            </div>
+        </div>
+        <div>
+            <div class="form-select" v-if="!chooseGamemode">
+                  <label for="anzFragen">Anzahl Fragen:</label>
+              <select id="anzFragen">
+                <option value="10Fragen">10 Fragen</option>
+                <option value="15Fragen">15 Fragen</option>
+                <option value="20Fragen">20 Fragen</option>
+              </select>
+          </div>
+        </div>
+        <div>
+            <div class="form-select" v-if="!chooseGamemode">
+                  <label for="counter">Zeit pro Frage:</label>
+              <select id="counter" v-model="counter">
+                <option value=30>30 Sekunden</option>
+                <option value=45>45 Sekunden</option>
+                <option value=60>60 Sekunden</option>
+              </select>
+            </div>
+        </div> 
+
         <p class="err-msg" v-if="errMsg">{{errMsg}}</p>
         
         <!-- gamesettings -->
@@ -120,7 +154,7 @@ function createLobby(e){
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 10%;
+  margin-top: 0
 }
 
 .logo {
@@ -129,21 +163,35 @@ function createLobby(e){
   margin-left: 10%; 
 }
 
+label{
+    color: black;
+    width: 30%;
+    align-items: left;
+}
+
 .right-column {
   flex: 1;
   min-width: 500px;
-  padding-left: 10%; 
-  padding-right: 50%; 
+  padding-left: 0%; 
+  padding-right: 10%; 
   align-content: center;
 }
 
 .form-container {
   width: 100%;
+  padding-bottom: 20%;
 }
 
 .form-input {
-  margin-bottom: 10%;
+  margin-bottom: 1%;
   margin-right: 10%;
+}
+
+.form-select {
+  margin-bottom: 1%;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-container label {
@@ -160,20 +208,28 @@ function createLobby(e){
   margin-right: 10%;
 }
 
+.form-container select {
+  font-size: 1.4rem;
+  width: 100%; 
+  padding: 0.5rem;
+  margin-right: 10%;
+}
+
 .button-container {
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
 }
 
 .button-container button {
-  min-width: 150px;
-  max-width: 200px;
+  min-width: 250px;
+  max-width: 300px;
   background-color: #00a7b5;
   border: 3px solid black;
   transition: border 0.1s ease;
-  margin-right: 10%;
+  margin-right: 5%;
   margin-top: 2rem;
 }
 
@@ -183,13 +239,6 @@ function createLobby(e){
 
 .link-container {
   margin-top: 1rem;
-}
-
-@media screen and (max-width: 1360px) {
-  .button-container {
-    flex-direction: column;
-    align-items: center; 
-  }
 }
 
 /* Media Queries */
@@ -211,7 +260,8 @@ function createLobby(e){
   }
 
   .form-container {
-    align-items: center; 
+    align-items: center;
+    padding-bottom: 20%;
   }
 
   .form-input {
@@ -219,22 +269,17 @@ function createLobby(e){
     margin-right: 0; 
   }
 
-
-
   .form-container input {
     width: 100%; 
   }
 
-  .button-container {
-    flex-direction: column; 
-    align-items: center; 
-    margin-top: 1rem; 
-    padding-bottom: 4rem;
+  .form-select{
+    width: 100%;
   }
 
-  .button-container button {
-    margin-bottom: 1rem;
-    margin-right: 0;
+  .button-container{
+    align-items: center;
   }
+
 }
 </style>
