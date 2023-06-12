@@ -49,8 +49,6 @@ const lobbyStore = {
 
     themes,
 
-    rightAnswers: new Map(),
-
     addLobby,
 
     findLobby,
