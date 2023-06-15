@@ -2,7 +2,6 @@ function evaluateAnswer({store, lobbyStore}){
     return (req, res)=>{  
         const playerName = req.body.playerName;
         const lobbyId = req.body.lobbyId;
-<<<<<<< HEAD
         const questionIdClient = req.body.questionId;
 
         const lobby = lobbyStore.lobbies.get(lobbyId);
