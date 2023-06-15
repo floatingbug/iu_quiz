@@ -1,9 +1,8 @@
 function evaluateAnswer({store, lobbyStore}){
-    return (req, res)=>{
-        //todo: check if all needed propperties are in payload.
-
+    return (req, res)=>{  
         const playerName = req.body.playerName;
         const lobbyId = req.body.lobbyId;
+<<<<<<< HEAD
         const questionIdClient = req.body.questionId;
 
         const lobby = lobbyStore.lobbies.get(lobbyId);
@@ -56,7 +55,6 @@ function evaluateAnswer({store, lobbyStore}){
             console.log(lobby)
             return
         }
-
     }
 }
 

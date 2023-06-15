@@ -61,16 +61,17 @@ function evaluateAnswer(key) {
 <style scoped>
 .container{
     min-height: 20vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20%;
 }
 
 h2{
     color: black;
     font-weight: 700;
-    font-size: 1.5vw;
+    size: 60%;
     text-align: center;
 }
 
@@ -90,6 +91,31 @@ p{
     font-size: 1.4vw;
     margin-top: 2%;
 }
+
+button{
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+img{
+    width: 30%;
+    margin-top: 3%;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+@media(max-width: 850px){
+    .row{
+    flex-direction: column;
+    }
+}
+
+
 </style>
 
 

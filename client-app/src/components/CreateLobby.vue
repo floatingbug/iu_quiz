@@ -23,22 +23,21 @@ function checkInput(){
         errMsg.value = "Gruppen- und Spielername werden benötigt."
         return
     }
-    //abgeschlossener todo:  Wert settings.numberQuestions und settings.time sind nicht mit null ansprechbar!! 
-    //Chat Gpt sagt das ich im const setting numberQuestions: Number() so umschreiben soll. Auch das funktioniert aber nicht. Hast du eine Ahnung warum ?
-    //settings.theme funktioniert.
-    if(settings.theme ===""){
+
+    if(settings.theme === ""){
         errMsg.value = "Bitte ein Thema auswählen"
         return
     }
-    if(settings.numberQuestions === null){
+
+    if (settings.numberQuestions === Number){
         errMsg.value = "Bitte eine Anzahl an Fragen wählen"
         return
     }
-    if(settings.time === null){
+
+    if(settings.time === Number){
         errMsg.value = "Bitte die Zeit pro Frage wählen"
         return
     }
-    //bis hier hin neu eingefügt.
 
     //store settings to lobby.
     store.lobby.players = [];
