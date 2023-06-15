@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from 'vue';
+import {ref, onMounted} from 'vue';
 import {useRouter} from 'vue-router';
 import {store} from '../renderlesComponents/store.js';
 import {handleGame} from '../renderlesComponents/handleGame.js';
@@ -8,6 +8,7 @@ const router = useRouter();
 const apiCallRef = ref(null);
 
 handleGame.startFetchGamedata()
+
 
 function startQuiz(){
     const quizId = store.lobby.lobbyId;

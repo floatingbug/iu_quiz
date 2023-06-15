@@ -8,8 +8,8 @@ const router = useRouter();
 const settings = reactive({
     groupName: "",
     playerName: "",
-    theme: "",
     playerName: "",
+    theme: Number,
     numberQuestions: Number,
     time: Number,
 });
@@ -44,8 +44,9 @@ function checkInput(){
     store.lobby.players = [];
     store.lobby.groupName = settings.groupName;
     store.lobby.players.push(settings.playerName);
+    store.playerName = settings.playerName;
     store.lobby.lobbyId = crypto.randomUUID();
-    store.lobby.theme = settings.theme;
+    store.lobby.theme = parseInt(settings.theme);
     store.lobby.numberQuestions = parseInt(settings.numberQuestions);
     store.lobby.time = parseInt(settings.time);
 
@@ -112,9 +113,9 @@ function createLobby(e){
             <div class="form-select" v-if="!chooseGamemode">
               <label for="theme">Themenbereich:</label>
               <select id="theme" v-model="settings.theme">
-                <option value="1">Thema 1</option>
-                <option value="2">Thema 2</option>
-                <option value="3">Thema 3</option>
+                <option value="0">Thema 1</option>
+                <option value="1">Thema 2</option>
+                <option value="2">Thema 3</option>
               </select>
             </div>
         </div>

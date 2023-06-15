@@ -24,6 +24,9 @@ function joinLobby(){
   if (!checkInput()) {
     return; // Stop if input validation fails
   }
+
+    store.playerName = playerName.value;
+
     //find lobby by lobbyId on server and add new player to server
     const data = {lobbyId: lobbyId.value, playerName: playerName.value};
     const request = {

@@ -1,30 +1,42 @@
 <script setup>
-import {ref, reactive} from 'vue'
+import {ref, reactive, onMounted} from 'vue'
 import RichtigeAntwort from '../components/RichtigeAntwort.vue'
 import {store} from '../renderlesComponents/store.js';
 import ApiCall from '../renderlesComponents/ApiCall.vue';
 
 const apiCallRef = ref(null);
-const state = reactive({
-    showRightAnswer: false,
-});
+const answerIsMade = ref(false);
+const gameIsOver = ref(false);
+let resultAnswer = ref("");
 
-
-function evaluateAnswer(e) {
+function evaluateAnswer(key) {
     const request = {
         method: "post",
         url: "/evaluate-answer",
         data: {
             lobbyId: store.lobby.lobbyId,
-            questionId: e.target.id,
+            questionId: key,
+            playerName: store.playerName,
         }
     };
 
     const result = apiCallRef.value.call(request, (result)=>{
         console.log(result)
+        answerIsMade.value = true;
+        if(result.data.noMoreQuestions){
+            gameIsOver.value = true;
+            return
+        }
+        if(result.data.rightAnswer){
+            resultAnswer.value = "Antwort war korrekt";
+        }
+        else{
+            resultAnswer.value = "Antwort war falsch";
+        }
+        if(result.data.gameIsOver){
+            gameIsOver.value = true;
+        }
     });
-
-    /* showRightAnswer = true; */
 }
 </script>
 
@@ -34,14 +46,15 @@ function evaluateAnswer(e) {
     <div class="container">
         <img src="../assets/logo.png" alt="LOGO" />
         <h2 id="timer">{{ store.lobby.time }} sec</h2>
-        <p>{{ question }}</p>
-        <div class="antworten">
-            <button id="1" v-on:click= "evaluateAnswer">{{ answer1 }}</button>
-            <button id="2" v-on:click= "evaluateAnswer">{{ answer2 }}</button>
-            <button id="3" v-on:click= "evaluateAnswer">{{ answer3 }}</button>
-            <button id="4" v-on:click= "evaluateAnswer">{{ answer4 }}</button>
-            <RichtigeAntwort v-if="showRightAnswer"/>
+        <p v-if="!gameIsOver">{{ store.lobby.question }}</p>
+        <div class="antworten" v-if="!answerIsMade && !gameIsOver">
+            <button v-for="answer in store.lobby.answers" v-bind:key="answer.id" v-on:click="evaluateAnswer(answer.id)">
+                {{ Object.values(answer)[0] }} 
+            </button> 
         </div>
+        <div class="show-result" v-if="answerIsMade && !gameIsOver">{{resultAnswer}}</div>
+        <button class="next-question" v-if="answerIsMade && !gameIsOver" v-on:click="answerIsMade = false">Nächste Frage</button>
+        <div class="show-final-result" v-if="gameIsOver">Finales Ergebnis</div>
     </div>
 </template>
 

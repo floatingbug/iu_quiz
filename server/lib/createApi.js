@@ -38,7 +38,6 @@ function createApi({store, lobbyStore}){
     //ändern nie den serverzustand.
     api.get('/show-users', showUsers({store}))
 
-
     //server sent events
     api.get('/fetch-game-data', fetchGameData({store, lobbyStore}))
 

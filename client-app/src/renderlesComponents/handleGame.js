@@ -17,12 +17,12 @@ function startFetchGamedata(){
 			if(!event.data){
 				return
 			}
+            console.log(event.data)
 			store.lobby = JSON.parse(event.data)
 		}
 		catch(error){
 			console.log(error)
 		}
-		console.log(store.lobby)
 	};
 
 	eventSource.onerror = function(){
