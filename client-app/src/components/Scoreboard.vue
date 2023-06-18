@@ -4,44 +4,54 @@
     <div class="container">
         <table id=" platzierungen">
             <tr>
-                <th>Platz</th>
+                <th>1. Platz</th>
                 <th>Name</th>
+                <th>Punkte</th>
             </tr>
             <tr>
-                <th>Platz</th>
+                <th>2. Platz</th>
                 <th>Name</th>
+                <th>Punkte</th>
             </tr>
             <tr>
-                <th>Platz</th>
+                <th>3. Platz</th>
                 <th>Name</th>
+                <th>Punkte</th>
             </tr>
             <tr>
-                <th>Platz</th>
+                <th>4. Platz</th>
                 <th>Name</th>
+                <th>Punkte</th>
             </tr>
             <tr>
-                <th>Platz</th>
+                <th>5. Platz</th>
                 <th>Name</th>
+                <th>Punkte</th>
             </tr>
             <tr>
-                <th>Platz</th>
+                <th>6. Platz</th>
                 <th>Name</th>
+                <th>Punkte</th>
             </tr>
             <tr>
-                <th>Platz</th>
+                <th>7. Platz</th>
                 <th>Name</th>
+                <th>Punkte</th>
             </tr>
             <tr>
-                <th>Platz</th>
+                <th>8. Platz</th>
                 <th>Name</th>
+                <th>Punkte</th>
             </tr>
             <tr>
-                <th>Platz</th>
+                <th>9. Platz</th>
                 <th>Name</th>
+                <th>Punkte</th>
             </tr>
             <tr>
-                <th>Platz</th>
+                <th>10. Platz</th>
                 <th>Name</th>
+                <th>Punkte</th>
             </tr>
         </table>
     </div>

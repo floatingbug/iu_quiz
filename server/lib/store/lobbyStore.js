@@ -45,7 +45,7 @@ const themes = [
             rightAnswer: 4
         },
         q4: {
-            question: "frage 1",
+            question: "frage 5",
             answers: [
                 { answer1: "Erste Antwort auf Frage 1.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
@@ -55,7 +55,7 @@ const themes = [
             rightAnswer: 4
         },
         q5: {
-            question: "frage 2",
+            question: "frage 6",
             answers: [
                 { answer1: "Erste Antwort auf Frage 2.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
@@ -65,7 +65,7 @@ const themes = [
             rightAnswer: 4
         },
         q6: {
-            question: "frage 3",
+            question: "frage 7",
             answers: [
                 { answer1: "Erste Antwort auf Frage 3.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
@@ -75,7 +75,7 @@ const themes = [
             rightAnswer: 4
         },
         q7: {
-            question: "frage 4",
+            question: "frage 8",
             answers: [
                 { answer1: "Erste Antwort auf Frage 4.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
@@ -85,7 +85,7 @@ const themes = [
             rightAnswer: 4
         },
         q8: {
-            question: "frage 1",
+            question: "frage 9",
             answers: [
                 { answer1: "Erste Antwort auf Frage 1.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
@@ -95,7 +95,7 @@ const themes = [
             rightAnswer: 4
         },
         q9: {
-            question: "frage 2",
+            question: "frage 10",
             answers: [
                 { answer1: "Erste Antwort auf Frage 2.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
@@ -105,7 +105,7 @@ const themes = [
             rightAnswer: 4
         },
         q10: {
-            question: "frage 3",
+            question: "frage 11",
             answers: [
                 { answer1: "Erste Antwort auf Frage 3.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
@@ -115,7 +115,7 @@ const themes = [
             rightAnswer: 4
         },
         q11: {
-            question: "frage 4",
+            question: "frage 12",
             answers: [
                 { answer1: "Erste Antwort auf Frage 4.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
@@ -125,7 +125,7 @@ const themes = [
             rightAnswer: 4
         },
         q12: {
-            question: "frage 1",
+            question: "frage 13",
             answers: [
                 { answer1: "Erste Antwort auf Frage 1.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
@@ -135,7 +135,7 @@ const themes = [
             rightAnswer: 4
         },
         q13: {
-            question: "frage 2",
+            question: "frage 14",
             answers: [
                 { answer1: "Erste Antwort auf Frage 2.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
@@ -145,7 +145,7 @@ const themes = [
             rightAnswer: 4
         },
         q14: {
-            question: "frage 3",
+            question: "frage 15",
             answers: [
                 { answer1: "Erste Antwort auf Frage 3.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
@@ -155,7 +155,7 @@ const themes = [
             rightAnswer: 4
         },
         q15: {
-            question: "frage 4",
+            question: "frage 16",
             answers: [
                 { answer1: "Erste Antwort auf Frage 4.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
@@ -165,7 +165,7 @@ const themes = [
             rightAnswer: 4
         },
         q16: {
-            question: "frage 1",
+            question: "frage 17",
             answers: [
                 { answer1: "Erste Antwort auf Frage 1.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
@@ -175,7 +175,7 @@ const themes = [
             rightAnswer: 4
         },
         q17: {
-            question: "frage 2",
+            question: "frage 18",
             answers: [
                 { answer1: "Erste Antwort auf Frage 2.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
@@ -185,7 +185,7 @@ const themes = [
             rightAnswer: 4
         },
         q18: {
-            question: "frage 3",
+            question: "frage 19",
             answers: [
                 { answer1: "Erste Antwort auf Frage 3.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
@@ -195,7 +195,7 @@ const themes = [
             rightAnswer: 4
         },
         q19: {
-            question: "frage 4",
+            question: "frage 20",
             answers: [
                 { answer1: "Erste Antwort auf Frage 4.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
@@ -250,7 +250,7 @@ const themes = [
             rightAnswer: 4
         },
         q4: {
-            question: "frage 1",
+            question: "frage 5",
             answers: [
                 { answer1: "Erste Antwort auf Frage 1.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
@@ -260,7 +260,7 @@ const themes = [
             rightAnswer: 4
         },
         q5: {
-            question: "frage 2",
+            question: "frage 6",
             answers: [
                 { answer1: "Erste Antwort auf Frage 2.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
@@ -270,7 +270,7 @@ const themes = [
             rightAnswer: 4
         },
         q6: {
-            question: "frage 3",
+            question: "frage 7",
             answers: [
                 { answer1: "Erste Antwort auf Frage 3.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
@@ -280,7 +280,7 @@ const themes = [
             rightAnswer: 4
         },
         q7: {
-            question: "frage 4",
+            question: "frage 8",
             answers: [
                 { answer1: "Erste Antwort auf Frage 4.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
@@ -290,7 +290,7 @@ const themes = [
             rightAnswer: 4
         },
         q8: {
-            question: "frage 1",
+            question: "frage 9",
             answers: [
                 { answer1: "Erste Antwort auf Frage 1.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
@@ -300,7 +300,7 @@ const themes = [
             rightAnswer: 4
         },
         q9: {
-            question: "frage 2",
+            question: "frage 10",
             answers: [
                 { answer1: "Erste Antwort auf Frage 2.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
@@ -310,7 +310,7 @@ const themes = [
             rightAnswer: 4
         },
         q10: {
-            question: "frage 3",
+            question: "frage 11",
             answers: [
                 { answer1: "Erste Antwort auf Frage 3.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
@@ -320,7 +320,7 @@ const themes = [
             rightAnswer: 4
         },
         q11: {
-            question: "frage 4",
+            question: "frage 12",
             answers: [
                 { answer1: "Erste Antwort auf Frage 4.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
@@ -330,7 +330,7 @@ const themes = [
             rightAnswer: 4
         },
         q12: {
-            question: "frage 1",
+            question: "frage 13",
             answers: [
                 { answer1: "Erste Antwort auf Frage 1.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
@@ -340,7 +340,7 @@ const themes = [
             rightAnswer: 4
         },
         q13: {
-            question: "frage 2",
+            question: "frage 14",
             answers: [
                 { answer1: "Erste Antwort auf Frage 2.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
@@ -350,7 +350,7 @@ const themes = [
             rightAnswer: 4
         },
         q14: {
-            question: "frage 3",
+            question: "frage 15",
             answers: [
                 { answer1: "Erste Antwort auf Frage 3.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
@@ -360,7 +360,7 @@ const themes = [
             rightAnswer: 4
         },
         q15: {
-            question: "frage 4",
+            question: "frage 16",
             answers: [
                 { answer1: "Erste Antwort auf Frage 4.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
@@ -370,7 +370,7 @@ const themes = [
             rightAnswer: 4
         },
         q16: {
-            question: "frage 1",
+            question: "frage 17",
             answers: [
                 { answer1: "Erste Antwort auf Frage 1.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
@@ -380,7 +380,7 @@ const themes = [
             rightAnswer: 4
         },
         q17: {
-            question: "frage 2",
+            question: "frage 18",
             answers: [
                 { answer1: "Erste Antwort auf Frage 2.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
@@ -390,7 +390,7 @@ const themes = [
             rightAnswer: 4
         },
         q18: {
-            question: "frage 3",
+            question: "frage 19",
             answers: [
                 { answer1: "Erste Antwort auf Frage 3.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
@@ -400,7 +400,7 @@ const themes = [
             rightAnswer: 4
         },
         q19: {
-            question: "frage 4",
+            question: "frage 20",
             answers: [
                 { answer1: "Erste Antwort auf Frage 4.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
@@ -455,7 +455,7 @@ const themes = [
             rightAnswer: 4
         },
         q4: {
-            question: "frage 1",
+            question: "frage 5",
             answers: [
                 { answer1: "Erste Antwort auf Frage 1.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
@@ -465,7 +465,7 @@ const themes = [
             rightAnswer: 4
         },
         q5: {
-            question: "frage 2",
+            question: "frage 6",
             answers: [
                 { answer1: "Erste Antwort auf Frage 2.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
@@ -475,7 +475,7 @@ const themes = [
             rightAnswer: 4
         },
         q6: {
-            question: "frage 3",
+            question: "frage 7",
             answers: [
                 { answer1: "Erste Antwort auf Frage 3.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
@@ -485,7 +485,7 @@ const themes = [
             rightAnswer: 4
         },
         q7: {
-            question: "frage 4",
+            question: "frage 8",
             answers: [
                 { answer1: "Erste Antwort auf Frage 4.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
@@ -495,7 +495,7 @@ const themes = [
             rightAnswer: 4
         },
         q8: {
-            question: "frage 1",
+            question: "frage 9",
             answers: [
                 { answer1: "Erste Antwort auf Frage 1.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
@@ -505,7 +505,7 @@ const themes = [
             rightAnswer: 4
         },
         q9: {
-            question: "frage 2",
+            question: "frage 10",
             answers: [
                 { answer1: "Erste Antwort auf Frage 2.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
@@ -515,7 +515,7 @@ const themes = [
             rightAnswer: 4
         },
         q10: {
-            question: "frage 3",
+            question: "frage 11",
             answers: [
                 { answer1: "Erste Antwort auf Frage 3.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
@@ -525,7 +525,7 @@ const themes = [
             rightAnswer: 4
         },
         q11: {
-            question: "frage 4",
+            question: "frage 12",
             answers: [
                 { answer1: "Erste Antwort auf Frage 4.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
@@ -535,7 +535,7 @@ const themes = [
             rightAnswer: 4
         },
         q12: {
-            question: "frage 1",
+            question: "frage 13",
             answers: [
                 { answer1: "Erste Antwort auf Frage 1.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
@@ -545,7 +545,7 @@ const themes = [
             rightAnswer: 4
         },
         q13: {
-            question: "frage 2",
+            question: "frage 14",
             answers: [
                 { answer1: "Erste Antwort auf Frage 2.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
@@ -555,7 +555,7 @@ const themes = [
             rightAnswer: 4
         },
         q14: {
-            question: "frage 3",
+            question: "frage 15",
             answers: [
                 { answer1: "Erste Antwort auf Frage 3.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
@@ -565,7 +565,7 @@ const themes = [
             rightAnswer: 4
         },
         q15: {
-            question: "frage 4",
+            question: "frage 16",
             answers: [
                 { answer1: "Erste Antwort auf Frage 4.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
@@ -575,7 +575,7 @@ const themes = [
             rightAnswer: 4
         },
         q16: {
-            question: "frage 1",
+            question: "frage 17",
             answers: [
                 { answer1: "Erste Antwort auf Frage 1.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
@@ -585,7 +585,7 @@ const themes = [
             rightAnswer: 4
         },
         q17: {
-            question: "frage 2",
+            question: "frage 18",
             answers: [
                 { answer1: "Erste Antwort auf Frage 2.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
@@ -595,7 +595,7 @@ const themes = [
             rightAnswer: 4
         },
         q18: {
-            question: "frage 3",
+            question: "frage 19",
             answers: [
                 { answer1: "Erste Antwort auf Frage 3.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
@@ -605,7 +605,7 @@ const themes = [
             rightAnswer: 4
         },
         q19: {
-            question: "frage 4",
+            question: "frage 20",
             answers: [
                 { answer1: "Erste Antwort auf Frage 4.", id: 1 },
                 { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
