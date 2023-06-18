@@ -1,5 +1,8 @@
 //every object in the array themes is one theme.
 const themes = [
+    //
+    //
+    //Thema: 1
     {
         q0: {
             question: "frage 1",
@@ -38,6 +41,576 @@ const themes = [
                 {answer2: "Zweite Antwort auf Frage 4.", id: 2},
                 {answer3: "Dritte Antwort auf Frage 4.", id: 3},
                 {answer4: "Fierte Antwort auf Frage 4.", id: 4},
+            ],
+            rightAnswer: 4
+        },
+        q4: {
+            question: "frage 1",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 1.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 1.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 1.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q5: {
+            question: "frage 2",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 2.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 2.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 2.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q6: {
+            question: "frage 3",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 3.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 3.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 3.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q7: {
+            question: "frage 4",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 4.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 4.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 4.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q8: {
+            question: "frage 1",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 1.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 1.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 1.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q9: {
+            question: "frage 2",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 2.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 2.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 2.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q10: {
+            question: "frage 3",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 3.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 3.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 3.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q11: {
+            question: "frage 4",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 4.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 4.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 4.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q12: {
+            question: "frage 1",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 1.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 1.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 1.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q13: {
+            question: "frage 2",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 2.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 2.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 2.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q14: {
+            question: "frage 3",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 3.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 3.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 3.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q15: {
+            question: "frage 4",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 4.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 4.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 4.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q16: {
+            question: "frage 1",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 1.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 1.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 1.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q17: {
+            question: "frage 2",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 2.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 2.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 2.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q18: {
+            question: "frage 3",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 3.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 3.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 3.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q19: {
+            question: "frage 4",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 4.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 4.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 4.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+    },
+    //
+    //
+    //Thema: 2
+    {
+        q0: {
+            question: "frage 1",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 1.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 1.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 1.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q1: {
+            question: "frage 2",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 2.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 2.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 2.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q2: {
+            question: "frage 3",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 3.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 3.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 3.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q3: {
+            question: "frage 4",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 4.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 4.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 4.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q4: {
+            question: "frage 1",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 1.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 1.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 1.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q5: {
+            question: "frage 2",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 2.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 2.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 2.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q6: {
+            question: "frage 3",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 3.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 3.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 3.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q7: {
+            question: "frage 4",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 4.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 4.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 4.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q8: {
+            question: "frage 1",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 1.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 1.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 1.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q9: {
+            question: "frage 2",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 2.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 2.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 2.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q10: {
+            question: "frage 3",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 3.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 3.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 3.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q11: {
+            question: "frage 4",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 4.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 4.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 4.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q12: {
+            question: "frage 1",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 1.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 1.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 1.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q13: {
+            question: "frage 2",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 2.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 2.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 2.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q14: {
+            question: "frage 3",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 3.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 3.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 3.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q15: {
+            question: "frage 4",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 4.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 4.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 4.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q16: {
+            question: "frage 1",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 1.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 1.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 1.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q17: {
+            question: "frage 2",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 2.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 2.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 2.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q18: {
+            question: "frage 3",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 3.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 3.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 3.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q19: {
+            question: "frage 4",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 4.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 4.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 4.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+    },
+    //
+    //
+    //Thema: 3
+    {
+        q0: {
+            question: "frage 1",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 1.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 1.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 1.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q1: {
+            question: "frage 2",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 2.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 2.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 2.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q2: {
+            question: "frage 3",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 3.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 3.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 3.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q3: {
+            question: "frage 4",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 4.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 4.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 4.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q4: {
+            question: "frage 1",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 1.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 1.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 1.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q5: {
+            question: "frage 2",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 2.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 2.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 2.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q6: {
+            question: "frage 3",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 3.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 3.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 3.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q7: {
+            question: "frage 4",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 4.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 4.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 4.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q8: {
+            question: "frage 1",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 1.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 1.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 1.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q9: {
+            question: "frage 2",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 2.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 2.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 2.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q10: {
+            question: "frage 3",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 3.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 3.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 3.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q11: {
+            question: "frage 4",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 4.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 4.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 4.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q12: {
+            question: "frage 1",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 1.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 1.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 1.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q13: {
+            question: "frage 2",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 2.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 2.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 2.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q14: {
+            question: "frage 3",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 3.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 3.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 3.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q15: {
+            question: "frage 4",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 4.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 4.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 4.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q16: {
+            question: "frage 1",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 1.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 1.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 1.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 1.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q17: {
+            question: "frage 2",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 2.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 2.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 2.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 2.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q18: {
+            question: "frage 3",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 3.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 3.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 3.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 3.", id: 4 },
+            ],
+            rightAnswer: 4
+        },
+        q19: {
+            question: "frage 4",
+            answers: [
+                { answer1: "Erste Antwort auf Frage 4.", id: 1 },
+                { answer2: "Zweite Antwort auf Frage 4.", id: 2 },
+                { answer3: "Dritte Antwort auf Frage 4.", id: 3 },
+                { answer4: "Fierte Antwort auf Frage 4.", id: 4 },
             ],
             rightAnswer: 4
         },
