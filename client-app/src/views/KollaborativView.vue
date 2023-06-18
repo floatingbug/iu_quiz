@@ -65,13 +65,16 @@ main {
 }
 
 .player>* {
+    font-size: 1.6rem;
+    text-align: center;
+    color: black;
     height: 50%;
     min-width: 400px;
     max-width: 600px;
     width: 40%;
     border: 2px solid black;
     border-radius: 20px;
-}
+    }
 
 .player>*:first-child {
     background-color: blue;

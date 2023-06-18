@@ -3,7 +3,12 @@ function loginUser({store}){
 
         //todo: check if username and password are in req.body.
         const credentials = req.body;
-        console.log(credentials)
+        console.log(credentials);
+
+        if (!req.body.username || !req.body.password) {
+            res.status.json({ code: 1, msg: "username or password not in req.body" });
+            return;
+        }
 
         const result = await store.loginUser(credentials);
         if(result === 1){
