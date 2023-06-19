@@ -3,9 +3,8 @@ function loginUser({store}){
 
         //todo: check if username and password are in req.body.
         const credentials = req.body;
-        console.log(credentials)
 
-        const result = await store.loginUser(credentials);
+        const result = await store.checkCredentials(credentials);
         if(result === 1){
             res.json({code: 1, msg: "email or password is incorrect"})
             return 1

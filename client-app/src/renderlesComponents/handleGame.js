@@ -5,29 +5,55 @@ const API_URL = API_URL_LOCAL;
 
 const handleGame = {
 	startFetchGamedata,
-
-
 }
 
 function startFetchGamedata(){
 	const eventSource = new EventSource(`${API_URL}/fetch-game-data?id=${store.lobby.lobbyId}`);
+    let lobby;
 
-	eventSource.onmessage = function(event){
-		try{
-			if(!event.data){
-				return
-			}
-            console.log(event.data)
-			store.lobby = JSON.parse(event.data)
-		}
-		catch(error){
-			console.log(error)
-		}
-	};
+	eventSource.onmessage = async function(event){
+        
+        //if payload is empty close execution.
+        if(!event.data){
+            return
+        }
+
+        //try to parse json-string in json-object.
+        try{
+            lobby = await JSON.parse(event.data);
+        }
+        catch{
+            console.log("fail to parse json")
+            eventSource.close()
+            return
+        }
+
+        
+        //close ssh-connection if server can't find lobby.
+        if(lobby.data === "quiz-canceled"){
+            console.log("quiz canceled")
+            store.quizIsCanceled = true;
+            eventSource.close()
+            return
+        }
+        
+        //save lobby to store.lobby.
+        store.lobby = lobby;
+        
+        //if every user answerd the current question, set store.isNextRound to true.
+        if((store.lobby.evaluatedAnswers % store.lobby.players.length) === 0){
+            store.isNextRound = true;
+        }
+
+        console.log("---------------->", store.lobby.isRunning)
+
+    };
 
 	eventSource.onerror = function(){
+        eventSource.close()
 		console.log("error with sse")
 	}
 }
+
 
 export {handleGame}

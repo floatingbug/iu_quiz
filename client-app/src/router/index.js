@@ -12,6 +12,7 @@ import FragenAntwortenEintragen from '../views/FragenAntwortenEintragenView.vue'
 import Feedback from '../views/FeedbackView.vue'
 import Kooperativ from '../views/KooperativView.vue';
 import Kollaborativ from '../views/KollaborativView.vue';
+import AddUser from '../views/AddUserView.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,12 @@ const router = createRouter({
             path: '/login-user',
             name: 'login-user',
             component: Login
+        },
+
+        {
+            path: '/add-user',
+            name: 'addUser',
+            component: AddUser
         },
 
         {

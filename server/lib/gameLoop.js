@@ -6,6 +6,7 @@ function gameLoop({lobbyStore}){
             lobby.time--;
         }
         
+        /******************handle if every questions made*************************/
         //if no more questions left, add lobby key to lobbyStore.keysToRemoveLobby.
         if(lobby.roundCounter + 1 === lobby.numberQuestions || numberOfAvailableQuestions === lobby.roundCounter + 1){
             lobby.gameIsOver = true;
@@ -13,21 +14,27 @@ function gameLoop({lobbyStore}){
             continue
         }
 
-        //handle userinput.
+        /****************handle userinput.************************/
+        //if isChange is true, update lobby-state.
         if(lobby.isChange && !lobby.gameIsOver){
-            //load next questions into lobby.answers.
-            let key = getKeyForQuestion(lobby.iteration);
-            lobby.answers = lobbyStore.themes[lobby.theme][key].answers;
             
             //if lobby.evaluatedAnswers and count of lobby.players is equal, increment lobby.iteration and
             //load next question and answers.
-            if(lobby.evaluatedAnswers === lobby.players.length){
+            if((lobby.evaluatedAnswers % lobby.players.length) === 0){
+                console.log(lobby.evaluatedAnswers)
+                
+                //get key for next question.
                 lobby.roundCounter++;
                 const key = getKeyForQuestion(lobby.roundCounter);
+
+                //set next answers and questions.
                 lobby.answers = lobbyStore.themes[lobby.theme][key].answers;
                 lobby.question = lobbyStore.themes[lobby.theme][key].question;
+
                 lobby.iteration++;
-                lobby.evaluatedAnswers = 0;
+
+                //set time
+                lobby.time = lobby.roundTime;
             }
         
             console.log("lobby has changed: ", lobby)

@@ -71,6 +71,7 @@ function addLobby({lobbyId, gameMode, groupName, players, theme, time, numberQue
         answers: this.themes[theme].q0.answers,
         theme,
         time,
+        roundTime: time,
         numberQuestions,
         iteration: 0,
         evaluatedAnswers: 0,
@@ -91,7 +92,7 @@ function findLobby({lobbyId, playerName}){
     }
 
     lobby.players.push(playerName)
-    lobby.answers.set(playerName, [false, false, false, false])
+    lobby.userAnswers.set(playerName, [false, false, false, false])
     return lobby
 }
 

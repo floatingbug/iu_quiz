@@ -4,6 +4,11 @@ const store = reactive({
     isLoggedIn: false,
     loggedInAsAdmin: false,
     playerName: "",
+    quizStarted: false,
+    isModerator: false,
+    quizIsCanceled: false,
+    isNextRound: true,
+
     lobby: {
         groupName: "",
         players: [],
@@ -16,6 +21,7 @@ const store = reactive({
         iteration: 0,
         question: "",
         answers: [],
+        answerCounter: 0,
     },
    
 })

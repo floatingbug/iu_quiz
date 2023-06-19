@@ -1,7 +1,9 @@
 <script setup>
 import { reactive, ref } from 'vue'
+import {useRouter} from 'vue-router';
 import apiCall from '../renderlesComponents/ApiCall.vue'
 import { store } from '../renderlesComponents/store.js'
+const router = useRouter();
 const apiCallRef = ref()
 const errMsg = ref("");
 const credentials = reactive({
@@ -81,7 +83,7 @@ function loginUser() {
 
         <div class="button-container">
           <button type="button" v-on:click="loginUser">Einloggen</button>
-          <button type="button">Registrieren</button>
+          <button type="button" v-on:click="router.push('add-user')">Registrieren</button>
         </div>
       </div>
     </div>

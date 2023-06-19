@@ -5,11 +5,11 @@ import {store} from '../renderlesComponents/store.js';
 import ApiCall from '../renderlesComponents/ApiCall.vue';
 
 const apiCallRef = ref(null);
-const answerIsMade = ref(false);
 const gameIsOver = ref(false);
-let resultAnswer = ref("");
+const resultAnswer = ref("");
 
 function evaluateAnswer(key) {
+    store.isNextRound = false;
     const request = {
         method: "post",
         url: "/evaluate-answer",
@@ -22,7 +22,6 @@ function evaluateAnswer(key) {
 
     const result = apiCallRef.value.call(request, (result)=>{
         console.log(result)
-        answerIsMade.value = true;
         if(result.data.noMoreQuestions){
             gameIsOver.value = true;
             return
@@ -47,13 +46,13 @@ function evaluateAnswer(key) {
         <img src="../assets/logo.png" alt="LOGO" />
         <h2 id="timer">{{ store.lobby.time }} sec</h2>
         <p v-if="!gameIsOver">{{ store.lobby.question }}</p>
-        <div class="antworten" v-if="!answerIsMade && !gameIsOver">
+        <div class="antworten" v-if="store.isNextRound && !gameIsOver">
             <button v-for="answer in store.lobby.answers" v-bind:key="answer.id" v-on:click="evaluateAnswer(answer.id)">
                 {{ Object.values(answer)[0] }} 
             </button> 
         </div>
-        <div class="show-result" v-if="answerIsMade && !gameIsOver">{{resultAnswer}}</div>
-        <button class="next-question" v-if="answerIsMade && !gameIsOver" v-on:click="answerIsMade = false">Nächste Frage</button>
+        <div class="show-result" v-if="store.isNextRound && !gameIsOver">{{resultAnswer}}</div>
+        <button class="next-question" v-if="!store.isNextRound && !gameIsOver" v-on:click="store.isNextRound = true">Nächste Frage</button>
         <div class="show-final-result" v-if="gameIsOver">Finales Ergebnis</div>
     </div>
 </template>

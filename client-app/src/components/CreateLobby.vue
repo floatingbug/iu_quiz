@@ -1,5 +1,5 @@
 <script setup>
-import {ref, reactive} from 'vue'
+import {ref, reactive, watch} from 'vue'
 import {useRouter} from 'vue-router'
 import {store} from '../renderlesComponents/store.js';
 import apiCall from '../renderlesComponents/ApiCall.vue';
@@ -24,22 +24,23 @@ function checkInput(){
         return
     }
 
-    if(settings.theme === ""){
+    if(!settings.theme){
         errMsg.value = "Bitte ein Thema auswählen"
         return
     }
 
-    if (settings.numberQuestions === Number){
+    if (!settings.numberQuestions){
         errMsg.value = "Bitte eine Anzahl an Fragen wählen"
         return
     }
 
-    if(settings.time === Number){
+    if(!settings.time){
         errMsg.value = "Bitte die Zeit pro Frage wählen"
         return
     }
 
-    //store settings to lobby.
+    //set store settings.
+    store.isModerator = true;
     store.lobby.players = [];
     store.lobby.groupName = settings.groupName;
     store.lobby.players.push(settings.playerName);
@@ -78,6 +79,7 @@ function createLobby(e){
         router.push('kooperativ')
     }
 }
+
 </script>
 
 
@@ -98,7 +100,7 @@ function createLobby(e){
         </div>
         <div class="form-input">
             <div v-if="!chooseGamemode">
-                    <label for="playername">Spielername:</label>
+                <label for="playername">Spielername:</label>
                 <input
                     id="playername"
                     v-model="settings.playerName"

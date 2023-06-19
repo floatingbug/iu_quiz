@@ -11,18 +11,18 @@ function createLobby({store, lobbyStore}){
              res.json({code: 1, msg: "time is missing"})
              return
          }
-         if(!lobby.theme){
-             res.json({code: 1, msg: "theme is missing"})
-             return
-         }
-         if(!lobby.numberQuestions){
-             res.json({code: 1, msg: "numberQuesetions is missing"})
-             return
-         }
-         if(lobby.time !== 35 && lobby.time !== 45 && lobby.time !== 60){
-             res.json({ code: 1, msg: "time is not 30, 45 or 60"})
-             return
-         }
+         // if(typeof lobby.theme !== Number){
+         //     res.json({code: 1, msg: "theme is missing"})
+         //     return
+         // }
+         // if(!lobby.numberQuestions){
+         //     res.json({code: 1, msg: "numberQuesetions is missing"})
+         //     return
+         // }
+         // if(lobby.time !== 35 && lobby.time !== 45 && lobby.time !== 60){
+         //     res.json({ code: 1, msg: "time is not 30, 45 or 60"})
+         //     return
+         // }
        
         const result = lobbyStore.addLobby(lobby);
         console.log("-------------------")

@@ -1,6 +1,7 @@
 function fetchGameData({store, lobbyStore}){
     //send lobby-data to client via sse
-    return (req, res)=>{
+    return async (req, res)=>{
+        const errorMsg = await JSON.stringify({code: 1, msg: "quiz canceled", data: "quiz-canceled"});
        
         //get correct lobby.
         const lobbyId = req.query.id;
@@ -10,7 +11,21 @@ function fetchGameData({store, lobbyStore}){
         
         //continuous send lobby-data to client.
         const intervalId = setInterval(async()=>{
-       	    const lobbyStringifyed = await JSON.stringify(lobby);
+            let lobbyStringifyed
+            
+            if(!lobby){
+                res.end("data:" + errorMsg + "\n\n")
+                return
+            }
+
+            try{
+       	        lobbyStringifyed = await JSON.stringify(lobby);
+            }
+            catch(err){
+                console.log("error in fetchGameData.js: ", err)
+                res.end("data:" + errorMsg + "\n\n")
+                clearInterval(intervalId)
+            }
 
             res.write("data:" + lobbyStringifyed + "\n\n")
         }, 1000)

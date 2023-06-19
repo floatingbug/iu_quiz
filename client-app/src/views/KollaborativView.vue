@@ -1,23 +1,59 @@
 <script setup>
+import {ref, onMounted, watch} from 'vue';
+import {useRouter} from 'vue-router';
 import {store} from '../renderlesComponents/store.js';
+import {handleGame} from '../renderlesComponents/handleGame.js';
+import apiCall from '../renderlesComponents/ApiCall.vue';
+const router = useRouter();
+const apiCallRef = ref(null);
+
+handleGame.startFetchGamedata()
+
+
+function startQuiz(){
+    const quizId = store.lobby.lobbyId;
+    const request = {
+        url: '/start-quiz',
+        method: 'post',
+        data: {quizId}
+    };
+
+    const result = apiCallRef.value.call(request, (result)=>{
+        if(result.code === 1){
+            console.log(result.msg)
+            return
+        }
+
+    });
+   
+    router.push('fragen')
+}
+
+watch(()=>store.lobby.isRunning, (newValue, oldValue)=>{
+    if(newValue){
+        router.push('fragen')
+    }
+})
 </script>
 
 <template>
+    <apiCall ref=apiCallRef />
     <div class="container">
         <header>
             <div class="group-id">ID: {{store.lobby.lobbyId}}</div>
-            <h3>Kollaborativ Spielmodus</h3>
+            <h3>Kollaborativer Spielmodus</h3>
             <img src="../assets/logo.png" alt="logo">
         </header>
         <main>
             <p> Gruppenname: {{store.lobby.groupName}}</p>
-            <div class="player">
-                <div class="player-1"></div>
-                <div class="player-2"></div>
-                <div class="player-3"></div>
-                <div class="player-4"></div>
-                <button>Quiz Starten</button>
+            <p>{{store.quizIsCanceled}}</p>
+            <div class="player" v-if="!store.quizIsCanceled">
+                <div class="player-1">{{store.lobby.players[0]}}</div>
+                <div class="player-2">{{store.lobby.players[1]}}</div>
+                <div class="player-3">{{store.lobby.players[2]}}</div>
+                <div class="player-4">{{store.lobby.players[3]}}</div>
             </div>
+            <button v-if="store.isModerator" v-on:click="startQuiz">Quiz Starten</button>
         </main>
     </div>
 </template>
@@ -65,6 +101,9 @@ main {
 }
 
 .player>* {
+    font-size: 1.6rem;
+    text-align: center;
+    color: black;
     height: 50%;
     min-width: 400px;
     max-width: 600px;
@@ -89,14 +128,14 @@ main {
     background-color: green;
 }
 
-.player button {
+main button {
     width: 20px;
     height: 50px;
     margin-top: 50px;
     border: solid #000000 4px;
 }
 
-.player button:hover{
+main button:hover{
   background-color: #0096a3;
 }
 
@@ -118,7 +157,7 @@ main {
         min-width: 100px;
         height: 100px;
     }
-    .player button {
+    main button {
         width: 200px;
         height: 50px;
         margin-top: 50px;
