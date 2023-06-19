@@ -8,6 +8,8 @@ const state = reactive({
 });
 
 function addUser(){
+    //todo: prüfen ob email und password nicht leer sind.
+
     const request = {
         method: "post",
         url: "/add-user",

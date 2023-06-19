@@ -44,9 +44,6 @@ function startFetchGamedata(){
         if((store.lobby.evaluatedAnswers % store.lobby.players.length) === 0){
             store.isNextRound = true;
         }
-
-        console.log("---------------->", store.lobby.isRunning)
-
     };
 
 	eventSource.onerror = function(){
