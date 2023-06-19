@@ -110,7 +110,7 @@ main {
     width: 40%;
     border: 2px solid black;
     border-radius: 20px;
-}
+    }
 
 .player>*:first-child {
     background-color: blue;
