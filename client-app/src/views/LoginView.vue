@@ -13,7 +13,7 @@ const credentials = reactive({
 
 function checkInput(){
     if(email.value === "" || password.value === ""){
-        errMsg.value = "E-Mail-Adresse und Passwort werden benoetigt."
+        errMsg.value = "E-Mail-Adresse und Passwort werden benötigt."
         return false
     }
 
