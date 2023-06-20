@@ -10,9 +10,13 @@
     });
 
     function checkInput() {
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (state.email === "" || state.password === "") {
-            errMsg.value = "E-Mail und Passwort werden benötigt."
-            return false
+            errMsg.value = "Eine gültige E-Mail-Adresse und Passwort werden benötigt.";
+            return false;
+        } else if (!emailRegex.test(state.email)) {
+            errMsg.value = "Bitte geben Sie eine gültige E-Mail-Adresse ein.";
+            return false;
         }
 
         errMsg.value = "";
