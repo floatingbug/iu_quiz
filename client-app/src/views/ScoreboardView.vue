@@ -1,16 +1,43 @@
 <script setup>
-import Scoreboard from '../components/Scoreboard.vue'
+import { ref } from 'vue'
+import ScoreboardEinzel from '../components/ScoreboardEinzel.vue'
+import ScoreboardKoop from '../components/ScoreboardKoop.vue'
+import ScoreboardKolla from '../components/ScoreboardKolla.vue'
+
+const showEinzel = ref(true)
+const showKoop = ref(true)
+const showKolla = ref(true)
+
+function showEinzelTable() {
+    showEinzel.value = true
+    showKoop.value = false
+    showKolla.value = false
+}
+
+function showKoopTable() {
+    showEinzel.value = false
+    showKoop.value = true
+    showKolla.value = false
+}
+
+function showKollaTable() {
+    showEinzel.value = false
+    showKoop.value = false
+    showKolla.value = true
+}
 </script>
 
 <template>
     <div class="container">
-        <button>Einzel</button>
-        <button>Kooperativ</button>
-        <button>Kollaborativ</button>        
+        <button v-on:click="showEinzelTable">Einzel</button>
+        <button v-on:click="showKoopTable">Kooperativ</button>
+        <button v-on:click="showKollaTable">Kollaborativ</button>        
     </div>
 
     <div class="container1">
-        <Scoreboard/>
+        <ScoreboardEinzel v-if="showEinzel"/>
+        <ScoreboardKoop v-if="showKoop"/>
+        <ScoreboardKolla v-if="showKolla"/>
     </div>
 </template>
 
@@ -21,7 +48,7 @@ import Scoreboard from '../components/Scoreboard.vue'
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 10%;
+    margin-top: 5%;
 }    
 button{
     min-width: 30px;
@@ -30,6 +57,7 @@ button{
 }
 
 .container1{
+    margin-top: -3%;
     padding-bottom: 10%;
 }
 

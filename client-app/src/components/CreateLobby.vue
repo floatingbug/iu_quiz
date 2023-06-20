@@ -114,9 +114,9 @@ function createLobby(e){
             <div class="form-select" v-if="!chooseGamemode">
               <label for="theme">Themenbereich:</label>
               <select id="theme" v-model="settings.theme">
-                <option value="0">Thema 1</option>
-                <option value="1">Thema 2</option>
-                <option value="2">Thema 3</option>
+                <option value="0">Informationstechnik</option>
+                <option value="1">Naturwissenschaft</option>
+                <option value="2">Geschichte</option>
               </select>
             </div>
         </div>
