@@ -2,13 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\client-app",
-    "\\client-app\\src",
     "\\client-app\\src\\assets",
+    "\\client-app\\src\\components",
     "\\client-app\\src\\views",
     "\\server",
     "\\server\\lib",
-    "\\server\\lib\\routes"
+    "\\server\\lib\\routes",
+    "\\server\\lib\\store"
   ],
-  "SelectedNode": "\\client-app\\src\\views\\KooperativView.vue",
+  "SelectedNode": "\\server\\index.js",
   "PreviewInSolutionExplorer": false
 }

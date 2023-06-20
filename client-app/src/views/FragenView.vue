@@ -74,12 +74,15 @@ function evaluateAnswer(key) {
 
 <style scoped>
 .container{
-    min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-bottom: 20%;
+  width: 80%;
+  height: auto;
+margin-left: auto;
+margin-right: auto;
 }
 
 h2{
@@ -90,8 +93,8 @@ h2{
 }
 
 p{
-    font-weight: 700;
-    font-size: 1.2rem;
+    font-weight: 100%;
+    font-size: 150%;
     color: #000000;
     background-color: #00A7B5;
     padding: 10px 30px;
@@ -101,16 +104,28 @@ p{
     transform: translateY(0);
     text-align: center;
     color: black;
-    font-weight: 700;
-    font-size: 1.4vw;
     margin-top: 2%;
+    font-weight: 700;
+    width: 80%;
+    height: auto;
+    justify-content: center;
+    max-width: 500px;
+    overflow-wrap: break-word;
+    
 }
 
-button{
+.antworten {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
     margin-top: 3%;
-    margin-left: 3%;
-    margin-right: 3%;
+    width: 80%;
+    height: auto;
+    align-items: center;
+    
 }
+
 
 img{
     width: 30%;
@@ -122,6 +137,7 @@ img{
     flex-direction: row;
     align-items: center;
 }
+
 
 @media(max-width: 850px){
     .row{
