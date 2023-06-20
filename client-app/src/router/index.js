@@ -6,7 +6,6 @@ import Scoreboard from '../views/ScoreboardView.vue'
 import Impressum from '../views/ImpressumView.vue'
 import Hilfe from '../views/HilfeView.vue'
 import Fragen from '../views/FragenView.vue'
-import Gruppenansicht from '../views/GruppenansichtView.vue'
 import FragenEinsenden from '../views/FragenEinsendenView.vue'
 import FragenAntwortenEintragen from '../views/FragenAntwortenEintragenView.vue'
 import Feedback from '../views/FeedbackView.vue'
@@ -63,12 +62,6 @@ const router = createRouter({
             path: '/fragen',
             name: 'fragen',
             component: Fragen
-        },
-
-        {
-            path: '/gruppenansicht',
-            name: 'gruppenansicht',
-            component: Gruppenansicht
         },
 
         {

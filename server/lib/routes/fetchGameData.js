@@ -18,6 +18,9 @@ function fetchGameData({store, lobbyStore}){
                 return
             }
 
+            //map to array
+            lobby.userAnswersArray = Array.from(lobby.userAnswers);
+
             try{
        	        lobbyStringifyed = await JSON.stringify(lobby);
             }

@@ -18,6 +18,7 @@ function createApi({store, lobbyStore}){
         origin: "http://localhost:5173",
         credentials: true
     }))
+
     api.use(bodyParser.json())
     api.use(session({
         secret: "lskajdf93ew8j3928fj293fj239q8wfj",

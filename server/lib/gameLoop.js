@@ -16,12 +16,11 @@ function gameLoop({lobbyStore}){
 
         /****************handle userinput.************************/
         //if isChange is true, update lobby-state.
-        if(lobby.isChange && !lobby.gameIsOver){
+        if((lobby.isChange && !lobby.gameIsOver) || lobby.time <= 0){
             
             //if lobby.evaluatedAnswers and count of lobby.players is equal, increment lobby.iteration and
             //load next question and answers.
-            if((lobby.evaluatedAnswers % lobby.players.length) === 0){
-                console.log(lobby.evaluatedAnswers)
+            if(((lobby.evaluatedAnswers % lobby.players.length) === 0) || lobby.time <= 0){
                 
                 //get key for next question.
                 lobby.roundCounter++;

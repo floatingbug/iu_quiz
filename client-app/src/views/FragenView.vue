@@ -7,9 +7,24 @@ import ApiCall from '../renderlesComponents/ApiCall.vue';
 const apiCallRef = ref(null);
 const gameIsOver = ref(false);
 const resultAnswer = ref("");
+const resultOfGame = ref([]);
+const score = ref([]);
 
 function evaluateAnswer(key) {
+    //save player answers
+    store.lobby.userAnswersArray.forEach(user => {
+        console.log(user)
+        if(user[0] === store.playerName){
+            resultOfGame.value = user[1];
+        }
+    });
+
+    //save score
+    score.value = 0;
+    resultOfGame.value.forEach(point => point === true ? score.value++ : null);
+
     store.isNextRound = false;
+    console.log(store.lobby.userAnswersArray)
     const request = {
         method: "post",
         url: "/evaluate-answer",
@@ -44,7 +59,7 @@ function evaluateAnswer(key) {
     <ApiCall ref="apiCallRef" />
     <div class="container">
         <img src="../assets/logo.png" alt="LOGO" />
-        <h2 id="timer">{{ store.lobby.time }} sec</h2>
+        <h2 id="timer" v-if="!gameIsOver">{{ store.lobby.time }} sec</h2>
         <p v-if="!gameIsOver">{{ store.lobby.question }}</p>
         <div class="antworten" v-if="store.isNextRound && !gameIsOver">
             <button v-for="answer in store.lobby.answers" v-bind:key="answer.id" v-on:click="evaluateAnswer(answer.id)">
@@ -52,8 +67,8 @@ function evaluateAnswer(key) {
             </button> 
         </div>
         <div class="show-result" v-if="store.isNextRound && !gameIsOver">{{resultAnswer}}</div>
-        <button class="next-question" v-if="!store.isNextRound && !gameIsOver" v-on:click="store.isNextRound = true">Nächste Frage</button>
-        <div class="show-final-result" v-if="gameIsOver">Finales Ergebnis</div>
+        <p class="show-answer" v-if="!store.isNextRound && !gameIsOver">{{resultAnswer}}</p>
+        <div class="show-final-result" v-if="gameIsOver">score: {{score}} </div>
     </div>
 </template>
 

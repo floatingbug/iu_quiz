@@ -12,7 +12,8 @@ const store = reactive({
     lobby: {
         groupName: "",
         players: [],
-        playersPoints: [],
+        userAnswers: new Map(),
+        userAnswersArray: [],
         lobbyId: Number,
         gameMode: "",
         theme: Number,
