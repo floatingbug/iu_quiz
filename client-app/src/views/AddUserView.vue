@@ -21,9 +21,9 @@
 
     function addUser() {
         //todo: prüfen ob email und password nicht leer sind. (ist erledigt)
-//        if (!checkInput()) {
- //           return;
- //       }
+        if (!checkInput()) {
+           return;
+        }
 
         const request = {
             method: "post",
