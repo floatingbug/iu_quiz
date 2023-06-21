@@ -57,7 +57,7 @@
 
 <style scoped>
 .container {
-    height: 50vh;
+    height: auto;
     display:flex;
     justify-content: center;
     gap: 5%;
@@ -135,6 +135,10 @@ font-size: x-large;
 font-weight: 700;
 }
 
+button:hover {
+    background-color: #0096a3;
+}
+
 
 
 @media(max-width: 976px){
@@ -146,9 +150,15 @@ font-weight: 700;
         width: 80%;
         margin-right: 0%;
     }
+
+    .config-question button {
+        margin-bottom: 30%;
+    }
     .choose-question {
         width: 80%;
         margin-left: 0%;
     }
+
 }
+
 </style>

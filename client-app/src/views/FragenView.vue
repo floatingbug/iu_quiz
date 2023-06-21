@@ -138,6 +138,10 @@ img{
     align-items: center;
 }
 
+button:hover{
+  background-color: #0096a3;
+}
+
 
 @media(max-width: 850px){
     .row{
