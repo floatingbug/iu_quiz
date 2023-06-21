@@ -56,6 +56,10 @@ button{
     margin: 0.5%;
 }
 
+button:hover {
+    background-color: #0096a3;
+}
+
 .container1{
     margin-top: -3%;
     padding-bottom: 10%;
