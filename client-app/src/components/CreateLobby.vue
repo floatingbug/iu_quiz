@@ -1,4 +1,5 @@
 <script setup>
+//watch überhuapt nötig ? David
 import {ref, reactive, watch} from 'vue'
 import {useRouter} from 'vue-router'
 import {v4 as uuid} from 'uuid';
@@ -9,13 +10,13 @@ const router = useRouter();
 const settings = reactive({
     groupName: "",
     playerName: "",
-    playerName: "",
     theme: Number,
     numberQuestions: Number,
     time: Number,
 });
 const errMsg = ref("");
 const chooseGamemode = ref(false);
+//emit wird nicht genutzt? nötig? David 
 const emit = defineEmits(['backToLobby'])
 
 function checkInput(){
