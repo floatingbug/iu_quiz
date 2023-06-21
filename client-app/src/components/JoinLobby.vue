@@ -8,6 +8,7 @@ const lobbyId = ref("");
 const playerName = ref("");
 const errMsg = ref("");
 const apiCallRef = ref(null);
+//emit ist nie genutzt? nötig ?
 const emit = defineEmits(['backToLobby'])
 
 function checkInput(){
