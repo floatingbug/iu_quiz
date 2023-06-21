@@ -2,6 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\client-app",
+    "\\client-app\\src",
     "\\client-app\\src\\assets",
     "\\client-app\\src\\components",
     "\\client-app\\src\\views",
@@ -10,6 +11,6 @@
     "\\server\\lib\\routes",
     "\\server\\lib\\store"
   ],
-  "SelectedNode": "\\server\\index.js",
+  "SelectedNode": "\\client-app\\src\\views\\LoginView.vue",
   "PreviewInSolutionExplorer": false
 }

@@ -11,6 +11,7 @@ function addUser({store}){
         }
 
         let result = store.checkIfEmailExists(credentials);
+
         if(result === 1){
             res.json({code: 1, msg: "email already exists"})
             return
@@ -19,7 +20,12 @@ function addUser({store}){
         result = store.addUser(credentials);
         console.log(result)
 
-        //todo: handle error.
+        //todo: handle error. (erledigt)
+
+        if (result !== 0) {
+            res.json({ code: result, msg: "an error occurred while adding user" });
+            return;
+        }
 
         if(result === 0){
             res.json({code: 0, msg: "user added"})
