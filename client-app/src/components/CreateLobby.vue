@@ -1,6 +1,5 @@
 <script setup>
-//watch überhuapt nötig ? David
-import {ref, reactive, watch} from 'vue'
+import {ref, reactive,} from 'vue'
 import {useRouter} from 'vue-router'
 import {store} from '../renderlesComponents/store.js';
 import apiCall from '../renderlesComponents/ApiCall.vue';
@@ -15,7 +14,6 @@ const settings = reactive({
 });
 const errMsg = ref("");
 const chooseGamemode = ref(false);
-//emit wird nicht genutzt? nötig? David 
 const emit = defineEmits(['backToLobby'])
 
 function checkInput(){
