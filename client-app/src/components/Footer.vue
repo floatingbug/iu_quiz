@@ -4,6 +4,8 @@
     <div class="container">
         <div class="footer">
             <p>Entwickler: David, Thomas, Ehsan, Nico, Pierre, Daniel</p>
+            <p>Wir weisen darauf hin das es sich hierbei um einen Prototypen handelt</p>
+            <p>Funktionen und Haptik können andere Ergebnise erzielen als erwünscht!</p>
             <div class="container-links">
                 <router-link to="/impressum">Impressum</router-link>
                 <router-link to="/feedback">Feedback geben</router-link>
@@ -15,13 +17,14 @@
 
 <style scoped>
 .container {
-	position: fixed;
+    position: relative;
     width: 100%;
-    height: 8%;
-	bottom: 0;
+    height: 13%;
+	bottom: 0px;
 }
 
 .footer {
+    margin-top: 18%;
     width: 100%;
     height: 100%;
     bottom: 0px;
