@@ -1,6 +1,7 @@
 <script setup>
 import {ref, reactive, watch} from 'vue'
 import {useRouter} from 'vue-router'
+import {v4 as uuid} from 'uuid';
 import {store} from '../renderlesComponents/store.js';
 import apiCall from '../renderlesComponents/ApiCall.vue';
 const apiCallRef = ref();
@@ -45,7 +46,7 @@ function checkInput(){
     store.lobby.groupName = settings.groupName;
     store.lobby.players.push(settings.playerName);
     store.playerName = settings.playerName;
-    store.lobby.lobbyId = crypto.randomUUID();
+    store.lobby.lobbyId = uuid();
     store.lobby.theme = parseInt(settings.theme);
     store.lobby.numberQuestions = parseInt(settings.numberQuestions);
     store.lobby.time = parseInt(settings.time);
