@@ -5,8 +5,8 @@ import ScoreboardKoop from '../components/ScoreboardKoop.vue'
 import ScoreboardKolla from '../components/ScoreboardKolla.vue'
 
 const showEinzel = ref(true)
-const showKoop = ref(true)
-const showKolla = ref(true)
+const showKoop = ref(false)
+const showKolla = ref(false)
 
 function showEinzelTable() {
     showEinzel.value = true
