@@ -13,6 +13,7 @@ const {evaluateAnswer} = require('./routes/evaluateAnswer');
 
 function createApi({store, lobbyStore}){
 
+    api.use(express.static('../public'))
     api.use(bodyParser.json())
     api.use(session({
         secret: "lskajdf93ew8j3928fj293fj239q8wfj",
