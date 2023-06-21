@@ -135,6 +135,10 @@ font-size: x-large;
 font-weight: 700;
 }
 
+button:hover {
+    background-color: #0096a3;
+}
+
 
 
 @media(max-width: 976px){
