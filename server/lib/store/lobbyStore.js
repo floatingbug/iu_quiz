@@ -652,7 +652,7 @@ function addLobby({lobbyId, gameMode, groupName, players, theme, time, numberQue
         userAnswers,
         userAnswersArray: [],
         isChange: false,
-        roundCounter: 0,
+        roundCounter: 1,
         gameIsOver: false,
     });
 

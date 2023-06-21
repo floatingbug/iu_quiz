@@ -1,5 +1,5 @@
 <script setup>
-import {ref, onMounted} from 'vue';
+import {ref, onMounted, watch} from 'vue';
 import {useRouter} from 'vue-router';
 import {store} from '../renderlesComponents/store.js';
 import {handleGame} from '../renderlesComponents/handleGame.js';
@@ -28,6 +28,12 @@ function startQuiz(){
    
     router.push('fragen')
 }
+
+watch(()=>store.lobby.isRunning, (newValue, oldValue)=>{
+    if(newValue){
+        router.push('fragen')
+    }
+})
 </script>
 
 <template>
@@ -40,13 +46,14 @@ function startQuiz(){
         </header>
         <main>
             <p> Gruppenname: {{store.lobby.groupName}}</p>
-            <div class="player">
+            <p>{{store.quizIsCanceled}}</p>
+            <div class="player" v-if="!store.quizIsCanceled">
                 <div class="player-1">{{store.lobby.players[0]}}</div>
                 <div class="player-2">{{store.lobby.players[1]}}</div>
                 <div class="player-3">{{store.lobby.players[2]}}</div>
                 <div class="player-4">{{store.lobby.players[3]}}</div>
             </div>
-            <button v-on:click="startQuiz">Quiz Starten</button>
+            <button v-if="store.isModerator" v-on:click="startQuiz">Quiz Starten</button>
         </main>
     </div>
 </template>
@@ -103,7 +110,7 @@ main {
     width: 40%;
     border: 2px solid black;
     border-radius: 20px;
-}
+    }
 
 .player>*:first-child {
     background-color: blue;

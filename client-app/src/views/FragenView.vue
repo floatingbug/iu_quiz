@@ -24,7 +24,6 @@ function evaluateAnswer(key) {
     resultOfGame.value.forEach(point => point === true ? score.value++ : null);
 
     store.isNextRound = false;
-    console.log(store.lobby.userAnswersArray)
     const request = {
         method: "post",
         url: "/evaluate-answer",
@@ -36,7 +35,6 @@ function evaluateAnswer(key) {
     };
 
     const result = apiCallRef.value.call(request, (result)=>{
-        console.log(result)
         if(result.data.noMoreQuestions){
             gameIsOver.value = true;
             return
@@ -47,7 +45,8 @@ function evaluateAnswer(key) {
         else{
             resultAnswer.value = "Antwort war falsch";
         }
-        if(result.data.gameIsOver){
+        if(store.lobby.gameIsOver){
+            console.log("---------------------->:", result.data)
             gameIsOver.value = true;
         }
     });
@@ -62,7 +61,8 @@ function evaluateAnswer(key) {
         <h2 id="timer" v-if="!gameIsOver">{{ store.lobby.time }} sec</h2>
         <p v-if="!gameIsOver">{{ store.lobby.question }}</p>
         <div class="antworten" v-if="store.isNextRound && !gameIsOver">
-            <button v-for="answer in store.lobby.answers" v-bind:key="answer.id" v-on:click="evaluateAnswer(answer.id)">
+            <button v-for="answer in store.lobby.answers" v-bind:key="answer.id" 
+                v-bind:disable="!store.lobby.isModerator" v-on:click="evaluateAnswer(answer.id)">
                 {{ Object.values(answer)[0] }} 
             </button> 
         </div>
