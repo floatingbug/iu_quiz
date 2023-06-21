@@ -20,25 +20,25 @@ const emit = defineEmits(['backToLobby'])
 
 function checkInput(){
     
-    if(settings.groupName === "" || settings.playerName === ""){
-        errMsg.value = "Gruppen- und Spielername werden benötigt."
-        return
-    }
+     if(settings.groupName === "" || settings.playerName === ""){
+         errMsg.value = "Gruppen- und Spielername werden benötigt."
+         return
+     }
 
-    if(!settings.theme){
-        errMsg.value = "Bitte ein Thema auswählen"
-        return
-    }
+     if(settings.theme == Number){
+         errMsg.value = "Bitte ein Thema auswählen"
+         return
+     }
 
-    if (!settings.numberQuestions){
-        errMsg.value = "Bitte eine Anzahl an Fragen wählen"
-        return
-    }
+     if (settings.numberQuestions == Number){
+         errMsg.value = "Bitte eine Anzahl an Fragen wählen"
+         return
+     }
 
-    if(!settings.time){
-        errMsg.value = "Bitte die Zeit pro Frage wählen"
-        return
-    }
+     if(settings.time == Number){
+         errMsg.value = "Bitte die Zeit pro Frage wählen"
+         return
+     }
 
     //set store settings.
     store.isModerator = true;
@@ -163,7 +163,10 @@ function createLobby(e){
   justify-content: center;
   margin-top: 0
 }
-
+.err-msg{
+  color: red;
+  font-size: medium;
+}
 .logo {
   max-width: 100%;
   height: auto;

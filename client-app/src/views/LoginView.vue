@@ -97,6 +97,9 @@ function loginUser() {
   justify-content: center;
   margin-top: 10%;
 }
+.err-msg {
+  color: red;
+}
 
 .left-column {
   flex: 1;

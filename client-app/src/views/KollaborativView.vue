@@ -66,11 +66,19 @@ watch(()=>store.lobby.isRunning, (newValue, oldValue)=>{
     align-items: center;
 }
 
+.container h3{
+    font-weight: 700;
+}
+.group-id{
+    font-weight: 700;
+}
+
 header {
     width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 5%;
+    color: black;
 }
 
 header>* {
@@ -88,6 +96,7 @@ main {
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
+    color: black;
 }
 
 .player {
