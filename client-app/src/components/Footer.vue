@@ -17,13 +17,14 @@
 
 <style scoped>
 .container {
-	position: relative;
+    position: relative;
     width: 100%;
     height: 13%;
 	bottom: 0px;
 }
 
 .footer {
+    margin-top: 18%;
     width: 100%;
     height: 100%;
     bottom: 0px;
