@@ -1,17 +1,27 @@
 <script setup>
+import {ref} from 'vue';
+import {useRouter} from 'vue-router';
 import {store} from '../renderlesComponents/store.js';
+const router = useRouter();
+
+function singlePlayer(){
+    store.isSinglePlayer = true;
+    router.push('lobby')
+}
 
 </script>
 
 <template>
+    <apiCall ref="apiCallRef" />
     <div class="container">
         <img src="../assets/logo.png" alt="LOGO" />
         <div class="btn-container-1">
-            <button v-on:click="console.log(store)">Quiz Starten</button>
+            <button v-on:click="singlePlayer">Einzelspieler</button>
             <button v-if="store.loggedInAsAdmin" v-on:click="$router.push('fragenAntwortenEintragen')">
                 Fragen & Antworten Eintragen</button>
             <button v-if="store.isLoggedIn" v-on:click="$router.push('fragenEinsenden')">
-                Neue Fragen Einsenden</button>
+                Neue Fragen Einsenden
+            </button>
         </div>
     </div>
 </template>

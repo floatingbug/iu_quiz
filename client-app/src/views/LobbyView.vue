@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue'
 import CreateLobby from '../components/CreateLobby.vue'
 import JoinLobby from '../components/JoinLobby.vue'
-import {store} from '../renderlesComponents/store.js';
+import { store } from '../renderlesComponents/store.js'
 const showContainerBtn1 = ref(true)
 const showCreateLobby = ref(false)
 const showJoinLobby = ref(false)
@@ -28,89 +28,94 @@ function backToContainerBtn1() {
     showCreateLobby.value = false
     showJoinLobby.value = false
 }
-onMounted(()=>{
-	if(store.lobby.gameMode){
-		showReturnToLobby.value = true;
-		showContainerBtn1.value = false;
-	}
+onMounted(() => {
+    if (store.lobby.gameMode) {
+        showReturnToLobby.value = true
+        showContainerBtn1.value = false
+    }
 })
 </script>
 
-
 <template>
     <apiCall ref="apiCallRef" />
-  <div class="container">
-    <div class="left-column">
-      <img class="logo" src="../assets/logo.png" alt="LOGO" />
+    <div class="container" v-if="!store.isLoggedIn && !store.loggedInAsAdmin">
+        Du must angemeldet sein, um Lobbies zu erstellen oder beitreten zu können.
     </div>
-    <div class="right-column">
-      <div class="form-container">
-        <div class="container-btn-1" v-if="showContainerBtn1" v-on:click="hideContainerBtn1">
-            <button id="create-lobby">Create Lobby</button>
-            <button id="join-lobby">Join Lobby</button>
+    <div class="container" v-if="store.isLoggedIn || store.loggedInAsAdmin">
+        <div class="left-column">
+            <img class="logo" src="../assets/logo.png" alt="LOGO" />
         </div>
-		<button v-if="showReturnToLobby" v-on:click="$router.push('kooperativ')">Return to Lobby</button>
-        <CreateLobby v-if="showCreateLobby" v-on:back-to-lobby="backToContainerBtn1" />
-        <JoinLobby v-if="showJoinLobby" v-on:back-to-lobby="backToContainerBtn1" />
-      </div>
+        <div class="right-column">
+            <div class="form-container">
+                <div
+                    class="container-btn-1"
+                    v-if="showContainerBtn1"
+                    v-on:click="hideContainerBtn1"
+                >
+                    <button id="create-lobby" v-if="!store.isSinglePlayer">Create Lobby</button>
+                    <button id="join-lobby" v-if="!store.isSinglePlayer">Join Lobby</button>
+                </div>
+                <button v-if="showReturnToLobby" v-on:click="$router.push('kooperativ')">
+                    Return to Lobby
+                </button>
+                <CreateLobby v-if="showCreateLobby || store.isSinglePlayer" v-on:back-to-lobby="backToContainerBtn1" />
+                <JoinLobby v-if="showJoinLobby" v-on:back-to-lobby="backToContainerBtn1" />
+            </div>
+        </div>
     </div>
-  </div>
 </template>
-
-
-
 
 <style scoped>
 .container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10%;
 }
 
 .left-column {
-  flex: 1;
-  min-width: 200px;
-  padding-left: 10%; 
-  padding-right: 10%; 
-  text-align: center;
+    flex: 1;
+    min-width: 200px;
+    padding-left: 10%;
+    padding-right: 10%;
+    text-align: center;
 }
 
 .logo {
-  max-width: 80%;
-  height: auto;
-  margin-left: 20%; 
+    max-width: 80%;
+    height: auto;
+    margin-left: 20%;
 }
 
 .right-column {
-  flex: 1;
-  min-width: 200px;
-  padding-left: 10%; 
-  padding-right: 10%; 
+    flex: 1;
+    min-width: 200px;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .form-container {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-input {
-  margin-bottom: 10%;
-  margin-right: 10%;
+    margin-bottom: 10%;
+    margin-right: 10%;
 }
 
 .form-container label {
-  text-align: start;
-  font-size: 1.4rem;
-  width: 100%;
-  color: black;
+    text-align: start;
+    font-size: 1.4rem;
+    width: 100%;
+    color: black;
 }
 
 .form-container input {
-  font-size: 1.4rem;
-  width: 100%; 
-  padding: 0.5rem;
-  margin-right: 10%;
+    font-size: 1.4rem;
+    width: 100%;
+    padding: 0.5rem;
+    margin-right: 10%;
 }
 
 #join-lobby {
@@ -118,41 +123,39 @@ onMounted(()=>{
 }
 
 .container-btn-1 button:hover {
-  background-color: #0096a3;
+    background-color: #0096a3;
 }
 
 /* Media Queries */
 @media screen and (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    align-items: center; 
-  }
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
 
-  .left-column, .right-column {
-    min-width: unset;
-    padding: 10%; 
-    text-align: center;
-  }
+    .left-column,
+    .right-column {
+        min-width: unset;
+        padding: 10%;
+        text-align: center;
+    }
 
-  .logo {
-    margin-left: 0; 
-    margin-bottom: 10%; 
-  }
+    .logo {
+        margin-left: 0;
+        margin-bottom: 10%;
+    }
 
-  .form-container {
-    align-items: center; 
-  }
+    .form-container {
+        align-items: center;
+    }
 
-  .form-input {
-    margin-bottom: 5%; 
-    margin-right: 0; 
-  }
+    .form-input {
+        margin-bottom: 5%;
+        margin-right: 0;
+    }
 
-
-
-  .form-container input {
-    width: 100%; 
-  }
+    .form-container input {
+        width: 100%;
+    }
 }
 </style>
-

@@ -5,6 +5,7 @@ function createLobby({store, lobbyStore}){
 
         if(!lobby || !lobby.groupName || !lobby.lobbyId || !lobby.players || !lobby.gameMode){
             console.log("some options are missed")
+            console.log(lobby)
             res.json({code: 1, msg: "some options are missed"})
             return
         }

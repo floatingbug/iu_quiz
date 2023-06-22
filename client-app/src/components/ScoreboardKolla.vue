@@ -41,7 +41,7 @@
             <tr>
                 <th>8. Platz</th>
                 <th>StellarCrew</th>
-                <th> 10 Punkte</th>
+                <th>10 Punkte</th>
             </tr>
             <tr>
                 <th>9. Platz</th>
@@ -58,14 +58,14 @@
 </template>
 
 <style scoped>
-table{
+table {
     min-width: 200px;
     width: 50%;
-    background-image: linear-gradient(180deg,  #00a7b5 0%, rgba(172, 168, 168, 0.74) 100%);
+    background-image: linear-gradient(180deg, #00a7b5 0%, rgba(172, 168, 168, 0.74) 100%);
     border: 3px solid black;
-    
 }
-th, td{
+th,
+td {
     border: 3px solid black;
     color: black;
     font-weight: 700;
