@@ -5,7 +5,7 @@ function fetchGameData({store, lobbyStore}){
        
         //get correct lobby.
         const lobbyId = req.query.id;
-		const lobby = lobbyStore.lobbies.get(lobbyId);
+		const lobby = await lobbyStore.lobbies.get(lobbyId);
 
         res.setHeader('content-type', 'text/event-stream')
         
@@ -14,7 +14,7 @@ function fetchGameData({store, lobbyStore}){
             let lobbyStringifyed
             
             if(!lobby){
-                res.end("data:" + errorMsg + "\n\n")
+                console.log("-------------------------------------->", lobby)
                 return
             }
 
@@ -31,12 +31,16 @@ function fetchGameData({store, lobbyStore}){
             }
 
             res.write("data:" + lobbyStringifyed + "\n\n")
-        }, 1000)
+
+            if(lobby.gameIsOver){
+                console.log("----------------------------->", lobby.lobbyId)
+            }
+        }, 500)
     
         res.on('close', ()=>{
             console.log("client closed the connection")
             if(lobby){
-                lobby.players = [];
+                lobbyStore.lobbies.delete(lobby.lobbyId)
             }
             clearInterval(intervalId)
             res.end()

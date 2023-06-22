@@ -20,7 +20,7 @@
     position: relative;
     width: 100%;
     height: 13%;
-	bottom: 0px;
+    bottom: 0px;
 }
 
 .footer {
@@ -56,7 +56,7 @@ p {
     font-weight: bold;
 }
 
-@media(max-width: 460px) {
+@media (max-width: 460px) {
     .footer {
         font-size: 0.7rem;
         padding-left: 10px;
@@ -68,6 +68,5 @@ p {
         padding-left: 10px;
         padding-right: 10px;
     }
-
 }
 </style>

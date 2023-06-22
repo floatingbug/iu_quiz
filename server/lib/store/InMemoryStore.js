@@ -3,6 +3,7 @@ function InMemoryStore(){
         {email: "user1", password: "1"},
         {email: "user2", password: "2"},
         {email: "user3", password: "3"},
+        {email: "admin", password: "a"},
     ];
 }
 
@@ -15,12 +16,20 @@ InMemoryStore.prototype = {
 }
 
 function checkCredentials({email, password}){
-    for(let i = 0; i < this.users.length; i++){
-        if(!(this.users[i].email === email && this.users[i].password === password)){
-            return 1
+    const result = this.users.filter(u=>{
+        if(u.email === email && u.password == password){
+            console.log(u.email)
+            console.log(u.password)
+            return u
         }
+    });
+
+    console.log("-------------->", result)
+
+    if(result.length === 1){
         return 0
     }
+    return 1
 }
 
 

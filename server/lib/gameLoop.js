@@ -8,15 +8,32 @@ function gameLoop({lobbyStore}){
         
         /******************handle if every questions made*************************/
         //if no more questions left, add lobby key to lobbyStore.keysToRemoveLobby.
-        if(lobby.roundCounter + 1 === lobby.numberQuestions || numberOfAvailableQuestions === lobby.roundCounter + 1){
-            lobby.gameIsOver = true;
-            lobbyStore.keysToRemoveLobby.push(lobby.lobbyId);
-            continue
+        // if(lobby.roundCounter === lobby.numberQuestions || numberOfAvailableQuestions === lobby.roundCounter){
+        //     lobbyStore.keysToRemoveLobby.push(lobby.lobbyId);
+        //     break
+        // }
+
+        /*********************handle kooperative mode****************************/
+        if(lobby.gameMode === 'koop'){
+            if(lobby.isChange && !lobby.gameIsOver || lobby.time <= 0){
+                lobby.roundCounter++;
+                console.log(lobby.roundCounter)
+                const key = getKeyForQuestion(lobby.roundCounter);
+                lobby.answers = lobbyStore.themes[lobby.theme][key].answers;
+                lobby.question = lobbyStore.themes[lobby.theme][key].question;
+                
+                lobby.iteration++;
+
+                //set time
+                lobby.time = lobby.roundTime;
+                console.log("lobby has changed: ", lobby)
+                lobby.isChange = false;
+            }
         }
 
         /****************handle userinput.************************/
         //if isChange is true, update lobby-state.
-        if((lobby.isChange && !lobby.gameIsOver) || lobby.time <= 0){
+        if(lobby.gameMode === "kollab" && (lobby.isChange && !lobby.gameIsOver) || lobby.time <= 0){
             
             //if lobby.evaluatedAnswers and count of lobby.players is equal, increment lobby.iteration and
             //load next question and answers.

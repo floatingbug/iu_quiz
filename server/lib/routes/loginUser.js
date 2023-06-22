@@ -5,7 +5,7 @@ function loginUser({store}){
         const credentials = req.body;
         console.log(credentials);
 
-        if (!req.body || !req.body.username || !req.body.password) {
+        if (!req.body || !req.body.email || !req.body.password) {
             res.json({ code: 1, msg: "username or password not in req.body" });
             return;
         }

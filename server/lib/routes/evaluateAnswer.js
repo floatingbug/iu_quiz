@@ -6,9 +6,8 @@ function evaluateAnswer({store, lobbyStore}){
 
         const lobby = lobbyStore.lobbies.get(lobbyId);
 
-        //if every user has allready answerd every question, cancel evaluation.
-        if(lobby.gameIsOver){
-            res.json({code: 0, msg: "all questions allready answerd", data: {noMoreQuestions: true}})
+        if(!lobby){
+            res.json({code: 1, msg: "lobby not found"})
             return
         }
 
@@ -17,6 +16,11 @@ function evaluateAnswer({store, lobbyStore}){
 
         //get number of question with right answer.
         const questionIdServer = lobbyStore.themes[lobby.theme][key].rightAnswer;
+
+        //set gameIsOver
+        if(lobby.numberQuestions === lobby.roundCounter){
+            lobby.gameIsOver = true;
+        }
 
         //evaluate if answer is true or false and save boolean to evaluatedAnswers.
         if(questionIdClient === questionIdServer){
@@ -40,6 +44,8 @@ function evaluateAnswer({store, lobbyStore}){
             console.log(lobby)
             return
         }
+
+        console.log(lobby)
     }
 }
 
