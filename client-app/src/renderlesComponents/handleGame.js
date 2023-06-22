@@ -4,53 +4,49 @@ const API_URL_Server = 'http://194.195.241.51:8000';
 const API_URL = API_URL_Server;
 
 const handleGame = {
-	startFetchGamedata,
+    startFetchGamedata
 }
 
-function startFetchGamedata(){
-	const eventSource = new EventSource(`${API_URL}/fetch-game-data?id=${store.lobby.lobbyId}`);
-    let lobby;
+function startFetchGamedata() {
+    const eventSource = new EventSource(`${API_URL}/fetch-game-data?id=${store.lobby.lobbyId}`)
+    let lobby
 
-	eventSource.onmessage = async function(event){
-        
+    eventSource.onmessage = async function (event) {
         //if payload is empty close execution.
-        if(!event.data){
+        if (!event.data) {
             return
         }
 
         //try to parse json-string in json-object.
-        try{
-            lobby = await JSON.parse(event.data);
-        }
-        catch{
-            console.log("fail to parse json")
+        try {
+            lobby = await JSON.parse(event.data)
+        } catch {
+            console.log('fail to parse json')
             eventSource.close()
             return
         }
 
-        
         //close ssh-connection if server can't find lobby.
-        if(lobby.data === "quiz-canceled"){
-            console.log("quiz canceled")
-            store.quizIsCanceled = true;
+        if (lobby.data === 'quiz-canceled') {
+            console.log('quiz canceled')
+            store.quizIsCanceled = true
             eventSource.close()
             return
         }
-        
-        //save lobby to store.lobby.
-        store.lobby = lobby;
-        
-        //if every user answerd the current question, set store.isNextRound to true.
-        if((store.lobby.evaluatedAnswers % store.lobby.players.length) === 0){
-            store.isNextRound = true;
-        }
-    };
 
-	eventSource.onerror = function(){
+        //save lobby to store.lobby.
+        store.lobby = lobby
+
+        //if every user answerd the current question, set store.isNextRound to true.
+        if (store.lobby.evaluatedAnswers % store.lobby.players.length === 0) {
+            store.isNextRound = true
+        }
+    }
+
+    eventSource.onerror = function () {
         eventSource.close()
-		console.log("error with sse")
-	}
+        console.log('error with sse')
+    }
 }
 
-
-export {handleGame}
+export { handleGame }

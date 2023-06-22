@@ -3,29 +3,28 @@ import { reactive } from 'vue'
 const store = reactive({
     isLoggedIn: false,
     loggedInAsAdmin: false,
-    playerName: "",
+    playerName: '',
     quizStarted: false,
     isModerator: false,
     quizIsCanceled: false,
     isNextRound: true,
+    isSinglePlayer: false,
 
     lobby: {
-        groupName: "",
+        groupName: '',
         players: [],
         userAnswers: new Map(),
         userAnswersArray: [],
         lobbyId: Number,
-        gameMode: "",
+        gameMode: '',
         theme: Number,
         time: Number,
         numberQuestions: Number,
         iteration: 0,
-        question: "",
+        question: '',
         answers: [],
-        answerCounter: 0,
-    },
-   
+        answerCounter: 0
+    }
 })
-
 
 export { store }

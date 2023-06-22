@@ -1,57 +1,58 @@
 <script setup>
-import {ref, onMounted, watch} from 'vue';
-import {useRouter} from 'vue-router';
-import {store} from '../renderlesComponents/store.js';
-import {handleGame} from '../renderlesComponents/handleGame.js';
-import apiCall from '../renderlesComponents/ApiCall.vue';
-const router = useRouter();
-const apiCallRef = ref(null);
+import { ref, onMounted, watch } from 'vue'
+import { useRouter } from 'vue-router'
+import { store } from '../renderlesComponents/store.js'
+import { handleGame } from '../renderlesComponents/handleGame.js'
+import apiCall from '../renderlesComponents/ApiCall.vue'
+const router = useRouter()
+const apiCallRef = ref(null)
 
 handleGame.startFetchGamedata()
 
-
-function startQuiz(){
-    const quizId = store.lobby.lobbyId;
+function startQuiz() {
+    const quizId = store.lobby.lobbyId
     const request = {
         url: '/start-quiz',
         method: 'post',
-        data: {quizId}
-    };
+        data: { quizId }
+    }
 
-    const result = apiCallRef.value.call(request, (result)=>{
-        if(result.code === 1){
+    const result = apiCallRef.value.call(request, (result) => {
+        if (result.code === 1) {
             console.log(result.msg)
             return
         }
+    })
 
-    });
-   
     router.push('fragen')
 }
 
-watch(()=>store.lobby.isRunning, (newValue, oldValue)=>{
-    if(newValue){
-        router.push('fragen')
+watch(
+    () => store.lobby.isRunning,
+    (newValue, oldValue) => {
+        if (newValue) {
+            router.push('fragen')
+        }
     }
-})
+)
 </script>
 
 <template>
-    <apiCall ref=apiCallRef />
+    <apiCall ref="apiCallRef" />
     <div class="container">
         <header>
-            <div class="group-id">ID: {{store.lobby.lobbyId}}</div>
+            <div class="group-id">ID: {{ store.lobby.lobbyId }}</div>
             <h3>Kooperativer Spielmodus</h3>
-            <img src="../assets/logo.png" alt="logo">
+            <img src="../assets/logo.png" alt="logo" />
         </header>
         <main>
-            <p> Gruppenname: {{store.lobby.groupName}}</p>
-            <p>{{store.quizIsCanceled}}</p>
+            <p>Gruppenname: {{ store.lobby.groupName }}</p>
+            <p>{{ store.quizIsCanceled }}</p>
             <div class="player" v-if="!store.quizIsCanceled">
-                <div class="player-1">{{store.lobby.players[0]}}</div>
-                <div class="player-2">{{store.lobby.players[1]}}</div>
-                <div class="player-3">{{store.lobby.players[2]}}</div>
-                <div class="player-4">{{store.lobby.players[3]}}</div>
+                <div class="player-1">{{ store.lobby.players[0] }}</div>
+                <div class="player-2">{{ store.lobby.players[1] }}</div>
+                <div class="player-3">{{ store.lobby.players[2] }}</div>
+                <div class="player-4">{{ store.lobby.players[3] }}</div>
             </div>
             <button v-if="store.isModerator" v-on:click="startQuiz">Quiz Starten</button>
         </main>
@@ -66,14 +67,23 @@ watch(()=>store.lobby.isRunning, (newValue, oldValue)=>{
     align-items: center;
 }
 
+.container h3 {
+    font-weight: 700;
+}
+
+.group-id {
+    font-weight: 700;
+}
+
 header {
     width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 5%;
+    color: black;
 }
 
-header>* {
+header > * {
     width: 30%;
 }
 
@@ -88,6 +98,7 @@ main {
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
+    color: black;
 }
 
 .player {
@@ -100,7 +111,7 @@ main {
     margin-top: 50px;
 }
 
-.player>* {
+.player > * {
     font-size: 1.6rem;
     text-align: center;
     color: black;
@@ -110,21 +121,21 @@ main {
     width: 40%;
     border: 2px solid black;
     border-radius: 20px;
-    }
+}
 
-.player>*:first-child {
+.player > *:first-child {
     background-color: blue;
 }
 
-.player>*:nth-child(2) {
+.player > *:nth-child(2) {
     background-color: red;
 }
 
-.player>*:nth-child(3) {
+.player > *:nth-child(3) {
     background-color: yellow;
 }
 
-.player>*:nth-child(4) {
+.player > *:nth-child(4) {
     background-color: green;
 }
 
@@ -135,25 +146,25 @@ main button {
     border: solid #000000 4px;
 }
 
-main button:hover{
-  background-color: #0096a3;
+main button:hover {
+    background-color: #0096a3;
 }
 
-@media(max-width: 590px){
-    header>*{
+@media (max-width: 590px) {
+    header > * {
         flex: 1;
     }
 }
 
-@media(max-width: 850px){
-    .player>*{
+@media (max-width: 850px) {
+    .player > * {
         min-width: 200px;
         height: 150px;
     }
 }
 
-@media(max-width: 422px){
-    .player>*{
+@media (max-width: 422px) {
+    .player > * {
         min-width: 100px;
         height: 100px;
     }

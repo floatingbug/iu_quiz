@@ -1,5 +1,13 @@
 <script setup>
 import { store } from '../renderlesComponents/store.js'
+import {useRouter} from 'vue-router';
+const router = useRouter();
+
+function logout(){
+    store.isLoggedIn = false;
+    store.loggedInAsAdmin = false;
+    router.push('login-user')
+}
 </script>
 
 <template>
@@ -18,7 +26,7 @@ import { store } from '../renderlesComponents/store.js'
                 <router-link to="/login-user">Login</router-link>
             </div>
             <div class="link-container" v-if="store.isLoggedIn || store.loggedInAsAdmin">
-                <router-link to="/logout-user">Logout</router-link>
+                <router-link to="/" v-on:click="logout">Logout</router-link>
             </div>
         </nav>
     </div>
@@ -64,14 +72,14 @@ nav {
     background-color: #00a7b5;
 }
 
-@media(max-width: 700px) {
-    .link-container>a {
+@media (max-width: 700px) {
+    .link-container > a {
         font-size: 0.8rem;
     }
 }
 
-@media(max-width: 450px) {
-    .link-container>a {
+@media (max-width: 450px) {
+    .link-container > a {
         font-size: 0.8rem;
         padding-left: 10px;
         padding-right: 10px;

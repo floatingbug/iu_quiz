@@ -1,6 +1,4 @@
-<script setup>
-</script>
-
+<script setup></script>
 
 <template>
     <div class="container">
@@ -15,33 +13,41 @@
             <label for="theme">Frage:</label>
             <select id="theme" name="theme">
                 <option value="0">Frage 1: Wo werde die Daten eines Computers gespeichert?</option>
-                <option value="1">Frage 2: Ein Lücke zwischen zwei Wörtern machst du mit ...</option>
-                <option value="2">Frage 3: Ein anderes Wort für den Computer Bildschirm lautet ...</option>
+                <option value="1">
+                    Frage 2: Ein Lücke zwischen zwei Wörtern machst du mit ...
+                </option>
+                <option value="2">
+                    Frage 3: Ein anderes Wort für den Computer Bildschirm lautet ...
+                </option>
                 <option value="3">Frage 4: Welche dieser HTML-Arten gibt es nicht?</option>
                 <option value="4">Frage 5: Was ist ein Modem?</option>
-                <option value="5">Frage 6: Welches Systemprogramm eines PC ist direkt nach dem Einschalten bereit?</option>
+                <option value="5">
+                    Frage 6: Welches Systemprogramm eines PC ist direkt nach dem Einschalten bereit?
+                </option>
                 <option value="6">Frage 7: 1 GigaByte sind wieviel MegaBytes?</option>
-                <option value="7">Frage 8: Welches dieser Begriffe ist ein Internet-Browser?</option>
+                <option value="7">
+                    Frage 8: Welches dieser Begriffe ist ein Internet-Browser?
+                </option>
                 <option value="8">Frage 9: Wofür ist CD die Abkürzung?</option>
                 <option value="9">Frage 10: Wofür steht png?</option>
             </select>
             <button>Auswählen & bearbeiten</button>
         </div>
-        
+
         <div class="config-question">
             <p>Frage speichern:</p>
             <label for="themeinput">Themenbereich:</label>
-            <input id=themeinput type="text">
+            <input id="themeinput" type="text" />
             <label for="question">Frage:</label>
-            <input id="question" type="text">
+            <input id="question" type="text" />
             <label for="answer1">1. Antwort:</label>
-            <input id=answer2 type="text">
+            <input id="answer2" type="text" />
             <label for="answer2">2. Antwort:</label>
-            <input id=answer2 type="text">
+            <input id="answer2" type="text" />
             <label for="answer3">3. Antwort:</label>
-            <input id=answer3 type="text">
+            <input id="answer3" type="text" />
             <label for="answer4">4. Antwort:</label>
-            <input id=answer4 type="text">
+            <input id="answer4" type="text" />
             <label for="rightAnswer">Richtige Antwort:</label>
             <select id="rightAnswer" name="theme">
                 <option value="0">1. Antwort</option>
@@ -54,11 +60,10 @@
     </div>
 </template>
 
-
 <style scoped>
 .container {
     height: auto;
-    display:flex;
+    display: flex;
     justify-content: center;
     gap: 5%;
     margin-top: 2%;
@@ -74,11 +79,11 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 0%;
-    margin-left:10%;
-   }
+    margin-left: 10%;
+}
 
 .choose-question textarea {
-    flex:80%;
+    flex: 80%;
 }
 
 .choose-question select {
@@ -97,8 +102,8 @@
 }
 
 .choose-question p {
-font-size: x-large;
-font-weight: 700;
+    font-size: x-large;
+    font-weight: 700;
 }
 
 .config-question {
@@ -124,24 +129,22 @@ font-weight: 700;
 }
 .config-question select {
     flex: 10%;
-    height: 100%
+    height: 100%;
 }
 .config-question label {
     font-size: large;
 }
 
 .config-question p {
-font-size: x-large;
-font-weight: 700;
+    font-size: x-large;
+    font-weight: 700;
 }
 
 button:hover {
     background-color: #0096a3;
 }
 
-
-
-@media(max-width: 976px){
+@media (max-width: 976px) {
     .container {
         flex-direction: column;
         align-items: center;
@@ -158,7 +161,5 @@ button:hover {
         width: 80%;
         margin-left: 0%;
     }
-
 }
-
 </style>

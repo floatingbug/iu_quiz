@@ -1,12 +1,9 @@
-<script setup>
-
-</script>
-
+<script setup></script>
 
 <template>
     <img src="../assets/logo.png" alt="LOGO" />
     <div class="container">
-        <p>Geben Sie uns ihr Feedback</p> 
+        <p>Geben Sie uns ihr Feedback</p>
         <div class="container-input">
             <div>
                 <input
@@ -14,10 +11,11 @@
                     v-model="UserName"
                     type="text"
                     placeholder="Geben Sie Ihren Namen an"
-                    />
+                />
             </div>
             <div>
-                <input class="large-input"
+                <input
+                    class="large-input"
                     id="text"
                     v-model="Text"
                     type="text"
@@ -25,46 +23,45 @@
                 />
             </div>
         </div>
-            <div>
-                <button>Absenden</button>
-            </div>
+        <div>
+            <button>Absenden</button>
+        </div>
     </div>
 </template>
 
-
 <style scoped>
-.container{
+.container {
     position: relative;
     display: block;
     text-align: center;
     justify-content: center;
-    color:black;
+    color: black;
 }
 
-p{
+p {
     font-weight: 700;
     font-size: larger;
 }
 
-.container-input{
+.container-input {
     width: 100vw;
     height: 20vh;
     display: block;
 }
 
-input{
+input {
     width: 35vw;
     padding: 2vh;
     margin-top: 0.3vw;
     text-align: left;
 }
 
-.large-input{
+.large-input {
     padding: 5.5vh;
     text-align: left;
 }
 
-button{
+button {
     position: relative;
     display: block;
     width: 10vw;
@@ -74,7 +71,7 @@ button{
 }
 
 button:hover {
-  background-color: #0096a3;
+    background-color: #0096a3;
 }
 
 img {
@@ -92,7 +89,8 @@ img {
         padding-bottom: 20%;
     }
 
-    input, .large-input {
+    input,
+    .large-input {
         width: 80vw;
         margin: 0 auto;
     }
