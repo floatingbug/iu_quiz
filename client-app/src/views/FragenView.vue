@@ -84,6 +84,11 @@ function evaluateAnswer(key) {
 margin-left: auto;
 margin-right: auto;
 }
+.show-result{
+    color:black;
+    font-size: medium;
+    font-weight: 700;
+}
 
 h2{
     color: black;
