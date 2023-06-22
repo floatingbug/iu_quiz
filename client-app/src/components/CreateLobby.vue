@@ -109,7 +109,7 @@ function startSinglePlayer(){
     store.lobby.groupName = "singlePlayer"
     store.lobby.players.push(settings.playerName)
     store.playerName = settings.playerName
-    store.lobby.lobbyId = crypto.randomUUID()
+    store.lobby.lobbyId = uuid();
     store.lobby.theme = parseInt(settings.theme)
     store.lobby.numberQuestions = parseInt(settings.numberQuestions)
     store.lobby.time = parseInt(settings.time)

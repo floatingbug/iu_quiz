@@ -38,10 +38,10 @@ onMounted(() => {
 
 <template>
     <apiCall ref="apiCallRef" />
-    <div class="container" v-if="!store.isLoggedIn && !store.loggedInAsAdmin">
+    <div class="container" v-if="(!store.isLoggedIn && !store.loggedInAsAdmin) && !store.isSinglePlayer">
         Du must angemeldet sein, um Lobbies zu erstellen oder beitreten zu können.
     </div>
-    <div class="container" v-if="store.isLoggedIn || store.loggedInAsAdmin">
+    <div class="container" v-if="store.isLoggedIn || store.loggedInAsAdmin || store.isSinglePlayer">
         <div class="left-column">
             <img class="logo" src="../assets/logo.png" alt="LOGO" />
         </div>
