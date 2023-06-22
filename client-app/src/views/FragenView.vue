@@ -126,6 +126,9 @@ p{
     
 }
 
+.show-final-result {
+    color: #000000;
+}
 
 img{
     width: 30%;
