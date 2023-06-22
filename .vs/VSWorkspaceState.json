@@ -11,6 +11,6 @@
     "\\server\\lib\\routes",
     "\\server\\lib\\store"
   ],
-  "SelectedNode": "\\client-app\\src\\views\\LoginView.vue",
+  "SelectedNode": "\\client-app\\src\\components\\CreateLobby.vue",
   "PreviewInSolutionExplorer": false
 }

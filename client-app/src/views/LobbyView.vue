@@ -67,6 +67,7 @@ onMounted(() => {
 
 <style scoped>
 .container {
+    min-height: 50vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
