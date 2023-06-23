@@ -1,10 +1,12 @@
 <script setup>
-import { ref, reactive } from 'vue'
-import { useRouter } from 'vue-router'
-import { store } from '../renderlesComponents/store.js'
-import apiCall from '../renderlesComponents/ApiCall.vue'
-const apiCallRef = ref()
-const router = useRouter()
+//watch überhuapt nötig ? David
+import {ref, reactive, watch} from 'vue'
+import {useRouter} from 'vue-router'
+import {v4 as uuid} from 'uuid';
+import {store} from '../renderlesComponents/store.js';
+import apiCall from '../renderlesComponents/ApiCall.vue';
+const apiCallRef = ref();
+const router = useRouter();
 const settings = reactive({
     groupName: '',
     playerName: '',
@@ -38,15 +40,15 @@ function checkInput() {
     }
 
     //set store settings.
-    store.isModerator = true
-    store.lobby.players = []
-    store.lobby.groupName = settings.groupName
-    store.lobby.players.push(settings.playerName)
-    store.playerName = settings.playerName
-    store.lobby.lobbyId = crypto.randomUUID()
-    store.lobby.theme = parseInt(settings.theme)
-    store.lobby.numberQuestions = parseInt(settings.numberQuestions)
-    store.lobby.time = parseInt(settings.time)
+    store.isModerator = true;
+    store.lobby.players = [];
+    store.lobby.groupName = settings.groupName;
+    store.lobby.players.push(settings.playerName);
+    store.playerName = settings.playerName;
+    store.lobby.lobbyId = uuid();
+    store.lobby.theme = parseInt(settings.theme);
+    store.lobby.numberQuestions = parseInt(settings.numberQuestions);
+    store.lobby.time = parseInt(settings.time);
 
     errMsg.value = ''
     chooseGamemode.value = true
@@ -107,7 +109,7 @@ function startSinglePlayer(){
     store.lobby.groupName = "singlePlayer"
     store.lobby.players.push(settings.playerName)
     store.playerName = settings.playerName
-    store.lobby.lobbyId = crypto.randomUUID()
+    store.lobby.lobbyId = uuid();
     store.lobby.theme = parseInt(settings.theme)
     store.lobby.numberQuestions = parseInt(settings.numberQuestions)
     store.lobby.time = parseInt(settings.time)

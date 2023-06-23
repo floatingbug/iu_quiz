@@ -1,8 +1,8 @@
 const express = require('express');
 const api = express();
-const cors = require('cors');
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const {loginUser} = require('./routes/loginUser');
 const {addUser} = require('./routes/addUser');
 const {showUsers} = require('./routes/showUsers');
@@ -13,12 +13,13 @@ const {startQuiz} = require('./routes/startQuiz');
 const {evaluateAnswer} = require('./routes/evaluateAnswer');
 
 function createApi({store, lobbyStore}){
-    
+
     api.use(cors({
-        origin: "http://localhost:5173",
-        credentials: true
+        origin: 'http://localhost:5173',
+        credentials: true,
     }))
 
+    api.use(express.static('public'))
     api.use(bodyParser.json())
     api.use(session({
         secret: "lskajdf93ew8j3928fj293fj239q8wfj",

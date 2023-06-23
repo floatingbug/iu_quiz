@@ -130,7 +130,11 @@ p {
     align-items: center;
 }
 
-img {
+.show-final-result {
+    color: #000000;
+}
+
+img{
     width: 30%;
     margin-top: 3%;
 }
