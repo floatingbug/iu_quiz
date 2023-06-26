@@ -1,5 +1,5 @@
 function evaluateAnswer({store, lobbyStore}){
-    return (req, res)=>{  
+    return async (req, res)=>{  
         const playerName = req.body.playerName;
         const lobbyId = req.body.lobbyId;
         const questionIdClient = req.body.questionId;
@@ -17,10 +17,8 @@ function evaluateAnswer({store, lobbyStore}){
         //get number of question with right answer.
         const questionIdServer = lobbyStore.themes[lobby.theme][key].rightAnswer;
 
-        //set gameIsOver
-        if(lobby.numberQuestions === lobby.roundCounter){
-            lobby.gameIsOver = true;
-        }
+        console.log("questionIdClient: ", questionIdClient, "questionIdServer: ", questionIdServer)
+
 
         //evaluate if answer is true or false and save boolean to evaluatedAnswers.
         if(questionIdClient === questionIdServer){
@@ -29,9 +27,20 @@ function evaluateAnswer({store, lobbyStore}){
 
             //set isChange to true so lobby get updated in gameloop.
             lobby.isChange = true;
+            
+            //set gameIsOver
+            if(lobby.numberQuestions === lobby.iteration+1){
+                lobby.userAnswersArray.push(true);
+                console.log(lobby.userAnswersArray)
+                lobby.gameIsOver = true;
+                res.json(lobby)
 
+                return
+            }
+                console.log(lobby.userAnswersArray)
+
+           
             res.json({code: 0, msg: "answer was right", data: {rightAnswer: true}});
-            console.log(lobby)
             return
         }
         else{
@@ -40,12 +49,19 @@ function evaluateAnswer({store, lobbyStore}){
             
             lobby.isChange = true;
 
+            //set gameIsOver
+            if(lobby.numberQuestions === lobby.iteration+1){
+                lobby.userAnswersArray.push(false);
+                lobby.gameIsOver = true;
+                res.json(lobby)
+
+                return
+            }
+
             res.json({code: 0, msg: "answer was wrong", data: {rightAnswer: false}});
-            console.log(lobby)
             return
         }
 
-        console.log(lobby)
     }
 }
 

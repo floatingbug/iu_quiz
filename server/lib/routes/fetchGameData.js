@@ -2,6 +2,7 @@ function fetchGameData({store, lobbyStore}){
     //send lobby-data to client via sse
     return async (req, res)=>{
         const errorMsg = await JSON.stringify({code: 1, msg: "quiz canceled", data: "quiz-canceled"});
+        const gameIsOver = await JSON.stringify({code: 0, msg: "game is over", data: "gameIsOver"});
        
         //get correct lobby.
         const lobbyId = req.query.id;
@@ -14,7 +15,7 @@ function fetchGameData({store, lobbyStore}){
             let lobbyStringifyed
             
             if(!lobby){
-                console.log("-------------------------------------->", lobby)
+                console.log("lobby is ----------------------------------->", lobby)
                 return
             }
 
@@ -33,7 +34,10 @@ function fetchGameData({store, lobbyStore}){
             res.write("data:" + lobbyStringifyed + "\n\n")
 
             if(lobby.gameIsOver){
-                console.log("----------------------------->", lobby.lobbyId)
+                console.log(" game is over ----------------------------->", lobby.lobbyId)
+                console.log(lobby.userAnswersArray)
+                res.end("data:" + lobbyStringifyed + "\n\n")
+                clearInterval(intervalId)
             }
         }, 500)
     

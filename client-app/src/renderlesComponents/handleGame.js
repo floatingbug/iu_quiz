@@ -1,7 +1,7 @@
 import {store} from './store.js';
 const API_URL_LOCAL = "http://localhost:8000";
-const API_URL_Server = 'http://194.195.241.51:8000';
-const API_URL = API_URL_LOCAL;
+const API_URL_SERVER = 'http://194.195.241.51:8000';
+const API_URL = API_URL_SERVER;
 
 const handleGame = {
     startFetchGamedata

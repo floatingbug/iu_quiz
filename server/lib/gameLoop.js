@@ -8,7 +8,7 @@ function gameLoop({lobbyStore}){
         
         /******************handle if every questions made*************************/
         //if no more questions left, add lobby key to lobbyStore.keysToRemoveLobby.
-        // if(lobby.roundCounter === lobby.numberQuestions || numberOfAvailableQuestions === lobby.roundCounter){
+        // if(lobby.iteration === lobby.numberQuestions || numberOfAvailableQuestions === lobby.iteration){
         //     lobbyStore.keysToRemoveLobby.push(lobby.lobbyId);
         //     break
         // }
@@ -16,17 +16,14 @@ function gameLoop({lobbyStore}){
         /*********************handle kooperative mode****************************/
         if(lobby.gameMode === 'koop'){
             if(lobby.isChange && !lobby.gameIsOver || lobby.time <= 0){
-                lobby.roundCounter++;
-                console.log(lobby.roundCounter)
-                const key = getKeyForQuestion(lobby.roundCounter);
+                lobby.iteration++;
+                const key = getKeyForQuestion(lobby.iteration);
                 lobby.answers = lobbyStore.themes[lobby.theme][key].answers;
                 lobby.question = lobbyStore.themes[lobby.theme][key].question;
                 
-                lobby.iteration++;
 
                 //set time
                 lobby.time = lobby.roundTime;
-                console.log("lobby has changed: ", lobby)
                 lobby.isChange = false;
             }
         }
@@ -34,26 +31,25 @@ function gameLoop({lobbyStore}){
         /****************handle userinput.************************/
         //if isChange is true, update lobby-state.
         if(lobby.gameMode === "kollab" && (lobby.isChange && !lobby.gameIsOver) || lobby.time <= 0){
+                lobby.iteration++;
             
             //if lobby.evaluatedAnswers and count of lobby.players is equal, increment lobby.iteration and
             //load next question and answers.
             if(((lobby.evaluatedAnswers % lobby.players.length) === 0) || lobby.time <= 0){
                 
                 //get key for next question.
-                lobby.roundCounter++;
-                const key = getKeyForQuestion(lobby.roundCounter);
+                const key = getKeyForQuestion(lobby.iteration);
+                console.log("key for next question:", key)
 
                 //set next answers and questions.
                 lobby.answers = lobbyStore.themes[lobby.theme][key].answers;
                 lobby.question = lobbyStore.themes[lobby.theme][key].question;
 
-                lobby.iteration++;
 
                 //set time
                 lobby.time = lobby.roundTime;
             }
         
-            console.log("lobby has changed: ", lobby)
             lobby.isChange = false;
         }
     }        

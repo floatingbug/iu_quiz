@@ -14,11 +14,6 @@ const {evaluateAnswer} = require('./routes/evaluateAnswer');
 
 function createApi({store, lobbyStore}){
 
-    api.use(cors({
-        origin: 'http://localhost:5173',
-        credentials: true,
-    }))
-
     api.use(express.static('public'))
     api.use(bodyParser.json())
     api.use(session({
