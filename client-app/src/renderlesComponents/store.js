@@ -9,6 +9,9 @@ const store = reactive({
     quizIsCanceled: false,
     isNextRound: true,
     isSinglePlayer: false,
+    gameIsOver: false,
+    resultOfGame: [],
+    score: 0,
 
     lobby: {
         groupName: '',

@@ -25,11 +25,33 @@ function startFetchGamedata() {
             eventSource.close()
             return
         }
+    
 
         //close ssh-connection if server can't find lobby.
         if (lobby.data === 'quiz-canceled') {
             console.log('quiz canceled')
             store.quizIsCanceled = true
+            eventSource.close()
+            return
+        }
+
+        //close ssh-connection if game is finished.
+        if (lobby.gameIsOver) {
+            
+            //save player answers.
+            lobby.userAnswersArray.forEach((user) => {
+                if (user[0] === store.playerName) {
+                    store.resultOfGame = user[1]
+                }
+            })
+
+            console.log(store.resultOfGame)
+
+            //set score.
+            store.resultOfGame.forEach((point) => (point === true ? store.score++ : null))
+           
+            store.quizIsCanceled = true
+            store.gameIsOver = true;
             eventSource.close()
             return
         }

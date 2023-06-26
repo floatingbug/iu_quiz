@@ -5,24 +5,9 @@ import { store } from '../renderlesComponents/store.js'
 import ApiCall from '../renderlesComponents/ApiCall.vue'
 
 const apiCallRef = ref(null)
-const gameIsOver = ref(false)
 const resultAnswer = ref('')
-const resultOfGame = ref([])
-const score = ref([])
 
 function evaluateAnswer(key) {
-    //save player answers
-    store.lobby.userAnswersArray.forEach((user) => {
-        console.log(user)
-        if (user[0] === store.playerName) {
-            resultOfGame.value = user[1]
-        }
-    })
-
-    //save score
-    score.value = 0
-    resultOfGame.value.forEach((point) => (point === true ? score.value++ : null))
-
     store.isNextRound = false
     const request = {
         method: 'post',
@@ -35,17 +20,14 @@ function evaluateAnswer(key) {
     }
 
     const result = apiCallRef.value.call(request, (result) => {
-        if (result.data.noMoreQuestions) {
-            gameIsOver.value = true
+        if(!result || !result.data){
             return
         }
+
         if (result.data.rightAnswer) {
             resultAnswer.value = 'Antwort war korrekt'
         } else {
             resultAnswer.value = 'Antwort war falsch'
-        }
-        if (store.lobby.gameIsOver) {
-            gameIsOver.value = true
         }
     })
 }
@@ -55,9 +37,9 @@ function evaluateAnswer(key) {
     <ApiCall ref="apiCallRef" />
     <div class="container">
         <img src="../assets/logo.png" alt="LOGO" />
-        <h2 id="timer" v-if="!gameIsOver">{{ store.lobby.time }} sec</h2>
-        <p v-if="!gameIsOver">{{ store.lobby.question }}</p>
-        <div class="antworten" v-if="store.isNextRound && !gameIsOver">
+        <h2 id="timer" v-if="!store.gameIsOver">{{ store.lobby.time }} sec</h2>
+        <p v-if="!store.gameIsOver">{{ store.lobby.question }}</p>
+        <div class="antworten" v-if="store.isNextRound && !store.gameIsOver">
             <button
                 v-for="answer in store.lobby.answers"
                 v-bind:key="answer.id"
@@ -67,9 +49,9 @@ function evaluateAnswer(key) {
                 {{ Object.values(answer)[0] }}
             </button>
         </div>
-        <div class="show-result" v-if="store.isNextRound && !gameIsOver">{{ resultAnswer }}</div>
-        <p class="show-answer" v-if="!store.isNextRound && !gameIsOver">{{ resultAnswer }}</p>
-        <div class="show-final-result" v-if="gameIsOver">score: {{ score }}</div>
+        <div class="show-result" v-if="store.isNextRound && !store.gameIsOver">{{ resultAnswer }}</div>
+        <p class="show-answer" v-if="!store.isNextRound && !store.gameIsOver">{{ resultAnswer }}</p>
+        <div class="show-final-result" v-if="store.gameIsOver">score: {{ store.score }}</div>
     </div>
 </template>
 
