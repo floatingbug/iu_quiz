@@ -31,11 +31,11 @@ function gameLoop({lobbyStore}){
         /****************handle userinput.************************/
         //if isChange is true, update lobby-state.
         if(lobby.gameMode === "kollab" && (lobby.isChange && !lobby.gameIsOver) || lobby.time <= 0){
-                lobby.iteration++;
             
             //if lobby.evaluatedAnswers and count of lobby.players is equal, increment lobby.iteration and
             //load next question and answers.
             if(((lobby.evaluatedAnswers % lobby.players.length) === 0) || lobby.time <= 0){
+                lobby.iteration++;
                 
                 //get key for next question.
                 const key = getKeyForQuestion(lobby.iteration);
