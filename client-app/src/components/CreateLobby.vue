@@ -199,10 +199,10 @@ function startSinglePlayer(){
                     <button v-if="store.isSinglePlayer" v-on:click="startSinglePlayer">Weiter</button>
                     <button v-if="!chooseGamemode && !store.isSinglePlayer" v-on:click="checkInput">Create Lobby</button>
                     <button data-gameMode="koop" v-if="chooseGamemode" v-on:click="createLobby">
-                        Kooperatives Spiel
+                        Kollaboratives Spiel
                     </button>
                     <button data-gameMode="kollab" v-if="chooseGamemode" v-on:click="createLobby">
-                        Kollaboratives Spiel
+                        Kooperatives Spiel
                     </button>
                     <button v-on:click="$emit('backToLobby')">Cancel</button>
                 </div>

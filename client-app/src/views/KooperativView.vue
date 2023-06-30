@@ -42,7 +42,7 @@ watch(
     <div class="container">
         <header>
             <div class="group-id">ID: {{ store.lobby.lobbyId }}</div>
-            <h3>Kooperativer Spielmodus</h3>
+            <h3>Kollaborativ Spielmodus</h3>
             <img src="../assets/logo.png" alt="logo" />
         </header>
         <main>

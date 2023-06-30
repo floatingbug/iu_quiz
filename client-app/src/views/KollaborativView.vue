@@ -42,7 +42,7 @@ watch(
     <div class="container">
         <header>
             <div class="group-id">ID: {{ store.lobby.lobbyId }}</div>
-            <h3 v-if="!store.isSinglePlayer">Kollaborativer Spielmodus</h3>
+            <h3 v-if="!store.isSinglePlayer">Kooperativer Spielmodus</h3>
             <h3 v-if="store.isSinglePlayer">Einzelspieler Modus</h3>
             <img src="../assets/logo.png" alt="logo" />
         </header>
