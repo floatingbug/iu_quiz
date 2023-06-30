@@ -59,6 +59,11 @@ function startFetchGamedata() {
         //save lobby to store.lobby.
         store.lobby = lobby
 
+        //if koop then set store.isNextRount to true if one question ist answered.
+        if(store.lobby.gameMode === 'koop'){
+            store.isNextRound = true
+        }
+
         //if every user answerd the current question, set store.isNextRound to true.
         if (store.lobby.evaluatedAnswers % store.lobby.players.length === 0) {
             store.isNextRound = true
