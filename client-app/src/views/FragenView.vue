@@ -44,7 +44,7 @@ function evaluateAnswer(key) {
             <button
                 v-for="answer in store.lobby.answers"
                 v-bind:key="answer.id"
-                v-bind:disabled="!store.isModerator"
+                v-bind:disabled="!store.isModerator && store.lobby.gameMode === 'koop'"
                 v-on:click="evaluateAnswer(answer.id)"
             >
                 {{ Object.values(answer)[0] }}
