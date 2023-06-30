@@ -39,15 +39,18 @@ function evaluateAnswer(key) {
         <img src="../assets/logo.png" alt="LOGO" />
         <h2 id="timer" v-if="!store.gameIsOver">{{ store.lobby.time }} sec</h2>
         <p v-if="!store.gameIsOver">{{ store.lobby.question }}</p>
+        {{store.isNextRound}}
         <div class="antworten" v-if="store.isNextRound && !store.gameIsOver">
+            
             <button
                 v-for="answer in store.lobby.answers"
                 v-bind:key="answer.id"
-                v-bind:disable="!store.lobby.isModerator"
+                v-bind:disabled="!store.isModerator"
                 v-on:click="evaluateAnswer(answer.id)"
             >
                 {{ Object.values(answer)[0] }}
             </button>
+            {{store.isModerator}}
         </div>
         <div class="show-result" v-if="store.isNextRound && !store.gameIsOver">{{ resultAnswer }}</div>
         <p class="show-answer" v-if="!store.isNextRound && !store.gameIsOver">{{ resultAnswer }}</p>
